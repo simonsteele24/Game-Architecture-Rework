@@ -1,0 +1,41 @@
+﻿  Animation.cpp
+  AudioManager.cpp
+  BoomBoom.cpp
+  BrickBlock.cpp
+  DryBones.cpp
+  EndBlock.cpp
+  FileReader.cpp
+  Fireball.cpp
+  Game.cpp
+  Goomba.cpp
+  GraphicsBufferManager.cpp
+  DestroyUnitEvent.cpp
+  Koopa.cpp
+  LanguageManager.cpp
+  LevelManager.cpp
+  LoadLanguageEvent.cpp
+  MenuManager.cpp
+  MovePlayerEvent.cpp
+  PiranhaPlant.cpp
+  PlaceUnitEvent.cpp
+  Generating Code...
+  Compiling...
+  InputTranslator.cpp
+  main.cpp
+  Platform.cpp
+  Player.cpp
+  Prop.cpp
+  QuestionBlock.cpp
+  SaveStateManager.cpp
+  Starmen.cpp
+  SuperMushroom.cpp
+  Text.cpp
+  TextManager.cpp
+  Thwomp.cpp
+  Tile.cpp
+  Unit.cpp
+  UnitManager.cpp
+  Generating Code...
+C:\Users\Student\Desktop\New folder\lin.steele\Final\UnitManager.cpp(29,12): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Student\Desktop\New folder\lin.steele\Final\Unit.cpp(238): warning C4715: 'Unit::getCurrentUnitType': not all control paths return a value
+  final.vcxproj -> C:\Users\Student\Desktop\New folder\lin.steele\Final\Debug\final.exe
