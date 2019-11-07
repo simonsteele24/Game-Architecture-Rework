@@ -1,0 +1,33 @@
+﻿  Animation.cpp
+  BoomBoom.cpp
+  BrickBlock.cpp
+  DryBones.cpp
+  EndBlock.cpp
+  FileReader.cpp
+  Fireball.cpp
+  Game.cpp
+  Goomba.cpp
+  InputTranslator.cpp
+  Koopa.cpp
+  LevelManager.cpp
+  MenuManager.cpp
+  PiranhaPlant.cpp
+  Platform.cpp
+  Player.cpp
+  Prop.cpp
+  QuestionBlock.cpp
+  SaveStateManager.cpp
+  Starmen.cpp
+  Generating Code...
+  Compiling...
+  SuperMushroom.cpp
+  Text.cpp
+  Thwomp.cpp
+  Tile.cpp
+  Unit.cpp
+  UnitManager.cpp
+c:\users\sjrac\desktop\master repos\game arch\game-architecture-rework\mario3\final\unitmanager.cpp(29): warning C4018: '>': signed/unsigned mismatch
+  main.cpp
+  Generating Code...
+c:\users\sjrac\desktop\master repos\game arch\game-architecture-rework\mario3\final\unit.cpp(238): warning C4715: 'Unit::getCurrentUnitType': not all control paths return a value
+  final.vcxproj -> C:\Users\sjrac\Desktop\Master Repos\Game Arch\Game-Architecture-Rework\Mario3\Final\Debug\final.exe
