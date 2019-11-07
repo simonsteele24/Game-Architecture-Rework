@@ -1,29 +1,29 @@
 ﻿  Audio.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\audio.h(4): fatal error C1083: Cannot open include file: 'SFML/Audio.hpp': No such file or directory
   Color.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\color.h(4): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   Event.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\event.h(4): fatal error C1083: Cannot open include file: 'trackable.h': No such file or directory
   EventListener.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\eventlistener.h(3): fatal error C1083: Cannot open include file: 'Trackable.h': No such file or directory
   EventSystem.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\eventsystem.h(4): fatal error C1083: Cannot open include file: 'Trackable.h': No such file or directory
   Font.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\font.h(9): fatal error C1083: Cannot open include file: 'PerformanceTracker.h': No such file or directory
   GraphicsBuffer.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\graphicsbuffer.h(4): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   GraphicsSystem.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\graphicssystem.h(4): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   InputSystem.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\eventsystem.h(4): fatal error C1083: Cannot open include file: 'Trackable.h': No such file or directory
   LeftClickEvent.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\event.h(4): fatal error C1083: Cannot open include file: 'trackable.h': No such file or directory
   MouseMovedEvent.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\event.h(4): fatal error C1083: Cannot open include file: 'trackable.h': No such file or directory
   RightClickEvent.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\event.h(4): fatal error C1083: Cannot open include file: 'trackable.h': No such file or directory
   Sprite.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\sprite.h(8): fatal error C1083: Cannot open include file: 'PerformanceTracker.h': No such file or directory
   System.cpp
+c:\users\sjrac\desktop\master repos\portfolio repos\game arch\game-architecture-rework\game arch rework\final\graphicslib\graphicssystem.h(4): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   Generating Code...
-winmm.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-winmm.lib(WINMM.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-gdi32.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-gdi32.lib(GDI32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-openal32.lib(OpenAL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-openal32.lib(OpenAL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_init already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_setup_managed already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_setup_vbr already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_init_vbr already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_setup_init already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4006: _vorbis_encode_ctl already defined in vorbisenc.lib(vorbisenc.obj); second definition ignored
-vorbis.lib(vorbisenc.obj) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  GraphicsLib.vcxproj -> C:\Users\Student\Desktop\New folder\lin.steele\Final\GraphicsLib\Debug\GraphicsLib.lib
