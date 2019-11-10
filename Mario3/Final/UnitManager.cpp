@@ -26,7 +26,9 @@ UnitManager::~UnitManager()
 // Based on a given index
 Unit * UnitManager::getUnit( int index ) 
 {
-	if (index > mUnits.size())
+	int max = mUnits.size();
+
+	if (index > max)
 	{
 		return 0;
 	}

@@ -235,6 +235,7 @@ UnitTypes Unit::getCurrentUnitType()
 {
 	if (this != nullptr)
 		return mUnitType;
+	return NONE;
 }
 
 
