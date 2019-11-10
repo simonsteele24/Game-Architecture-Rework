@@ -46,8 +46,6 @@ public:
 	// Acessor Functions
 	int getHeight();
 	int getWidth();
-	sf::Sprite* getSprite() { return bitmap; };
-	sf::Texture* getTexture() { return texture; };
 
 	// Mutators
 	void setIntRect(int xCoordinate, int yCoordinate, int width, int height);
@@ -57,6 +55,8 @@ public:
 	void setBitmapPosToPlayerX(int xMod);
 
 private:
+
+	sf::Sprite* getSprite() { return bitmap; };
 
 	bool mIsBackBuffer;
 
