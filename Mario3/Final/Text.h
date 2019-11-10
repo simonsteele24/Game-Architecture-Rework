@@ -37,12 +37,6 @@ public:
 
 private:
 
-	// Texts
-	sf::Text * mText;
-
-	// Fonts
-	sf::Font mFont;
-
 	// Integers
 	int mFontSize;
 	int mHealth;
@@ -56,6 +50,7 @@ private:
 	string mName;
 	string mLevel;
 	string mScore;
+	Fonts mFonts;
 	int mScoreAmt;
 
 	// Colors

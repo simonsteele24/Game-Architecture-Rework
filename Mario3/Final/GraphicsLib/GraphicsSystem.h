@@ -66,7 +66,7 @@ public:
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, Sprite& sprite, Vector2 scale);
 
 	// Drawing functions for text
-	void drawText(sf::Text * text);
+	void drawText(Fonts font, Colors newColor, string newMessage, Vector2 newPosition, int fontSize, Colors fillColor);
 
 
 	// Save/load functions

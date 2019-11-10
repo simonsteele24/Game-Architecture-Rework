@@ -6,7 +6,6 @@
 // This function is the default constructor for this class
 Text::Text()
 {
-	mFont = sf::Font();
 	mFontSize = 0;
 	mMessage = "";
 	mScoreAmt = 0;
@@ -28,18 +27,10 @@ Text::Text(string newName, Fonts & newFont, Colors newColor, string newMessage, 
 		mScoreAmt = 0;
 		mScore = "00000000";//defualt 0 score
 	}
-	mFont = sf::Font();
-	mFont.loadFromFile(newFont.mFilePath);
+	mFonts = newFont;
 	mTextColor = newColor;
 	mMessage = newMessage;
 	mTextPosition = newPosition;
-
-	mText = new sf::Text();
-	mText->setFont(mFont);
-	mText->setCharacterSize(20);
-	mText->setFillColor(sf::Color::Black);
-	mText->setString(mMessage);
-	mText->setPosition((float)mTextPosition.mX, (float)mTextPosition.mY);
 
 	mIsActive = false;
 }
@@ -65,11 +56,11 @@ void Text::drawText()
 		if (mName == NAME_OF_SCORE_AMOUNT_TEXT)
 		{
 			changeMessage(mScore);//change the message by passing in the current score
-			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mText);
+			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mFonts,mTextColor,mMessage,mTextPosition,20,mTextColor);
 		}
 		else//if anything over than the specific info above
 		{
-			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mText);
+			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mFonts, mTextColor, mMessage, mTextPosition, 20, mTextColor);
 		}
 		
 	}
@@ -97,7 +88,6 @@ int Text::checkDigits(string amountToCheck)
 void Text::changeMessage(string newMessage) 
 {
 	mMessage = newMessage;
-	mText->setString(mMessage);
 }
 
 void Text::addScore(int amountAdd)
@@ -166,5 +156,4 @@ void Text::setTextPosition( Vector2 newPos )
 void Text::changeFontSize(int newSize)
 {
 	mFontSize = newSize;
-	mText->setCharacterSize(newSize);
 }

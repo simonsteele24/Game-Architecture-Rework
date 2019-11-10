@@ -31,9 +31,8 @@ void AudioManager::addSound(string name, Audio newAudio)
 
 void AudioManager::playSound(string name) 
 {
-	mPlayingSounds.push_back(sf::Sound());
-	mPlayingSounds[mPlayingSounds.size() - 1].setBuffer(mSounds[name].mSoundBuffer);
-	mPlayingSounds[mPlayingSounds.size() - 1].play();
+	mPlayingSounds.push_back(mSounds[name]);
+	mPlayingSounds[mPlayingSounds.size() - 1].Play();
 }
 
 
@@ -56,7 +55,7 @@ void AudioManager::muteSounds()
 {
 	for (int i = 0; i < (int)mPlayingSounds.size(); i++) 
 	{
-		mPlayingSounds[i].pause();
+		mPlayingSounds[i].Pause();
 	}
 }
 
@@ -68,6 +67,6 @@ void AudioManager::unmuteSounds()
 {
 	for (int i = 0; i < (int)mPlayingSounds.size(); i++)
 	{
-		mPlayingSounds[i].play();
+		mPlayingSounds[i].Play();
 	}
 }

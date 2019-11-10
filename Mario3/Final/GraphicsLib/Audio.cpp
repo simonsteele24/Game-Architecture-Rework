@@ -93,3 +93,23 @@ sf::SoundBuffer Audio::getSound()
 {
 	return mSoundBuffer;
 }
+
+
+
+
+
+void Audio::Play() 
+{
+	currentSound = sf::Sound();
+	currentSound.setBuffer(mSoundBuffer);
+	currentSound.play();
+}
+
+
+
+
+
+void Audio::Pause() 
+{
+	currentSound.pause();
+}

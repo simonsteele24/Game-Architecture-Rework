@@ -29,6 +29,8 @@ public:
 	// Mutators
 	void setPitch(int newPitch);
 	void setVolume(int newVolume);
+	void Play();
+	void Pause();
 
 private:
 
@@ -44,6 +46,9 @@ private:
 	// Floats
 	float mPitch;
 	float mVolume;
+
+	// Sounds
+	sf::Sound currentSound;
 };
 
 #endif // !AUDIO_H

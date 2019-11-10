@@ -8,7 +8,6 @@
 
 #include <PerformanceTracker.h>
 #include <MemoryTracker.h>
-#include <SFML/Graphics.hpp>
 
 using namespace std;
 
@@ -37,9 +36,6 @@ public:
 	void setSize(int newSize);
 
 private:
-
-	// Fonts
-	sf::Font mCurrentFont;
 
 	// Strings
 	string mFilePath;

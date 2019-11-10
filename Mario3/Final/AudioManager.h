@@ -27,7 +27,7 @@ private:
 
 	map<string, Audio> mSounds;
 
-	vector<sf::Sound> mPlayingSounds;
+	vector<Audio> mPlayingSounds;
 
 };
 
