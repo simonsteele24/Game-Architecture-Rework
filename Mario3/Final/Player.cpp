@@ -343,6 +343,7 @@ void Player::unitCollisions()
 			maxYOne > minY
 			)
 		{
+			double defaultVelocity = mVelocity;
 			mVelocity = 0;
 
 			powerUpCollisions(i);//find/check collisions for any powerups in the powerup manager
@@ -381,6 +382,8 @@ void Player::unitCollisions()
 				Game::getStaticInstance()->getUnitManager()->destroyUnit(i);//destroy unit
 				mBounce = false;
 				mIsTrigger = true;
+				mVelocity = defaultVelocity;
+				mNotModifiedByVelocity = true;
 			}
 			//Brick Block
 			else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 15.0f < mCurrentLocation.mY && Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == BRICK_BLOCK)
