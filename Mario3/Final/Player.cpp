@@ -329,6 +329,7 @@ void Player::unitCollisions()
 	double maxX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX;
 	double minY = mCurrentLocation.mY;
 	double maxY = mCurrentLocation.mY + Game::getStaticInstance()->getPlayerBounds().mY - 1;
+
 	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getSize(); i++)
 	{
 		double minXOne = Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mX;
@@ -596,9 +597,9 @@ void Player::unitCollisions()
 	{
 		if (Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mX + Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getDimensions().mX - 23.0f > mCurrentLocation.mX - Game::getStaticInstance()->getPlayerBounds().mX &&
 			Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mX < mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX &&
-			Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mY >(mCurrentLocation.mY + mVelocity) &&
+			Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mY > (mCurrentLocation.mY) + Game::getStaticInstance()->getPlayerBounds().mY &&
 			Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mY < (mCurrentLocation.mY + mVelocity) + Game::getStaticInstance()->getPlayerBounds().mY &&
-			(mCurrentLocation.mY + mVelocity) < Game::getStaticInstance()->getUnitManager()->getPlatform(i)->getLocation().mY && mVelocity > 0
+			mVelocity > 0
 			)
 		{
 			mVelocity = 0;
