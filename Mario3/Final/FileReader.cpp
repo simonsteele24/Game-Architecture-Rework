@@ -1504,7 +1504,7 @@ void FileReader::readLevelsFile(string fileName)
 				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(*Game::getStaticInstance()->mPlayerGreenAnimation);
 				break;
 			case '#'://Creates a tile object
-				Game::getStaticInstance()->mUnitManager->createTile(Vector2(Game::getStaticInstance()->mDefaultBlockDimensions.mX * i, (Game::getStaticInstance()->mDefaultBlockDimensions.mY * lineNumber) - 8), *Game::getStaticInstance()->mDefaultBlockAnimation);
+				Game::getStaticInstance()->mUnitManager->createTile(Vector2(Game::getStaticInstance()->mDefaultBlockDimensions.mX * i, (Game::getStaticInstance()->mDefaultBlockDimensions.mY * lineNumber) - 7), *Game::getStaticInstance()->mDefaultBlockAnimation);
 				Game::getStaticInstance()->mUnitManager->getTile(Game::getStaticInstance()->mUnitManager->getTileSize() - 1)->setTileIdentity('#');
 				break;
 			case 'V'://Creates a tile object
