@@ -265,8 +265,8 @@ void Player::movePlayerLeft()
 {
 	bool canMove = true;
 
-    double minX = mCurrentLocation.mX;
-	double maxX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX - Game::getStaticInstance()->getPlayerBounds().mX;
+    double minX = mCurrentLocation.mX - Game::getStaticInstance()->getPlayerWalkSpd();
+	double maxX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX - Game::getStaticInstance()->getPlayerWalkSpd();
 	double minY = mCurrentLocation.mY;
 	double maxY = mCurrentLocation.mY + Game::getStaticInstance()->getPlayerBounds().mY - 1.3;
 
@@ -349,9 +349,11 @@ void Player::unitCollisions()
 			powerUpCollisions(i);//find/check collisions for any powerups in the powerup manager
 
 			//Question Block
-			if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 25.0f < mCurrentLocation.mY &&
+			if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 23.0f < mCurrentLocation.mY &&
 				Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == QUESTION_BLOCK)
 			{
+				cout << Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY << endl;
+				cout << mCurrentLocation.mY << endl;
 				moveToPosition(Vector2(mCurrentLocation.mX, mCurrentLocation.mY + 1.0));
 				if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getEffectStatus() != false)
 				{
@@ -386,11 +388,11 @@ void Player::unitCollisions()
 				mNotModifiedByVelocity = true;
 			}
 			//Brick Block
-			else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 15.0f < mCurrentLocation.mY && Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == BRICK_BLOCK)
+			else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 23.0f < mCurrentLocation.mY && Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == BRICK_BLOCK)
 			{
+				moveToPosition(Vector2(mCurrentLocation.mX, mCurrentLocation.mY + 1.0));
 				if (mIsThicc)
 				{
-					moveToPosition(Vector2(mCurrentLocation.mX, mCurrentLocation.mY + 1.0));
 					Game::getStaticInstance()->addToScore(10);
 					Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));
 					Game::getStaticInstance()->getUnitManager()->destroyUnit(i);
@@ -670,8 +672,8 @@ void Player::movePlayerRight()
 {
 	bool canMove = true;
 
-	double minX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX;
-	double maxX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX;
+	double minX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerWalkSpd();
+	double maxX = mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX + Game::getStaticInstance()->getPlayerWalkSpd();
 	double minY = mCurrentLocation.mY;
 	double maxY = mCurrentLocation.mY + Game::getStaticInstance()->getPlayerBounds().mY - 1.3;
 
