@@ -79,6 +79,7 @@ public:
 
 	// Mutators
 	void draw();
+	virtual void onCollide(Unit & collidingObject, int collidingObjectIndex);
 	void switchStateOfAnimation();
 	void destroyThisGameObject(UnitManager * manager);
 	void changeAnimationSpeeds(double speedsToBeChanged);

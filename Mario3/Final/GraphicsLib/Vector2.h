@@ -16,6 +16,16 @@ struct Vector2
 		mY = y;
 	}
 
+	bool operator < (const Vector2 & a) 
+	{
+		return a.mX > mX && a.mY > mY; 
+	}
+
+	bool operator > (const Vector2 & a)
+	{
+		return a.mX < mX && a.mY < mY;
+	}
+
 	double mX;
 	double mY;
 };

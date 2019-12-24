@@ -340,7 +340,7 @@ void Player::unitCollisions()
 		if (maxXOne > minX &&
 			minXOne < maxX &&
 			minYOne < maxY &&
-			maxYOne > minY
+			maxYOne > minY && Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() != COIN
 			)
 		{
 			double defaultVelocity = mVelocity;
@@ -378,15 +378,15 @@ void Player::unitCollisions()
 				}
 			}
 			//Coin
-			else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == COIN)
-			{
-				Game::getStaticInstance()->addToCoinAmount();
-				Game::getStaticInstance()->getUnitManager()->destroyUnit(i);//destroy unit
-				mBounce = false;
-				mIsTrigger = true;
-				mVelocity = defaultVelocity;
-				mNotModifiedByVelocity = true;
-			}
+			//else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == COIN)
+			//{
+			//	Game::getStaticInstance()->addToCoinAmount();
+			//	Game::getStaticInstance()->getUnitManager()->destroyUnit(i);//destroy unit
+			//	mBounce = false;
+			//	mIsTrigger = true;
+			//	mVelocity = defaultVelocity;
+			//	mNotModifiedByVelocity = true;
+			//}
 			//Brick Block
 			else if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY + 23.0f < mCurrentLocation.mY && Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == BRICK_BLOCK)
 			{
@@ -795,5 +795,17 @@ void Player::calculateTimeToAdd()
 			colorIndex = 0;
 			timeLimit = 100;
 		}
+	}
+}
+
+void Player::onCollide(Unit & collidingObject, int collidingObjectIndex) 
+{
+
+	if (collidingObject.getCurrentUnitType() == COIN)
+	{
+		Game::getStaticInstance()->addToCoinAmount();
+		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);//destroy unit
+		mBounce = false;
+		mIsTrigger = true;
 	}
 }

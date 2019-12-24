@@ -14,6 +14,7 @@ public:
 
 	// Update functions
 	void update(double newTimeBetweenFrames);
+	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 	// Accessors
 	bool getGameStatus() { return mDone; }

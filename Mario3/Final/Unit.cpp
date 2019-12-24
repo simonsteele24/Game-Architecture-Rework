@@ -132,6 +132,16 @@ void Unit::update( double newTimeBetweenFrames )
 
 
 
+// This function is the default oncollision for this class
+void Unit::onCollide(Unit & collidingObject, int collidingObjectIndex) 
+{
+
+}
+
+
+
+
+
 // This function adjusts the animation speed for al animations
 void Unit::changeAnimationSpeeds( double speedsToBeChanged ) 
 {

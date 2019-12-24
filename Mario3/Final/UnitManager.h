@@ -27,6 +27,18 @@ enum CameraDirection
 	STATIONARY
 };
 
+struct CollisionInfo 
+{
+	int aIndex;
+	int bIndex;
+
+	CollisionInfo(const int & _a, const int & _b) 
+	{
+		aIndex = _a;
+		bIndex = _b;
+	}
+};
+
 class UnitManager
 {
 public:
@@ -51,7 +63,7 @@ public:
 	// Mutators
 	void removeAllUnits();
 
-	//Creation of Life!
+	//Unit Creation
 	void createUnit(Vector2 newPos);
 	//Player 
 	void createPlayer(Vector2 newPos);
@@ -91,6 +103,7 @@ public:
 	// Update functions
 	void update( double timeBetweenFrames );
 	void draw();
+	void calculateCollisions();
 
 private:
 
@@ -99,6 +112,7 @@ private:
 	vector<Prop*> mProps;
 	vector<Platform*> mPlatforms;
 	vector<Tile*> mTiles;
+	vector<CollisionInfo> mCollisions;
 
 	// Player
 	Player* mPlayer;

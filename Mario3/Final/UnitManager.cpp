@@ -258,6 +258,7 @@ void UnitManager::playOrStopUnitAnimations()
 // also passed to all units the given time that has passed since last update
 void UnitManager::update( double timeBetweenFrames ) 
 {
+	calculateCollisions();
 
 	for (int i = 0, max = mProps.size(); i < max; i++)
 	{
@@ -481,4 +482,63 @@ Vector2 UnitManager::getCameraPosition()
 void UnitManager::setCameraPosition(Vector2 newPos) 
 {
 	mCameraPosition = newPos;
+}
+
+
+
+
+
+// This function calculates all collisions for all units once per loop
+void UnitManager::calculateCollisions() 
+{
+	Vector2 xMinCorner = Vector2();
+	Vector2 yMinCorner = Vector2();
+	Vector2 xMaxCorner = Vector2();
+	Vector2 yMaxCorner = Vector2();
+
+	mCollisions.clear();
+
+	for (int x = 0, max = mUnits.size() - 1; x < max; x++)
+	{
+		for (int y = x + 1, max = mUnits.size(); y < max; y++)
+		{
+			if (mUnits[x]->isVisible() && mUnits[y]->isVisible())
+			{
+				xMinCorner = mUnits[x]->getLocation();
+				yMinCorner = mUnits[y]->getLocation();
+				xMaxCorner = Vector2(mUnits[x]->getLocation().mX + mUnits[x]->getDimensions().mX, mUnits[x]->getLocation().mY + mUnits[x]->getDimensions().mY);
+				yMaxCorner = Vector2(mUnits[y]->getLocation().mX + mUnits[y]->getDimensions().mX, mUnits[y]->getLocation().mY + mUnits[y]->getDimensions().mY);
+
+				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner) 
+				{
+					mCollisions.push_back(CollisionInfo(x, y));
+				}
+			}
+		}
+	}
+
+	for (int i = 0, max = mUnits.size(); i < max; i++) 
+	{
+		if (mUnits[i]->isVisible())
+		{
+			xMinCorner = mUnits[i]->getLocation();
+			yMinCorner = mPlayer->getLocation();
+			xMaxCorner = Vector2(mUnits[i]->getLocation().mX + mUnits[i]->getDimensions().mX, mUnits[i]->getLocation().mY + mUnits[i]->getDimensions().mY);
+			yMaxCorner = Vector2(mPlayer->getLocation().mX + mPlayer->getDimensions().mX, mPlayer->getLocation().mY + mPlayer->getDimensions().mY);
+
+			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+			{
+				cout << "Here" << endl;
+				mPlayer->onCollide(*mUnits[i], i);
+				mUnits[i]->onCollide(*mPlayer, 0);
+			}
+		}
+		max = mUnits.size();
+	}
+
+	for (int i = 0, max = mCollisions.size(); i < max; i++) 
+	{
+		mUnits[mCollisions[i].aIndex]->onCollide(*mUnits[mCollisions[i].bIndex], mCollisions[i].bIndex);
+		mUnits[mCollisions[i].bIndex]->onCollide(*mUnits[mCollisions[i].aIndex], mCollisions[i].aIndex);
+	}
 }
