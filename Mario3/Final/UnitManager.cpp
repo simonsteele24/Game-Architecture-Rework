@@ -528,12 +528,45 @@ void UnitManager::calculateCollisions()
 
 			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 			{
-				cout << "Here" << endl;
 				mPlayer->onCollide(*mUnits[i], i);
 				mUnits[i]->onCollide(*mPlayer, 0);
 			}
 		}
 		max = mUnits.size();
+	}
+
+	for (int i = 0, max = mTiles.size(); i < max; i++) 
+	{
+		if (mTiles[i]->isVisible())
+		{
+			xMinCorner = mTiles[i]->getLocation();
+			yMinCorner = mPlayer->getLocation();
+			xMaxCorner = Vector2(mTiles[i]->getLocation().mX + mTiles[i]->getDimensions().mX, mTiles[i]->getLocation().mY + mTiles[i]->getDimensions().mY);
+			yMaxCorner = Vector2(mPlayer->getLocation().mX + mPlayer->getDimensions().mX, mPlayer->getLocation().mY + mPlayer->getDimensions().mY);
+
+			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+			{
+				mPlayer->onCollide(*mUnits[i], i);
+				mTiles[i]->onCollide(*mPlayer, 0);
+			}
+		}
+	}
+
+	for (int i = 0, max = mPlatforms.size(); i < max; i++)
+	{
+		if (mPlatforms[i]->isVisible())
+		{
+			xMinCorner = mPlatforms[i]->getLocation();
+			yMinCorner = mPlayer->getLocation();
+			xMaxCorner = Vector2(mPlatforms[i]->getLocation().mX + mPlatforms[i]->getDimensions().mX, mPlatforms[i]->getLocation().mY + mPlatforms[i]->getDimensions().mY);
+			yMaxCorner = Vector2(mPlayer->getLocation().mX + mPlayer->getDimensions().mX, mPlayer->getLocation().mY + mPlayer->getDimensions().mY);
+
+			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+			{
+				mPlayer->onCollide(*mUnits[i], i);
+				mPlatforms[i]->onCollide(*mPlayer, 0);
+			}
+		}
 	}
 
 	for (int i = 0, max = mCollisions.size(); i < max; i++) 

@@ -29,7 +29,6 @@ public:
 
 	//Events
 	void unitCollisions();//checks collisions for anything in unit manager
-	void powerUpCollisions(int index);//checks collisions for any powerups
 	void readyToKill(bool kill);
 	void commenceDeath();
 	void setGameStatus(bool status);
