@@ -33,6 +33,12 @@ enum UnitTypes
 	NONE
 };
 
+enum UnitMovabilityType 
+{
+	NON_MOVEABLE,
+	MOVEABLE
+};
+
 class Unit : public Trackable
 {
 public:
@@ -89,6 +95,8 @@ public:
 	void setVelocity(double newVelocity);
 	Vector2 getDimensions();
 	void setInitialPosition(Vector2 newPos);
+	void setLocationX(int newLocation) { mCurrentLocation.mX = newLocation; }
+	void setLocationY(int newLocation) { mCurrentLocation.mY = newLocation; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
 
@@ -99,6 +107,7 @@ private:
 
 	// UnitTypes
 	UnitTypes mUnitType;
+	UnitMovabilityType mUnitMovability = NON_MOVEABLE;
 
 	// Constructors
 	Unit();

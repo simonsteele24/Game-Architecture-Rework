@@ -519,17 +519,49 @@ void UnitManager::calculateCollisions()
 
 	for (int i = 0, max = mUnits.size(); i < max; i++) 
 	{
-		if (mUnits[i]->isVisible())
+		if (i < mUnits.size()) 
 		{
-			xMinCorner = mUnits[i]->getLocation();
-			yMinCorner = mPlayer->getLocation();
-			xMaxCorner = Vector2(mUnits[i]->getLocation().mX + mUnits[i]->getDimensions().mX, mUnits[i]->getLocation().mY + mUnits[i]->getDimensions().mY);
-			yMaxCorner = Vector2(mPlayer->getLocation().mX + mPlayer->getDimensions().mX, mPlayer->getLocation().mY + mPlayer->getDimensions().mY);
-
-			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+			if (mUnits[i]->isVisible() && mPlayer != nullptr && mUnits[i] != nullptr)
 			{
-				mPlayer->onCollide(*mUnits[i], i);
-				mUnits[i]->onCollide(*mPlayer, 0);
+				xMinCorner = mUnits[i]->getLocation();
+				yMinCorner = mPlayer->getLocation();
+				xMaxCorner = Vector2(mUnits[i]->getLocation().mX + mUnits[i]->getDimensions().mX, mUnits[i]->getLocation().mY + mUnits[i]->getDimensions().mY);
+				yMaxCorner = Vector2(mPlayer->getLocation().mX + mPlayer->getDimensions().mX, mPlayer->getLocation().mY + mPlayer->getDimensions().mY);
+
+				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+				{
+					Vector2 normal = Vector2(mPlayer->getLocation().mX - mUnits[i]->getLocation().mX, mPlayer->getLocation().mY - mUnits[i]->getLocation().mY);
+
+					if (normal.mX != 0 && normal.mY != 0)
+					{
+						if (abs(normal.mX) > abs(normal.mY))
+						{
+							normal.mX /= abs(normal.mX);
+							mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+						}
+						else
+						{
+							normal.mY /= abs(normal.mY);
+							mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+						}
+					}
+					else
+					{
+						if (normal.mX != 0)
+						{
+							normal.mX /= abs(normal.mX);
+							mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+						}
+						if (normal.mY != 0)
+						{
+							normal.mY /= abs(normal.mY);
+							mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+						}
+					}
+					mUnits[i]->onCollide(*mPlayer, 0);
+					mPlayer->onCollide(*mUnits[i], i);
+	
+				}
 			}
 		}
 		max = mUnits.size();
@@ -546,8 +578,37 @@ void UnitManager::calculateCollisions()
 
 			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 			{
-				mPlayer->onCollide(*mUnits[i], i);
+				mPlayer->onCollide(*mTiles[i], i);
 				mTiles[i]->onCollide(*mPlayer, 0);
+
+				Vector2 normal = Vector2(mPlayer->getLocation().mX - mTiles[i]->getLocation().mX, mPlayer->getLocation().mY - mTiles[i]->getLocation().mY);
+				
+				if (normal.mX != 0 && normal.mY != 0) 
+				{
+					if (abs(normal.mX) > abs(normal.mY)) 
+					{
+						normal.mX /= abs(normal.mX);
+						mPlayer->setLocationX(mTiles[i]->getLocation().mX + (normal.mX * mTiles[i]->getDimensions().mX));
+					}
+					else 
+					{
+						normal.mY /= abs(normal.mY);
+						mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mTiles[i]->getDimensions().mY));
+					}
+				}
+				else 
+				{
+					if (normal.mX != 0)
+					{
+						normal.mX /= abs(normal.mX);
+						mPlayer->setLocationX(mTiles[i]->getLocation().mX + (normal.mX * mTiles[i]->getDimensions().mX));
+					}
+					if (normal.mY != 0)
+					{
+						normal.mY /= abs(normal.mY);
+						mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mTiles[i]->getDimensions().mY));
+					}
+				}
 			}
 		}
 	}
@@ -563,8 +624,20 @@ void UnitManager::calculateCollisions()
 
 			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 			{
-				mPlayer->onCollide(*mUnits[i], i);
-				mPlatforms[i]->onCollide(*mPlayer, 0);
+				//mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY
+				if (mPlayer->getLocation().mY <= mPlatforms[i]->getLocation().mY && mPlayer->getVelocity() > 0) 
+				{
+					Vector2 normal = Vector2(mPlayer->getLocation().mX - mPlatforms[i]->getLocation().mX, mPlayer->getLocation().mY - mPlatforms[i]->getLocation().mY);
+
+					if (normal.mY != 0)
+					{
+						normal.mY /= abs(normal.mY);
+						mPlayer->setLocationY(mPlatforms[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+					}
+
+					mPlayer->onCollide(*mPlatforms[i], i);
+					mPlatforms[i]->onCollide(*mPlayer, 0);
+				}
 			}
 		}
 	}
