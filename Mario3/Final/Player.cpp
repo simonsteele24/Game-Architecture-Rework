@@ -506,7 +506,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		}
 		break;
 	case GOOMBA:
-		if (collidingObject.getLocation().mY > mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY)
+		if (collidingObject.getLocation().mY > mCurrentLocation.mY && mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY)
 		{
 			//200, 400, 800, 1600, 3200, and 6400 . At the 7+ bounce kill they get 1 extra life for each enemy
 			mBounceKills += 1;

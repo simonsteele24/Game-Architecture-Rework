@@ -95,8 +95,8 @@ public:
 	void setVelocity(double newVelocity);
 	Vector2 getDimensions();
 	void setInitialPosition(Vector2 newPos);
-	void setLocationX(int newLocation) { mCurrentLocation.mX = newLocation; }
-	void setLocationY(int newLocation) { mCurrentLocation.mY = newLocation; }
+	void setLocationX(double newLocation) { mCurrentLocation.mX = newLocation; }
+	void setLocationY(double newLocation) { mCurrentLocation.mY = newLocation; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
 

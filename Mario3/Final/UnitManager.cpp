@@ -519,7 +519,8 @@ void UnitManager::calculateCollisions()
 
 	for (int i = 0, max = mUnits.size(); i < max; i++) 
 	{
-		if (i < mUnits.size()) 
+		max = mUnits.size();
+		if (i < max) 
 		{
 			if (mUnits[i]->isVisible() && mPlayer != nullptr && mUnits[i] != nullptr && !mPlayer->mIsDying)
 			{
@@ -534,8 +535,8 @@ void UnitManager::calculateCollisions()
 
 					if (normal.mX != 0 && normal.mY != 0)
 					{
-						float penetrationCoefficientX = normal.mX / mUnits[i]->getDimensions().mX;
-						float penetrationCoefficientY = normal.mY / mUnits[i]->getDimensions().mY;
+						double penetrationCoefficientX = normal.mX / mUnits[i]->getDimensions().mX;
+						double penetrationCoefficientY = normal.mY / mUnits[i]->getDimensions().mY;
 
 						if (abs(penetrationCoefficientX) > abs(penetrationCoefficientY))
 						{
