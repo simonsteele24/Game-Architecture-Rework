@@ -38,6 +38,7 @@ public:
 	int getAnimationIndex();
 	Vector2 getAnimationDimensions();
 	void invertAnimation(int val);
+	void forceUpdateInversion();
 
 
 private:

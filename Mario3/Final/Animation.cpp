@@ -212,3 +212,19 @@ void Animation::invertAnimation(int val)
 		mIsInverted = true;
 	}
 }
+
+
+
+
+
+void Animation::forceUpdateInversion() 
+{
+	if (!mIsInverted)
+	{
+		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+	}
+	else
+	{
+		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX) + (int)mSpriteDimensions.mX, (int)(mCurrentIndex.mY * mSpriteDimensions.mY), -(int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+	}
+}

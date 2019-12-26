@@ -100,25 +100,6 @@ void Player::update(double newTimeBetweenFrames)
 		unitCollisions();//find/check collisions for any units in the unit manager
 	}
 
-	switch (mCurrentDirection)
-	{
-	case LEFT:
-		for (int i = 0; i < (int)mCurrentAnimations.size(); i++)
-		{
-			mCurrentAnimations[i]->invertAnimation(-1);
-		}
-		break;
-	case RIGHT:
-		for (int i = 0; i < (int)mCurrentAnimations.size(); i++)
-		{
-			mCurrentAnimations[i]->invertAnimation(1);
-		}
-		break;
-	default:
-		break;
-	}
-
-
 	if (mInMidAir && mIsDying == false) 
 	{
 		if (mIsThicc == true)
@@ -235,6 +216,26 @@ void Player::update(double newTimeBetweenFrames)
 		break;
 	}
 	mIsMoving = false;
+
+	switch (mCurrentDirection)
+	{
+	case LEFT:
+		for (int i = 0; i < (int)mCurrentAnimations.size(); i++)
+		{
+			mCurrentAnimations[i]->invertAnimation(-1);
+			mCurrentAnimations[i]->forceUpdateInversion();
+		}
+		break;
+	case RIGHT:
+		for (int i = 0; i < (int)mCurrentAnimations.size(); i++)
+		{
+			mCurrentAnimations[i]->invertAnimation(1);
+			mCurrentAnimations[i]->forceUpdateInversion();
+		}
+		break;
+	default:
+		break;
+	}
 }
 
 
@@ -599,6 +600,13 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	case PLATFORM:
 		mInMidAir = false;
 		mVelocity = 0;
+		break;
+	case PIPE:
+		if (mCurrentLocation.mY <= collidingObject.getLocation().mY - mDimensions.mY) 
+		{
+			mInMidAir = false;
+			mVelocity = 0;
+		}
 		break;
 	default:
 		mInMidAir = false;

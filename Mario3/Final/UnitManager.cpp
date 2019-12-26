@@ -534,15 +534,34 @@ void UnitManager::calculateCollisions()
 
 					if (normal.mX != 0 && normal.mY != 0)
 					{
-						if (abs(normal.mX) > abs(normal.mY))
+						float penetrationCoefficientX = normal.mX / mUnits[i]->getDimensions().mX;
+						float penetrationCoefficientY = normal.mY / mUnits[i]->getDimensions().mY;
+
+						if (abs(penetrationCoefficientX) > abs(penetrationCoefficientY))
 						{
-							normal.mX /= abs(normal.mX);
-							mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+							if (normal.mX < 0) 
+							{
+								normal.mX /= abs(normal.mX);
+								mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mPlayer->getDimensions().mX));
+							}
+							else 
+							{
+								normal.mX /= abs(normal.mX);
+								mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+							}
 						}
 						else
 						{
-							normal.mY /= abs(normal.mY);
-							mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+							if (normal.mY > 0) 
+							{
+								normal.mY /= abs(normal.mY);
+								mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mUnits[i]->getDimensions().mY));
+							}
+							else 
+							{
+								normal.mY /= abs(normal.mY);
+								mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+							}
 						}
 					}
 					else
