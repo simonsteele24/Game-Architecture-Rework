@@ -521,7 +521,7 @@ void UnitManager::calculateCollisions()
 	{
 		if (i < mUnits.size()) 
 		{
-			if (mUnits[i]->isVisible() && mPlayer != nullptr && mUnits[i] != nullptr)
+			if (mUnits[i]->isVisible() && mPlayer != nullptr && mUnits[i] != nullptr && !mPlayer->mIsDying)
 			{
 				xMinCorner = mUnits[i]->getLocation();
 				yMinCorner = mPlayer->getLocation();
@@ -569,7 +569,7 @@ void UnitManager::calculateCollisions()
 
 	for (int i = 0, max = mTiles.size(); i < max; i++) 
 	{
-		if (mTiles[i]->isVisible())
+		if (mTiles[i]->isVisible() && !mPlayer->mIsDying)
 		{
 			xMinCorner = mTiles[i]->getLocation();
 			yMinCorner = mPlayer->getLocation();
@@ -615,7 +615,7 @@ void UnitManager::calculateCollisions()
 
 	for (int i = 0, max = mPlatforms.size(); i < max; i++)
 	{
-		if (mPlatforms[i]->isVisible())
+		if (mPlatforms[i]->isVisible() && !mPlayer->mIsDying)
 		{
 			xMinCorner = mPlatforms[i]->getLocation();
 			yMinCorner = mPlayer->getLocation();
@@ -624,7 +624,6 @@ void UnitManager::calculateCollisions()
 
 			if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 			{
-				//mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY
 				if (mPlayer->getLocation().mY <= mPlatforms[i]->getLocation().mY && mPlayer->getVelocity() > 0) 
 				{
 					Vector2 normal = Vector2(mPlayer->getLocation().mX - mPlatforms[i]->getLocation().mX, mPlayer->getLocation().mY - mPlatforms[i]->getLocation().mY);
