@@ -98,6 +98,7 @@ public:
 	void setLocationX(double newLocation) { mCurrentLocation.mX = newLocation; }
 	void setLocationY(double newLocation) { mCurrentLocation.mY = newLocation; }
 	void setZIndex(int newZIndex) { mZIndex = newZIndex; }
+	void setUnitMoveability(UnitMovabilityType newMovability) { mUnitMovability = newMovability; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
 

@@ -16,6 +16,7 @@ Tile::Tile() : Unit()
 Tile::Tile(Vector2 newPos)
 {
 	mCurrentLocation = newPos;
+	mLocation = newPos;
 }
 
 

@@ -313,13 +313,6 @@ void UnitManager::draw()
 		mProps[i]->draw();
 	}
 
-	sort(mUnits.begin(), mUnits.end());
-	for (int i = 0, max = mUnits.size(); i < max; i++)
-	{
-		mUnits[i]->draw();
-	}
-
-
 	for (int i = 0, max = mPlatforms.size(); i < max; i++)
 	{
 		mPlatforms[i]->draw();
@@ -328,6 +321,12 @@ void UnitManager::draw()
 	for (int i = 0, max = mTiles.size(); i < max; i++)
 	{
 		mTiles[i]->draw();
+	}
+
+	sort(mUnits.begin(), mUnits.end());
+	for (int i = 0, max = mUnits.size(); i < max; i++)
+	{
+		mUnits[i]->draw();
 	}
 
 	if (mPlayer != nullptr)
@@ -512,9 +511,121 @@ void UnitManager::calculateCollisions()
 				xMaxCorner = Vector2(mUnits[x]->getLocation().mX + mUnits[x]->getDimensions().mX, mUnits[x]->getLocation().mY + mUnits[x]->getDimensions().mY);
 				yMaxCorner = Vector2(mUnits[y]->getLocation().mX + mUnits[y]->getDimensions().mX, mUnits[y]->getLocation().mY + mUnits[y]->getDimensions().mY);
 
-				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner) 
+				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 				{
-					mCollisions.push_back(CollisionInfo(x, y));
+					mUnits[x]->onCollide(*mUnits[y], y);
+					mUnits[y]->onCollide(*mUnits[x], x);
+
+					if (mUnits[x]->mUnitMovability == MOVEABLE)
+					{
+						Vector2 normal = Vector2(mUnits[x]->getLocation().mX - mUnits[y]->getLocation().mX, mUnits[x]->getLocation().mY - mUnits[y]->getLocation().mY);
+
+						if (normal.mX != 0 && normal.mY != 0)
+						{
+							if (abs(normal.mX) > abs(normal.mY))
+							{
+								normal.mX /= abs(normal.mX);
+								mUnits[x]->setLocationX(mUnits[y]->getLocation().mX + (normal.mX * mUnits[x]->getDimensions().mX));
+							}
+							else
+							{
+								normal.mY /= abs(normal.mY);
+								mUnits[x]->setLocationY(mUnits[y]->getLocation().mY + (normal.mY * mUnits[x]->getDimensions().mY));
+							}
+						}
+						else
+						{
+							if (normal.mX != 0)
+							{
+								normal.mX /= abs(normal.mX);
+								mUnits[x]->setLocationX(mUnits[y]->getLocation().mX + (normal.mX * mUnits[x]->getDimensions().mX));
+							}
+							if (normal.mY != 0)
+							{
+								normal.mY /= abs(normal.mY);
+								mUnits[x]->setLocationY(mUnits[y]->getLocation().mY + (normal.mY * mUnits[x]->getDimensions().mY));
+							}
+						}
+					}
+					else if (mUnits[y]->mUnitMovability == MOVEABLE)
+					{
+						Vector2 normal = Vector2(mUnits[y]->getLocation().mX - mUnits[x]->getLocation().mX, mUnits[y]->getLocation().mY - mUnits[x]->getLocation().mY);
+
+						if (normal.mX != 0 && normal.mY != 0)
+						{
+							if (abs(normal.mX) > abs(normal.mY))
+							{
+								normal.mX /= abs(normal.mX);
+								mUnits[y]->setLocationX(mUnits[x]->getLocation().mX + (normal.mX * mUnits[y]->getDimensions().mX));
+							}
+							else
+							{
+								normal.mY /= abs(normal.mY);
+								mUnits[y]->setLocationY(mUnits[x]->getLocation().mY + (normal.mY * mUnits[y]->getDimensions().mY));
+							}
+						}
+						else
+						{
+							if (normal.mX != 0)
+							{
+								normal.mX /= abs(normal.mX);
+								mUnits[y]->setLocationX(mUnits[x]->getLocation().mX + (normal.mX * mUnits[y]->getDimensions().mX));
+							}
+							if (normal.mY != 0)
+							{
+								normal.mY /= abs(normal.mY);
+								mUnits[y]->setLocationY(mUnits[x]->getLocation().mY + (normal.mY * mUnits[y]->getDimensions().mY));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for (int x = 0, max = mUnits.size() - 1; x < max; x++)
+	{
+		for (int y = 0, max = mTiles.size(); y < max; y++)
+		{
+			if (mUnits[x]->isVisible() && mTiles[y]->isVisible() && mUnits[x]->mUnitMovability == MOVEABLE)
+			{
+				xMinCorner = mUnits[x]->getLocation();
+				yMinCorner = mTiles[y]->getLocation();
+				xMaxCorner = Vector2(mUnits[x]->getLocation().mX + mUnits[x]->getDimensions().mX, mUnits[x]->getLocation().mY + mUnits[x]->getDimensions().mY);
+				yMaxCorner = Vector2(mTiles[y]->getLocation().mX + mTiles[y]->getDimensions().mX, mTiles[y]->getLocation().mY + mTiles[y]->getDimensions().mY);
+
+				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
+				{
+					mUnits[x]->onCollide(*mTiles[y], y);
+
+					Vector2 normal = Vector2(mUnits[x]->getLocation().mX - mTiles[y]->getLocation().mX, mUnits[x]->getLocation().mY - mTiles[y]->getLocation().mY);
+
+					if (normal.mX != 0 && normal.mY != 0)
+					{
+						if (abs(normal.mX) > abs(normal.mY))
+						{
+							normal.mX /= abs(normal.mX);
+							mUnits[x]->setLocationX(mTiles[y]->getLocation().mX + (normal.mX * mUnits[x]->getDimensions().mX));
+						}
+						else
+						{
+							normal.mY /= abs(normal.mY);
+							mUnits[x]->setLocationY(mTiles[y]->getLocation().mY + (normal.mY * mUnits[x]->getDimensions().mY));
+						}
+					}
+					else
+					{
+						if (normal.mX != 0)
+						{
+							normal.mX /= abs(normal.mX);
+							mUnits[x]->setLocationX(mTiles[y]->getLocation().mX + (normal.mX * mUnits[x]->getDimensions().mX));
+						}
+						if (normal.mY != 0)
+						{
+							normal.mY /= abs(normal.mY);
+							mUnits[x]->setLocationY(mTiles[y]->getLocation().mY + (normal.mY * mUnits[x]->getDimensions().mY));
+						}
+					}
 				}
 			}
 		}

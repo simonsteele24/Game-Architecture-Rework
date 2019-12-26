@@ -9,6 +9,7 @@ Goomba::Goomba() : Unit()
 	mUnitType = GOOMBA;
 	mVelocity = 0.0;
 	mCurrentDirection = LEFT;
+	mUnitMovability = MOVEABLE;
 }
 
 
@@ -22,6 +23,7 @@ Goomba::Goomba(Vector2 newPos)
 	mCurrentLocation = newPos;
 	mVelocity = 0.0;
 	mCurrentDirection = LEFT;
+	mUnitMovability = MOVEABLE;
 }
 
 
@@ -49,87 +51,6 @@ void Goomba::update(double newTimeBetweenFrames)
 	// Check for collision here
 	mVelocity += Game::getStaticInstance()->getGravityScale();
 
-
-	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getSize(); i++)
-	{
-		if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mX > mCurrentLocation.mX - Game::getStaticInstance()->getPlayerBounds().mX &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mX < mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY >(mCurrentLocation.mY + mVelocity) - Game::getStaticInstance()->getPlayerBounds().mY &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY < (mCurrentLocation.mY + mVelocity) + Game::getStaticInstance()->getPlayerBounds().mY
-			)
-		{
-			if (Game::getStaticInstance()->getUnitManager()->getUnit(i) != this)
-			{
-				mVelocity = 0;
-			}
-		}
-	}
-
-	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getTileSize(); i++) 
-	{
-		if (Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX > mCurrentLocation.mX - Game::getStaticInstance()->getPlayerBounds().mX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX < mCurrentLocation.mX + Game::getStaticInstance()->getPlayerBounds().mX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY >(mCurrentLocation.mY + mVelocity) - Game::getStaticInstance()->getPlayerBounds().mY &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY < (mCurrentLocation.mY + mVelocity) + Game::getStaticInstance()->getPlayerBounds().mY
-			)
-		{
-			mVelocity = 0;
-		}
-	}
-
-	double minX = (mCurrentLocation.mX + Game::getStaticInstance()->getGoombaWalkSpd()) - Game::getStaticInstance()->getPlayerBounds().mX;
-	double maxX = (mCurrentLocation.mX + Game::getStaticInstance()->getGoombaWalkSpd()) + Game::getStaticInstance()->getPlayerBounds().mX;
-	double minY = mCurrentLocation.mY - Game::getStaticInstance()->getPlayerBounds().mY - 1;
-	double maxY = mCurrentLocation.mY + Game::getStaticInstance()->getPlayerBounds().mY - 1;
-
-	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getSize(); i++)
-	{
-		if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mX > minX &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mX < maxX &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY > minY &&
-			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY < maxY
-			)
-		{
-			if (Game::getStaticInstance()->getUnitManager()->getUnit(i) != this) 
-			{
-				if (Game::getStaticInstance()->getUnitManager()->getUnit(i)->getCurrentUnitType() == KOOPA && Game::getStaticInstance()->getUnitManager()->getUnit(i)->mIsSpinning)
-				{
-					Game::getStaticInstance()->getUnitManager()->getUnit(i)->mSuccessfulHit = true;//the unit has been hit
-					Game::getStaticInstance()->addToScore(100);//add to member score variable
-					Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));//pass in the variable to 
-					destroyThisGameObject(Game::getStaticInstance()->getUnitManager());
-				}
-				if (mCurrentDirection == LEFT)
-				{
-					mCurrentDirection = RIGHT;
-				}
-				else
-				{
-					mCurrentDirection = LEFT;
-				}
-			}
-		}
-	}
-
-	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getTileSize(); i++) 
-	{
-		if (Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX > minX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX < maxX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY > minY &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY < maxY
-			)
-		{
-			if (mCurrentDirection == LEFT)
-			{
-				mCurrentDirection = RIGHT;
-			}
-			else
-			{
-				mCurrentDirection = LEFT;
-			}
-		}
-	}
-
 	switch (mCurrentDirection)
 	{
 	case LEFT:
@@ -142,5 +63,37 @@ void Goomba::update(double newTimeBetweenFrames)
 		break;
 	default:
 		break;
+	}
+}
+
+
+
+
+
+void Goomba::onCollide(Unit & collidingObject, int collidingObjectIndex) 
+{
+	if ((mCurrentLocation.mX <= collidingObject.getLocation().mX - collidingObject.getDimensions().mX || mCurrentLocation.mX + 3 >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && collidingObject.getLocation().mY == round(mCurrentLocation.mY))
+	{
+		changeDirection();
+	}
+	else 
+	{
+		mVelocity = 0;
+	}
+}
+
+
+
+
+
+void Goomba::changeDirection() 
+{
+	if (mCurrentDirection == LEFT)
+	{
+		mCurrentDirection = RIGHT;
+	}
+	else
+	{
+		mCurrentDirection = LEFT;
 	}
 }

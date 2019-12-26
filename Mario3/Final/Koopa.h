@@ -21,8 +21,11 @@ public:
 	
 	// Accessors
 	int getNumBounced() { return mTimesBouncedOn; };
+	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 private:
+
+	void changeDirection();
 
 	//Int 
 	int mTimesBouncedOn;

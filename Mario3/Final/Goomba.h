@@ -18,8 +18,11 @@ public:
 
 	// Update functions
 	void update(double newTimeBetweenFrames);
+	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 private:
+
+	void changeDirection();
 
 	// Goomba Directions
 	Direction mCurrentDirection;
