@@ -1637,6 +1637,7 @@ void FileReader::readLevelsFile(string fileName)
 				Game::getStaticInstance()->mUnitManager->createUnit(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));
 				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, *Game::getStaticInstance()->mPipeAnimation);
 				Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(PIPE);
+				Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setZIndex(0);
 				break;
 			case 'L'://Creates a lava object
 				Game::getStaticInstance()->mUnitManager->createUnit(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));

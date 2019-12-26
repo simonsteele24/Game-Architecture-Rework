@@ -97,6 +97,7 @@ public:
 	void setInitialPosition(Vector2 newPos);
 	void setLocationX(double newLocation) { mCurrentLocation.mX = newLocation; }
 	void setLocationY(double newLocation) { mCurrentLocation.mY = newLocation; }
+	void setZIndex(int newZIndex) { mZIndex = newZIndex; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
 
@@ -119,6 +120,7 @@ private:
 
 	// Ints
 	int mCurrentAnimationIndex;
+	int mZIndex;
 
 	// Vector 2s
 	Vector2 mCurrentLocation;

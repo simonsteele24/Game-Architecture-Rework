@@ -1,5 +1,6 @@
 #include "UnitManager.h"
 #include "Game.h"
+#include <algorithm>
 
 
 // This function is the default constructor for the class
@@ -312,10 +313,12 @@ void UnitManager::draw()
 		mProps[i]->draw();
 	}
 
-	for ( int i = 0, max = mUnits.size(); i < max; i++ )
+	sort(mUnits.begin(), mUnits.end());
+	for (int i = 0, max = mUnits.size(); i < max; i++)
 	{
 		mUnits[i]->draw();
 	}
+
 
 	for (int i = 0, max = mPlatforms.size(); i < max; i++)
 	{

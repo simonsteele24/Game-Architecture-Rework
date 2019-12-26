@@ -123,6 +123,8 @@ private:
 	// Vector2's
 	Vector2 mCameraPosition;
 
+	bool compareIndexes(Unit * x, Unit * y) { return x->mZIndex < y->mZIndex; }
+
 };
 #endif // !UNITMANAGER_H
 
