@@ -385,7 +385,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);
 		break;
 	case QUESTION_BLOCK:
-		if (mCurrentLocation.mY >= collidingObject.getLocation().mY + collidingObject.getDimensions().mY) 
+		if (mCurrentLocation.mY >= collidingObject.getLocation().mY + collidingObject.getDimensions().mY && mVelocity < 0) 
 		{
 			mVelocity = 0;
 			if (Game::getStaticInstance()->getUnitManager()->getUnit(collidingObjectIndex)->getEffectStatus() != false)
