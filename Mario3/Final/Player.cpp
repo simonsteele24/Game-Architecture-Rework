@@ -386,6 +386,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	case COIN:
 		Game::getStaticInstance()->addToCoinAmount();
 		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);
+		Game::getStaticInstance()->getAudioManager()->playSound("Coin");
 		break;
 	case QUESTION_BLOCK:
 		if (mCurrentLocation.mY >= collidingObject.getLocation().mY + collidingObject.getDimensions().mY && mVelocity < 0) 
@@ -395,6 +396,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 			{
 				Game::getStaticInstance()->getUnitManager()->getUnit(collidingObjectIndex)->setEffect(false);
 				Game::getStaticInstance()->addToCoinAmount();
+				Game::getStaticInstance()->getAudioManager()->playSound("Coin");
 				Game::getStaticInstance()->getUnitManager()->getUnit(collidingObjectIndex)->swapAnimation(NAME_OF_EMPTY_QUESTION_BLOCK);
 			}
 		}
