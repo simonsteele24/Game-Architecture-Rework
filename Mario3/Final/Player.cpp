@@ -78,11 +78,14 @@ void Player::update(double newTimeBetweenFrames)
 		}
 	}
 
-	if (mIsJumping) 
+	if (mIsJumping && mVelocity == 0) 
 	{
 		mIsJumping = false;
 		mInMidAir = true;
 		mVelocity = -(Game::getStaticInstance()->getJumpForce());
+	}
+	else {
+		mIsJumping = false;
 	}
 
 	powerUpTimer((float)newTimeBetweenFrames);//updates timer for any active powerups
