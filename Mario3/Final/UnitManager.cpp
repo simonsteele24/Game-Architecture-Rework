@@ -625,6 +625,11 @@ void UnitManager::calculateCollisions()
 		}
 	}
 
+	if (mPlayer != nullptr) 
+	{
+		mPlayer->mInMidAir = true;
+	}
+
 	for (int i = 0, max = mUnits.size(); i < max; i++) 
 	{
 		max = mUnits.size();

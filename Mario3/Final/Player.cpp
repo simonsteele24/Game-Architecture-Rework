@@ -96,8 +96,6 @@ void Player::update(double newTimeBetweenFrames)
 		Game::getStaticInstance()->deductLife();
 	}
 
-	mVelocity += Game::getStaticInstance()->getGravityScale();
-
 	if (mIsDying == false)
 	{
 		unitCollisions();//find/check collisions for any units in the unit manager
@@ -204,6 +202,8 @@ void Player::update(double newTimeBetweenFrames)
 			}
 		}
 	}
+
+	mVelocity += Game::getStaticInstance()->getGravityScale();
 
 	moveToPosition(Vector2(mCurrentLocation.mX, mCurrentLocation.mY + mVelocity));
 
