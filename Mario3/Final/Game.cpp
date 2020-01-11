@@ -144,10 +144,10 @@ void Game::init()
 	// Set the Score Amount to active
 	mTextManager->getText(NAME_OF_SCORE_AMOUNT_TEXT)->setTextToActive();
 
-	// Create text of Score Number/Amount
+	// Create text of Coin Amount
 	mTextManager->addText(NAME_OF_COIN_TEXT.c_str(), *mUIFont, *mUIFontColor, mLanguageManager.getWord(NAME_OF_COINS_WORD) + " " + to_string(mNumOfCoins), COIN_TEXT_POSITION);
 
-	// Set the Score Amount to active
+	// Set the Coin Amount to active
 	mTextManager->getText(NAME_OF_COIN_TEXT)->setTextToActive();
 
 	// Create text of Lives Number
@@ -156,7 +156,7 @@ void Game::init()
 	// Set the Lives Text to active
 	mTextManager->getText(NAME_OF_LIVES_TEXT)->setTextToActive();
 
-	// Create text of Lives Number
+	// Create text of Game Status
 	mTextManager->addText(NAME_OF_GAME_STATUS_TEXT.c_str(), *mUIFont, *mUIFontColor, mLanguageManager.getWord(NAME_LEVEL_COMPLETION_WORD) + " ", GAME_STATUS_TEXT_POSITION);
 
 	// Create window and initialize all systems
@@ -172,8 +172,12 @@ void Game::init()
 	// Set the boolean telling the program the display is running as true
 	mIsDisplaying = true;
 
-	// Initialize theme song
-	mAudioManager->addSound(NAME_OF_THEME, Audio(NAME_OF_THEME ,THEME_FILE_PATH, THEME_PITCH, THEME_VOLUME));
+	// Initialize all possible audios
+	mAudioManager->addSound(NAME_OF_THEME, Audio(NAME_OF_THEME ,THEME_FILE_PATH, THEME_PITCH, THEME_VOLUME), true);
+	mAudioManager->addSound(NAME_OF_AUDIO_JUMP, Audio(NAME_OF_AUDIO_JUMP,  AUDIO_JUMP_FILE_PATH, THEME_PITCH, THEME_VOLUME), false);
+	mAudioManager->addSound(NAME_OF_AUDIO_COIN, Audio(NAME_OF_AUDIO_COIN, AUDIO_COIN_FILE_PATH, THEME_PITCH, THEME_VOLUME), false);
+
+	// Play main theme song
 	mAudioManager->playSound(NAME_OF_THEME);
 
 	// Inittialize the menu
@@ -368,6 +372,8 @@ void Game::doLoop()
 			// Render all buffers in game
 			render();
 
+			// Call update for all audio
+			mAudioManager->update();
 		}
 		else 
 		{
@@ -452,6 +458,7 @@ void Game::handleEvent(const Event &theEvent)
 
 	if (theEvent.getType() == MAKE_PLAYER_JUMP) 
 	{
+		mAudioManager->playSound(NAME_OF_AUDIO_JUMP);
 		mUnitManager->getPlayer()->jump();
 	}
 

@@ -37,7 +37,9 @@ const string ENGLISH_TEXT_FILE_PATH = "..\\..\\Mario3\\final\\English.txt";
 const string PIRATE_TEXT_FILE_PATH = "..\\..\\Mario3\\final\\Pirate.txt";
 const string VULCAN_TEXT_FILE_PATH = "..\\..\\Mario3\\final\\Vulcan.txt";
 const string ASSET_PATH_TWO = "..\\..\\Mario3\\Assets\\";
-const string THEME_FILE_PATH = "..\\..\\Mario3\\Assets\\maintheme.flac";
+const string THEME_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\maintheme.flac";
+const string AUDIO_JUMP_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\jump.wav";
+const string AUDIO_COIN_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\coin.wav";
 
 //UI
 const string NAME_OF_SCORE_WORD = "SCORE";
@@ -70,6 +72,8 @@ const string NAME_OF_BACKGROUND_BUFFER = "Background";
 const string NAME_OF_BACKGROUND_TEAR_BUFFER = "Tear Background";
 const string NAME_OF_BACKGROUND_END_BUFFER = "End Background";
 const string NAME_OF_THEME = "Theme";
+const string NAME_OF_AUDIO_JUMP = "Jump";
+const string NAME_OF_AUDIO_COIN = "Coin";
 
 //Player 
 const string NAME_OF_PLAYER = "Player";

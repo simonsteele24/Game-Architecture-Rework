@@ -127,7 +127,7 @@ void Unit::update( double newTimeBetweenFrames )
 	if (isAnimationStopped == false) 
 	{
 		// The following code updates the current frame of the animation
-		mCurrentAnimations[mCurrentAnimationIndex]->update(newTimeBetweenFrames);
+ 		mCurrentAnimations[mCurrentAnimationIndex]->update(newTimeBetweenFrames);
 	}
 }
 
