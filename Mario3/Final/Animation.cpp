@@ -53,7 +53,7 @@ void Animation::update( double framesPassed )
 	// enough time has passed, it will change frames
 	mTimeElapsed -= framesPassed;
 
-	if ( mTimeElapsed <= 0.0 ) 
+	if ( mTimeElapsed <= 0.0) 
 	{
 		updateSprite();
 		mTimeElapsed = mTargetTime;

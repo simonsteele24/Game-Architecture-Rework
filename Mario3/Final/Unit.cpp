@@ -71,7 +71,7 @@ Unit::~Unit()
 // This function sets the animation(s) for the unit
 void Unit::setAnimation( Animation & newAnimation ) 
 {
-	mCurrentAnimations.push_back(new Animation(newAnimation) );
+	mCurrentAnimations.push_back(new Animation(newAnimation));
 
 	if (mDimensions.mX <= 0 && mDimensions.mY <= 0) 
 	{

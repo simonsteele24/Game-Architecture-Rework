@@ -40,11 +40,9 @@ public:
 	void invertAnimation(int val);
 	void forceUpdateInversion();
 
-
 private:
 
 	// Booleans
-	bool mShouldLoop;
 	bool mHasCleanedUp;
 	bool mIsInverted = false;
 

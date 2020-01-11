@@ -263,7 +263,6 @@ void UnitManager::update( double timeBetweenFrames )
 
 	for (int i = 0, max = mProps.size(); i < max; i++)
 	{
-		mProps[i]->update(timeBetweenFrames);
 		mProps[i]->updateCameraToUnitPosition();
 	}
 
@@ -284,11 +283,6 @@ void UnitManager::update( double timeBetweenFrames )
 
 	for (int i = 0, max = mPlatforms.size(); i < max; i++)
 	{
-		if (mPlatforms[i]->isVisible())
-		{
-			mPlatforms[i]->update(timeBetweenFrames);
-			max = mPlatforms.size();
-		}
 		mPlatforms[i]->updateCameraToUnitPosition();
 	}
 
@@ -649,16 +643,7 @@ void UnitManager::calculateCollisions()
 
 					if (normal.mX != 0 && normal.mY != 0)
 					{
-						double penetrationCoefficientX = normal.mX / mUnits[i]->getDimensions().mX;
-						double penetrationCoefficientY = normal.mY / mUnits[i]->getDimensions().mY;
-
-
-						//if mY > 0
-						//if mY < mDimensions
-						//if mX > 0
-						//if mX < mDimensions
-
-						if (normal.mY < 0 || normal.mY > mUnits[i]->mDimensions.mY)
+						if (normal.mY < 0 || normal.mY > mUnits[i]->mDimensions.mY / 2)
 						{
 							if (normal.mY > 0)
 							{
@@ -723,20 +708,36 @@ void UnitManager::calculateCollisions()
 
 				Vector2 normal = Vector2(mPlayer->getLocation().mX - mTiles[i]->getLocation().mX, mPlayer->getLocation().mY - mTiles[i]->getLocation().mY);
 				
-				if (normal.mX != 0 && normal.mY != 0) 
+				if (normal.mX != 0 && normal.mY != 0)
 				{
-					if (abs(normal.mX) > abs(normal.mY)) 
+					if (normal.mY < 0 || normal.mY > mTiles[i]->mDimensions.mY / 2)
 					{
-						normal.mX /= abs(normal.mX);
-						mPlayer->setLocationX(mTiles[i]->getLocation().mX + (normal.mX * mTiles[i]->getDimensions().mX));
+						if (normal.mY > 0)
+						{
+							normal.mY /= abs(normal.mY);
+							mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mTiles[i]->getDimensions().mY));
+						}
+						else
+						{
+							normal.mY /= abs(normal.mY);
+							mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+						}
 					}
-					else 
+					else
 					{
-						normal.mY /= abs(normal.mY);
-						mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mTiles[i]->getDimensions().mY));
+						if (normal.mX < 0)
+						{
+							normal.mX /= abs(normal.mX);
+							mPlayer->setLocationX(mTiles[i]->getLocation().mX + (normal.mX * mPlayer->getDimensions().mX));
+						}
+						else
+						{
+							normal.mX /= abs(normal.mX);
+							mPlayer->setLocationX(mTiles[i]->getLocation().mX + (normal.mX * mTiles[i]->getDimensions().mX));
+						}
 					}
 				}
-				else 
+				else
 				{
 					if (normal.mX != 0)
 					{
@@ -746,9 +747,11 @@ void UnitManager::calculateCollisions()
 					if (normal.mY != 0)
 					{
 						normal.mY /= abs(normal.mY);
-						mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mTiles[i]->getDimensions().mY));
+						mPlayer->setLocationY(mTiles[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
 					}
 				}
+				mTiles[i]->onCollide(*mPlayer, 0);
+				mPlayer->onCollide(*mTiles[i], i);
 			}
 		}
 	}

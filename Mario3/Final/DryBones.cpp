@@ -128,7 +128,7 @@ void DryBones::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		}
 		break;
 	default:
-		if ((mCurrentLocation.mX <= collidingObject.getLocation().mX - collidingObject.getDimensions().mX || mCurrentLocation.mX + 16 >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && collidingObject.getLocation().mY == round(mCurrentLocation.mY))
+		if ((mCurrentLocation.mX - 16 <= collidingObject.getLocation().mX - collidingObject.getDimensions().mX || mCurrentLocation.mX + 16 >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && collidingObject.getLocation().mY == round(mCurrentLocation.mY))
 		{
 			changeDirection();
 		}
