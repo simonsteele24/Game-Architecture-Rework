@@ -77,85 +77,85 @@ const string NAME_OF_AUDIO_COIN = "Coin";
 
 //Player 
 const string NAME_OF_PLAYER = "Player";
-const string NAME_OF_PLAYER_JUMP = "Player Jump";
-const string NAME_OF_PLAYER_RED = "Player Red";
+const string NAME_OF_PLAYER_JUMP = "Player_Jump";
+const string NAME_OF_PLAYER_RED = "Player_Red";
 const string NAME_OF_PLAYER_RED_JUMP = "Player Red";
-const string NAME_OF_PLAYER_GREEN = "Player Green";
-const string NAME_OF_PLAYER_GREEN_JUMP = "Player Green Jump";
-const string NAME_OF_PLAYER_DEATH_ANIMATION = "MiniMario Death";
-const string NAME_OF_SUPER_PLAYER = "Super Player";
-const string NAME_OF_SUPER_PLAYER_JUMP = "Super Player Jump";
-const string NAME_OF_SUPER_PLAYER_RED = "Super Player Red";
-const string NAME_OF_SUPER_PLAYER_RED_JUMP = "Super Player Red Jump";
-const string NAME_OF_SUPER_PLAYER_GREEN = "Super Player Red";
-const string NAME_OF_SUPER_PLAYER_GREEN_JUMP = "Super Player Green Jump";
+const string NAME_OF_PLAYER_GREEN = "Player_Green";
+const string NAME_OF_PLAYER_GREEN_JUMP = "Player_Green_Jump";
+const string NAME_OF_PLAYER_DEATH_ANIMATION = "Player_Death";
+const string NAME_OF_SUPER_PLAYER = "Super_Player";
+const string NAME_OF_SUPER_PLAYER_JUMP = "Super_Player_Jump";
+const string NAME_OF_SUPER_PLAYER_RED = "Super_Player_Red";
+const string NAME_OF_SUPER_PLAYER_RED_JUMP = "Super_Player_Red_Jump";
+const string NAME_OF_SUPER_PLAYER_GREEN = "Super_Player_Red";
+const string NAME_OF_SUPER_PLAYER_GREEN_JUMP = "Super_Player_Green_Jump";
 
 
 //Environmental 
-const string NAME_OF_BIG_HILL = "Big Hill";
+const string NAME_OF_BIG_HILL = "Big_Hill";
 const string NAME_OF_CLOUD = "Cloud";
 const string NAME_OF_PIPE = "Pipe";
-const string NAME_OF_HORIZONTAL_PIPE = "Horizontal Pipe";
-const string NAME_OF_WOOD_BLOCK = "Wood Block";
-const string NAME_OF_DEFAULT_BLOCK = "Default Block";
-const string NAME_OF_BRICK_BLOCK = "Brick Block";
-const string NAME_OF_QUESTION_BLOCK = "Question Block";
-const string NAME_OF_EMPTY_QUESTION_BLOCK = "Empty Question Block";
-const string NAME_OF_END_BLOCK = "End Block";
-const string NAME_OF_TALL_BLUE_BOX_ANIMATION = "Tall Blue Box";
-const string NAME_OF_LARGE_GREEN_BOX_ANIMATION = "Large Green Box";
-const string NAME_OF_MEDIUM_RED_BOX_ANIMATION = "Medium Red Box";
-const string NAME_OF_LONG_GREEN_BOX_ANIMATION = "Long Green Box";
-const string NAME_OF_LARGE_WHITE_BOX_ANIMATION = "Large White Box";
-const string NAME_OF_LARGE_RED_BOX_ANIMATION = "Large Red Box";
-const string NAME_OF_LARGE_BLUE_BOX_ANIMATION = "Large Blue Box";
-const string NAME_OF_TALL_GREEN_BOX_ANIMATION = "Tall Green Box";
-const string NAME_OF_SMALL_ORANGE_BOX_ANIMATION = "Small Orange Box";
-const string NAME_OF_BLUE_FLOATING_BOX_ANIMATION = "Blue Floating Box";
-const string NAME_OF_GREEN_FLOATING_BOX_ANIMATION = "Green Floating Box";
-const string NAME_OF_LARGE_RED_FLOATING_BOX_ANIMATION = "Large Red Floating Box";
-const string NAME_OF_SMALL_RED_FLOATING_BOX_ANIMATION = "Small Red Floating Box";
+const string NAME_OF_HORIZONTAL_PIPE = "Horizontal_Pipe";
+const string NAME_OF_WOOD_BLOCK = "Wood_Block";
+const string NAME_OF_DEFAULT_BLOCK = "Default_Block";
+const string NAME_OF_BRICK_BLOCK = "Brick_Block";
+const string NAME_OF_QUESTION_BLOCK = "Question_Block";
+const string NAME_OF_EMPTY_QUESTION_BLOCK = "Empty_Question_Block";
+const string NAME_OF_END_BLOCK = "End_Block";
+const string NAME_OF_TALL_BLUE_BOX_ANIMATION = "Tall_Blue_Box";
+const string NAME_OF_LARGE_GREEN_BOX_ANIMATION = "Large_Green_Box";
+const string NAME_OF_MEDIUM_RED_BOX_ANIMATION = "Medium_Red_Box";
+const string NAME_OF_LONG_GREEN_BOX_ANIMATION = "Long_Green_Box";
+const string NAME_OF_LARGE_WHITE_BOX_ANIMATION = "Large_White_Box";
+const string NAME_OF_LARGE_RED_BOX_ANIMATION = "Large_Red_Box";
+const string NAME_OF_LARGE_BLUE_BOX_ANIMATION = "Large_Blue_Box";
+const string NAME_OF_TALL_GREEN_BOX_ANIMATION = "Tall_Green_Box";
+const string NAME_OF_SMALL_ORANGE_BOX_ANIMATION = "Small_Orange_Box";
+const string NAME_OF_BLUE_FLOATING_BOX_ANIMATION = "Blue_Floating_Box";
+const string NAME_OF_GREEN_FLOATING_BOX_ANIMATION = "Green_Floating_Box";
+const string NAME_OF_LARGE_RED_FLOATING_BOX_ANIMATION = "Large_Red_Floating_Box";
+const string NAME_OF_SMALL_RED_FLOATING_BOX_ANIMATION = "Small_Red_Floating_Box";
 const string NAME_OF_BUSH_ANIMATION = "Bush";
 const string NAME_OF_LAVA_ANIMATION = "Lava";
-const string NAME_OF_FIREBALL_UP_ANIMATION = "Fireball Up";
-const string NAME_OF_FIREBALL_DOWN_ANIMATION = "Fireball Down";
-const string NAME_OF_DONUT_BUSH_ANIMATION = "Donut Bush";
-const string NAME_OF_DONUT_HILL_ONE = "Donut Hill One";
-const string NAME_OF_DONUT_HILL_TWO = "Donut Hill Two";
-const string NAME_OF_DEEP_GRASS_ANIMATION = "Deep Grass";
+const string NAME_OF_FIREBALL_UP_ANIMATION = "Fireball_Up";
+const string NAME_OF_FIREBALL_DOWN_ANIMATION = "Fireball_Down";
+const string NAME_OF_DONUT_BUSH_ANIMATION = "Donut_Bush";
+const string NAME_OF_DONUT_HILL_ONE = "Donut_Hill_One";
+const string NAME_OF_DONUT_HILL_TWO = "Donut_Hill_Two";
+const string NAME_OF_DEEP_GRASS_ANIMATION = "Deep_Grass";
 const string NAME_OF_GRASS_ANIMATION = "Grass";
-const string NAME_OF_SLOPE_LEFT_CORNER = "Grass Left Corner";
-const string NAME_OF_SLOPE_RIGHT_CORNER = "Grass Right Corner";
-const string NAME_OF_SLOPE_LEFT = "Grass Left";
-const string NAME_OF_SLOPE_RIGHT = "Grass Right";
-const string NAME_OF_SLOPE_TOP = "Grass Top";
-const string NAME_OF_PLATFORM_LEFT = "Platform Left";
-const string NAME_OF_PLATFORM_MIDDLE = "Platform Middle";
-const string NAME_OF_PLATFORM_RIGHT = "Platform Right";
-const string NAME_OF_LARGE_PLATFORM = "Large Platform";
+const string NAME_OF_SLOPE_LEFT_CORNER = "Grass_Left_Corner";
+const string NAME_OF_SLOPE_RIGHT_CORNER = "Grass_Right_Corner";
+const string NAME_OF_SLOPE_LEFT = "Grass_Left";
+const string NAME_OF_SLOPE_RIGHT = "Grass_Right";
+const string NAME_OF_SLOPE_TOP = "Grass_Top";
+const string NAME_OF_PLATFORM_LEFT = "Platform_Left";
+const string NAME_OF_PLATFORM_MIDDLE = "Platform_Middle";
+const string NAME_OF_PLATFORM_RIGHT = "Platform_Right";
+const string NAME_OF_LARGE_PLATFORM = "Large_Platform";
 const string NAME_OF_POLE = "Pole";
-const string NAME_OF_CASTLE_BLOCK = "Castle Block";
+const string NAME_OF_CASTLE_BLOCK = "Castle_Block";
 
 //Enemies
 const string NAME_OF_GOOMBA = "Goomba";
 const string NAME_OF_KOOPA = "Koopa";
-const string NAME_OF_KOOPA_RIGHT_ANIMATION = "Koopa Right";
-const string NAME_OF_KOOPA_SHELL_SPIN_ANIMATION = "Koopa Spin";
-const string NAME_OF_KOOPA_SHELL_ANIMATION = "Koopa Stationary";
-const string NAME_OF_DRY_BONES_LEFT_ANIMATION = "Dry Bones Left";
-const string NAME_OF_DRY_BONES_RIGHT_ANIMATION = "Dry Bones Right";
-const string NAME_OF_DRY_BONES_DOWN_ANIMATION = "Dry Bones Down";
+const string NAME_OF_KOOPA_RIGHT_ANIMATION = "Koopa_Right";
+const string NAME_OF_KOOPA_SHELL_SPIN_ANIMATION = "Koopa_Spin";
+const string NAME_OF_KOOPA_SHELL_ANIMATION = "Koopa_Stationary";
+const string NAME_OF_DRY_BONES_LEFT_ANIMATION = "Dry_Bones_Left";
+const string NAME_OF_DRY_BONES_RIGHT_ANIMATION = "Dry_Bones_Right";
+const string NAME_OF_DRY_BONES_DOWN_ANIMATION = "Dry_Bones_Down";
 const string NAME_OF_PIRANHA = "Piranha";
 const string NAME_OF_THWOMP_ANIMATION = "Thwomp";
 const string NAME_OF_BOOMBOOM_ANIMATION = "BoomBoom";
-const string NAME_OF_BOOMBOOM_SQUISHED_ANIMATION = "BoomBoom Squished";
-const string NAME_OF_BOOMBOOM_DEFENSE_ANIMATION = "BoomBoom Defense";
-const string NAME_OF_BOOMBOOM_JUMP_ANIMATION = "BoomBoom Jump";
+const string NAME_OF_BOOMBOOM_SQUISHED_ANIMATION = "BoomBoom_Squished";
+const string NAME_OF_BOOMBOOM_DEFENSE_ANIMATION = "BoomBoom_Defense";
+const string NAME_OF_BOOMBOOM_JUMP_ANIMATION = "BoomBoom_Jump";
 
 
 //Collectables
 const string NAME_OF_COIN = "Coin";
-const string NAME_OF_SUPER_MUSHROOM = "Super Mushroom";
+const string NAME_OF_SUPER_MUSHROOM = "Super_Mushroom";
 const string NAME_OF_STARMEN = "Starmen";
 
 //Level and Other
@@ -322,92 +322,6 @@ private:
 
 	// Blocks
 	Vector2 mDefaultBlockDimensions;
-
-	// Animations
-
-	// Player
-	Animation * mPlayerAnimation;
-	Animation * mPlayerJumpAnimation;
-	Animation * mPlayerRedAnimation;
-	Animation * mPlayerRedJumpAnimation;
-	Animation * mPlayerGreenAnimation;
-	Animation * mPlayerGreenJumpAnimation;
-	Animation * mPlayerDeathAnimation;
-	Animation * mSuperPlayerAnimation;
-	Animation * mSuperPlayerJumpAnimation;
-	Animation * mSuperPlayerRedAnimation;
-	Animation * mSuperPlayerRedJumpAnimation;
-	Animation * mSuperPlayerGreenAnimation;
-	Animation * mSuperPlayerGreenJumpAnimation;
-
-	// Props
-	Animation * mBigHillAnimation;
-	Animation * mCloudAnimation;
-	Animation * mPipeAnimation;
-	Animation * mHorizontalPipeAnimation;
-	Animation * mBushAnimation;
-	Animation * mDonutBushAnimation;
-	Animation * mDonutHillOneAnimation;
-	Animation * mDonutHillTwoAnimation;
-
-	// Enemies
-	Animation * mGoombaAnimation;
-	Animation * mKoopaAnimation;
-	Animation * mKoopaRightAnimation;
-	Animation * mKoopaShellAnimation;
-	Animation * mKoopaShellSpinAnimation;
-	Animation * mPiranhaAnimation;
-	Animation * mBoomBoomWalkAnimation;
-	Animation * mBoomBoomDefenseAnimation;
-	Animation * mBoomBoomJumpAnimation;
-	Animation * mBoomBoomSquishedAnimation;
-
-	// Blocks
-	Animation * mWoodBlockAnimation;
-	Animation * mDefaultBlockAnimation;
-	Animation * mBrickBlockAnimation;
-	Animation * mQuestionBlockAnimation;
-	Animation * mQuestionBlockEmptyAnimation;
-	Animation * mEndBlockAnimation;
-	Animation * mSmalllOrangeBoxAnimation;
-	Animation * mTallBlueBoxAnimation;
-	Animation * mLargeGreenBoxAnimation;
-	Animation * mMediumRedBoxAnimation;
-	Animation * mLongGreenBoxAnimation;
-	Animation * mLargeWhiteBoxAnimation;
-	Animation * mLargeRedBoxAnimation;
-	Animation * mLargeBlueBoxAnimation;
-	Animation * mTallGreenBoxAnimation;
-	Animation * mBlueFloatingBoxAnimation;
-	Animation * mGreenFloatingBoxAnimation;
-	Animation * mLargeRedFloatingBoxAnimation;
-	Animation * mSmallRedFloatingBoxAnimation;
-	Animation * mLavaAnimation;
-	Animation * mThwompAnimation;
-	Animation * mDryBonesLeftAnimation;
-	Animation * mDryBonesRightAnimation;
-	Animation * mDryBonesDownAnimation;
-	Animation * mFireballUpAnimation;
-	Animation * mFireballDownAnimation;
-	Animation * mGrassAnimation;
-	Animation * mDeepGrassAnimation;
-	Animation * mLeftCornerSlopeAnimation;
-	Animation * mRightCornerSlopeAnimation;
-	Animation * mLeftSlopeAnimation;
-	Animation * mRightSlopeAnimation;
-	Animation * mTopSlopeAnimation;
-	Animation * mLeftPlatformAnimation;
-	Animation * mMiddlePlatformAnimation;
-	Animation * mRightPlatformAnimation;
-	Animation * mLargePlatformAnimation;
-	Animation * mPoleAnimation;
-	Animation * mCastleBlockAnimation;
-
-
-	// Interactables/Powerups
-	Animation * mCoinAnimation;
-	Animation * mSuperMushroomAnimation;
-	Animation * mStarmenAnimation;
 
 	// Booleans
 	bool mIsDisplaying;

@@ -9,220 +9,369 @@ Background_Scaling_Value: 1.0
 Background_EndScene_Filename: BackgroundBlackLTear.png
 Background_Scaling_Value: 1.0
 
+Player
 Player_Filename: MiniMario_Walk.png
 Player_Dimensions: 32 32
 Player_Sprites_Per_Row_And_Column: 1 2
 
+Player_Jump
 Player_Jump_Filename: MiniMario_Jump.png
+Player_Dimensions: 32 32
 Player_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Player_Death
 Player_Death_Filename: MiniMario_Death.png
 Player_Death_Dimensions: 36 40
+Player_Death_Sprites_Per_Row_And_Column: 1 1
 
+Player_Red
 Player_Color2_Filename: MiniMarioR_Walk.png
+Player_Color2_Dimensions: 32 32
 Player_Color2_Walking_Sprites_Per_Row_And_Column: 1 2
 
+Player_Red_Jump
 Player_Color2_Jump_Filename: MiniMarioR_Jump.png
+Player_Color2_Jump_Dimensions: 32 32
 Player_Color2_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Player_Green
 Player_Color3_Filename: MiniMarioG_Walk.png
+Player_Color3_Dimensions: 32 32
 Player_Color3_Walking_Sprites_Per_Row_And_Column: 1 2
 
+Player_Green_Jump
 Player_Color3_Jump_Filename: MiniMarioG_Jump.png
+Player_Color3_Jump_Dimensions: 32 32
 Player_Color3_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Super_Player
 Player_Super_Filename: SuperMario_Walk.png
 Player_Super_Dimensions: 64 64
 Player_Super_Walking_Sprites_Per_Row_And_Column: 1 3
 
+Super_Player_Red
 Player_Super_Color2_Filename: SuperMarioR_Walk.png
+Player_Super_Color2_Dimensions: 64 64
 Player_Super_Color2_Walking_Sprites_Per_Row_And_Column: 1 3
 
+Super_Player_Green
 Player_Super_Color3_Filename: SuperMarioG_Walk.png
+Player_Super_Color3_Dimensions: 64 64
 Player_Super_Color3_Walking_Sprites_Per_Row_And_Column: 1 3
 
+Super_Player_Jump
 Player_Super_Jump_Filename: SuperMario_Jump.png
+Player_Super_Jump_Dimensions: 64 64
 Player_Super_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Super_Player_Red_Jump
 Player_Super_Color2_Jump_Filename: SuperMarioR_Jump.png
-Player_Super__Color2_Jump_Sprites_Per_Row_And_Column: 1 1
+Player_Super_Color2_Jump_Dimensions: 64 64
+Player_Super_Color2_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Super_Player_Green_Jump
 Player_Super_Color3_Jump_Filename: SuperMarioG_Jump.png
-Player_Super__Color3_Jump_Sprites_Per_Row_And_Column: 1 1
+Player_Super_Color3_Jump_Dimensions: 64 64
+Player_Super_Color3_Jump_Sprites_Per_Row_And_Column: 1 1
 
+Default_Block
 Default_Block_Filename: WorldOneGround.png
 Default_Block_Dimensions: 32 32
 Default_Block_Sprites_Per_Row_And_Column: 1 1
 
+Brick_Block
 Brick_Block_Filename: BrickBlock.png
 Brick_Block_Dimensions: 32 32
 Brick_Block_Sprites_Per_Row_And_Column: 1 4
 
+Question_Block
 Question_Block_Filename: QuestionBlock.png
 Question_Block_Dimensions: 32 32
 Question_Block_Sprites_Per_Row_And_Column: 1 4
 
+Empty_Question_Block
 Question_Block_Empty_Filename: QuestionBlock_Empty.png
 Question_Block_Empty_Dimensions: 32 32
 Question_Block_Empty_Sprites_Per_Row_And_Column: 1 1
 
+End_Block
 End_Block_Filename: EndBlock.png
 End_Block_Dimensions: 32 32
 End_Block_SPrites_Per_Row_And_Column: 1 3
 
+Goomba
 Goomba_Filename: GoombaAnimation.png
 Goomba_Dimensions: 32 32
 Goomba_Sprites_Per_Row_And_Column: 1 2
 
+Koopa
 Koopa_Filename: Koopa_Walk.png
 Koopa_Dimensions: 32 54
 Koopa_Sprites_Per_Row_And_Column: 1 2
 
+Koopa_Right
 Koopa_Right_Filename: Koopa_Walk_Right.png
+Koopa_Right_Dimensions: 32 54
 Koopa_Right_Sprires_Per_Row_And_Column: 1 2
 
+Koopa_Stationary
 Koopa_Shell_Filename: Koopa_Shell.png
+Koopa_Shell_Dimensions: 32 54
 Koopa_Shell_Sprites_Per_Row_And_Column: 1 1
 
+Koopa_Spin
 Koopa_Shell_Spin_Filename: Koopa_Shell_Spin.png
+Koopa_Shell_Spin_Dimensions: 32 54
 Koopa_Shell_Spin_Sprites_Per_Row_And_Column: 1 3
 
+Big_Hill
 Hill_Prop_Filename: hill_one_worldone.png
 Hill_Prop_Dimensions: 256 128
+Hill_Prop_Sprites_Per_Row_And_Column: 1 1
 
+Bush
 Bush_Prop_Filename: Bush.png
+Bush_Prop_Dimensions: 32 32
+Bush_Prop_Sprites_Per_Row_And_Column: 1 1
 
+Pipe
 Pipe_Filename: Pipe.png
 Pipe_Dimensions: 64 96
+Pipe_Sprites_Per_Row_and_Column: 1 1
 
+Piranha
 Piranha_FileName: PiranhaPlant.png
 Piranha_Dimensions: 32 66
 Piranha_Sprites_Per_Row_And_Column: 1 2
 
+Cloud
 Cloud_Prop_Filename: Cloud.png
 Cloud_Prop_Dimensions: 96 46
+Cloud_Sprites_Per_Row_And_Column: 1 1
 
+Coin
 Coin_Filename: Coins.png
 Coin_Dimensions: 28 32
 Coin_Sprites_Per_Row_And_Column: 1 5
 
+Super_Mushroom
 SUPER_MUSHROOM_Filename: SuperMushroom.png
 SUPER_MUSHROOM_Dimensions: 31 30
 SUPER_MUSHROOM_Sprites_Per_Row_And_Column: 1 3
 
+Starmen
 STARMEN_Filename: Starmen.png
 STARMEN_Dimensions: 32 32
 STARMEN_Sprites_Per_Row_And_Column: 1 2
 
+Small_Orange_Box
 Small_Orange_box_Filename: SmallOrangeBox.png
 Small_Orange_box_Dimensions: 92 92
+Small_Orange_box_Sprites_Per_Row_And_Column: 1 1
 
+Tall_Blue_Box
 Tall_Blue_box_Filename: TallBlueBox.png
 Tall_Blue_box_Dimensions: 92 153
+Tall_Blue_box_Sprites_Per_Row_And_Column: 1 1
 
+Large_Green_Box
 Large_Green_Box_Filename: LargeGreenBox.png
 Large_Green_Box_Dimensions: 153 92
+Large_Green_Box_Sprites_Per_Row_And_Column: 1 1
 
+Medium_Red_Box
 Medium_Red_Box_Filename: MediumRedBox.png
 Medium_Red_Box_Dimensions: 128 160
+Medium_Red_Box_Sprites_Per_Row_And_Column: 1 1
 
+Long_Green_Box
 Long_Green_Box_Filename: LongGreenBox.png
 Long_Green_Box_Dimensions: 192 64
+Long_Green_Box_Sprites_Per_Row_And_Column: 1 1
 
+Large_White_Box
 Large_White_Box_Filename: LargeWhiteBox.png
 Large_White_Box_Dimensions: 128 224
+Large_White_Box_Sprites_Per_Row_And_Column: 1 1
 
+Large_Red_Box
 Large_Red_Box_Filename: LargeRedBox.png
 Large_Red_Box_Dimensions: 224 128
+Large_Red_Box_Sprites_Per_Row_And_Column: 1 1
 
+Large_Blue_Box
 Large_Blue_Box_Filename: LargeBlueBox.png
 Large_Blue_Box_Dimensions: 224 192
+Large_Blue_Box_Sprites_Per_Row_And_Column: 1 1
 
+Tall_Green_Box
 Tall_Green_Box_Filename: TallGreenBox.png
 Tall_Green_Box_Dimensions: 92 276
+Tall_Green_Box_Sprites_Per_Row_And_Column: 1 1
 
+Blue_Floating_Box
 Blue_Floating_Box_Filename: BlueFloatingBlock.png
 Blue_Floating_Box_Dimensions: 144 80
+Blue_Floating_Box_Sprites_Per_Row_And_Column: 1 1
 
+Green_Floating_Box
 Green_Floating_Box_Filename: GreenFloatingBlock.png
 Green_Floating_Box_Dimensions: 144 80
+Green_Floating_Box_Sprites_Per_Row_And_Column: 1 1
 
+Large_Floating_Red_Block
 Large_Floating_Red_Block_Filename: LargeFloatingRedBlock.png
 Large_Floating_Red_Block_Dimensions: 176 80
+Large_Floating_Red_Block_Sprites_Per_Row_And_Column: 1 1
 
+Small_Floating_Red_Block
 Small_Floating_Red_Block_Filename: SmallFloatingRedBlock.png
 Small_Floating_Red_Block_Dimensions: 144 64
+Small_Floating_Red_Block_Sprites_Per_Row_And_Column: 1 1
 
+Thwomp
 Thwomp_Filename: Thomp.png
 Thwomp_Dimensions: 48 64
+Thwomp_Sprites_Per_Row_And_Column: 1 1
 
+Wood_Block
 Wood_Block_Filename: Block.png
+Wood_Block_Dimensions: 32 32
+Wood_Block_Sprites_Per_Row_And_Column: 1 1
 
+Lava
 Lava_Filename: Lava.png
 Lava_Dimensions: 40 38
 Lava_Sprites_Per_Row_And_Column: 1 4
 
-Dry_Bones_Dimensions: 27 48
-Dry_Bones_Walk_Sprites_Per_Row_And_Column: 1 2
+Dry_Bones_Left
 Dry_Bones_Left_Animation: DryBones_Left.png
+Dry_Bones_Dimensions: 27 48
+Dry_Bones_Sprites_Per_Row_And_Column: 1 2
+
+Dry_Bones_Right
 Dry_Bones_Right_Animation: DryBones_Right.png
-Dry_Bones_Down_Dimensions: 46 32
+Dry_Bones_Dimensions: 27 48
+Dry_Bones_Sprites_Per_Row_And_Column: 1 2
+
+Dry_Bones_Down
 Dry_Bone_Down_Animation: DryBones_Down.png
+Dry_Bones_Down_Dimensions: 46 32
+Dry_Bones_Sprites_Per_Row_And_Column: 1 1
 
-Fireball_Dimensions: 28 32
+Fireball_Up
 Fireball_Up_Filename: Fireball_Up.png
-Fireball_Down_Filename: Fireball_Down.png
+Fireball_Dimensions: 28 32
+Fireball_Sprites_Per_Row_And_Column: 1 1
 
+Fireball_Down
+Fireball_Down_Filename: Fireball_Down.png
+Fireball_Dimensions: 28 32
+Fireball_Sprites_Per_Row_And_Column: 1 1
+
+BoomBoom
 BoomBoom_Walk_Filename: BoomBoomWalkWehr.png
 BoomBoom_Walk_Dimensions: 64 64
 BoomBoom_Walk_Sprites_Per_Row_And_Column: 1 3
 
+BoomBoom_Squished
 BoomBoom_Walk_Filename: BoomBoomSquishedWehr.png
+BoomBoom_Walk_Dimensions: 64 64
 BoomBoom_Walk_Sprites_Per_Row_And_Column: 1 2
 
+BoomBoom_Defense
 BoomBoom_Walk_Filename: BoomBoomDefenseWehr.png
+BoomBoom_Walk_Dimensions: 64 64
 BoomBoom_Walk_Sprites_Per_Row_And_Column: 1 2
 
+BoomBoom_Jump
 BoomBoom_Walk_Filename: BoomBoomJumpWehr.png
+BoomBoom_Walk_Dimensions: 64 64
 BoomBoom_Walk_Sprites_Per_Row_And_Column: 1 1
 
-Grass_Dimensions: 32 32
+Grass
 Grass_Filename: Grass.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
+
+Grass_Top_Left_Corner
 Grass_Top_Left_Corner_Filename: SlopeCorner_L.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
+
+Grass_Top_Right_Corner
 Grass_Top_Right_Corner_Filename: SlopeCorner_R.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
+
+Grass_Right
 Grass_Right_Filename: Slope_R.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
+
+Grass_Left
 Grass_Left_Filename: Slope_L.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
+
+Grass_Top
 Grass_Top_Filename: Slope_Top.png
+Grass_Dimensions: 32 32
+Grass_Sprites_Per_Row_And_Column: 1 1
 
-Deep_Grass_Dimensions: 32 32
+Deep_Grass
 Deep_Grass_Filename: DeepGrass.png
+Deep_Grass_Dimensions: 32 32
+Deep_Grass_Sprites_Per_Row_And_Column: 1 1
 
-Donut_Bush_Dimensions: 128 32
+Donut_Bush
 Donut_Bush_Filename: DonutBushes.png
+Donut_Bush_Dimensions: 128 32
+Donut_Bush_Sprites_Per_Row_And_Column: 1 1
 
-Donut_Hill_One_Dimensions: 286 254
+Donut_Hill_One
 Donut_Hill_One_Filename: DonutHillOne.png
+Donut_Hill_One_Dimensions: 286 254
+Donut_Hill_One_Sprites_Per_Row_And_Column: 1 1
 
-Donut_Hill_Two_Dimensions: 96 64
+Donut_Hill_Two
 Donut_Hill_Two_Filename: DonutHillTwo.png
+Donut_Hill_Two_Dimensions: 96 64
+Donit_Hill_Two_Sprites_Per_Row_And_Column: 1 1
 
-Horizontal_Pipe_Dimensions: 128 64
+Horizontal_Pipe
 Horizontal_Pipe_Filename: PipeHorizontal.png
+Horizontal_Pipe_Dimensions: 128 64
+Horizontal_Pipe_Sprites_Per_Row_And_Column: 1 1
 
-Right_Platform_Dimensions: 32 32
+Right_Platform
 Right_Platform_Filename: WoodenSegment_R.png
+Right_Platform_Dimensions: 32 32
+Right_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Left_Platform_Dimensions: 32 32
+Left_Platform
 Left_Platform_Filename: WoodenSegment_L.png
+Left_Platform_Dimensions: 32 32
+LefT_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Middle_Platform_Dimensions: 32 32
+Middle_Platform
 Middle_Platform_Filename: WoodenSegment.png
+Middle_Platform_Dimensions: 32 32
+Middle_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Large_Platform_Dimensions: 96 64
+Large_Platform
 Large_Platform_Filename: LargeWoodenBlock.png
+Large_Platform_Dimensions: 96 64
+Large_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Pole_Dimensions: 32 32
+Pole
 Pole_Filename: Pole.png
+Pole_Dimensions: 32 32
+Pole_Sprites_Per_Row_And_Column: 1 1
 
-Castle_Block_Dimensions: 32 32
+Castle_Block
 Castle_Block_Filename: CastleTile.png
+Castle_Block_Dimensions: 32 32
+Castle_Block_Sprites_Per_Row_And_Column: 1 1
+
+Space
