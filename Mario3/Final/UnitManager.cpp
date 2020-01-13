@@ -211,7 +211,7 @@ void UnitManager::createEndBlock(Vector2 newPos)
 
 
 // This functions adds a given animation to a unit based on a given index
-void UnitManager::addAnimation( int index, Animation & newAnim ) 
+void UnitManager::addAnimation( int index, Animation newAnim ) 
 {
 	mUnits[index]->setAnimation(newAnim);
 }
@@ -259,6 +259,8 @@ void UnitManager::playOrStopUnitAnimations()
 // also passed to all units the given time that has passed since last update
 void UnitManager::update( double timeBetweenFrames ) 
 {
+	Game::getStaticInstance()->time += timeBetweenFrames;
+
 	calculateCollisions();
 
 	for (int i = 0, max = mProps.size(); i < max; i++)

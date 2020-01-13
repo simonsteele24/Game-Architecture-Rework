@@ -87,7 +87,7 @@ public:
 	void createStarmen(Vector2 newPos);
 
 	//Other
-	void addAnimation( int index, Animation & newAnim );
+	void addAnimation( int index, Animation newAnim );
 	void destroyUnit( int index );
 	void playOrStopUnitAnimations();
 	void addPlayerAnimation(Animation & newAnim);

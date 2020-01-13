@@ -38,7 +38,7 @@ Animation::~Animation()
 {
 	if (mHasCleanedUp == false) 
 	{
-		delete mListOfSprites;
+		//delete mListOfSprites;
 	}
 }
 
@@ -51,9 +51,9 @@ void Animation::update( double framesPassed )
 {
 	// The following code subtracts the time that has passed and if
 	// enough time has passed, it will change frames
-	mTimeElapsed -= framesPassed;
+ 	mTimeElapsed -= framesPassed;
 
-	if ( mTimeElapsed <= 0.0) 
+	if ((int)Game::getStaticInstance()->time%(int)mTargetTime <= 10 || (int)Game::getStaticInstance()->time % (int)mTargetTime >= 90)
 	{
 		updateSprite();
 		mTimeElapsed = mTargetTime;

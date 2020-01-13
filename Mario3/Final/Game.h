@@ -279,6 +279,8 @@ public:
 
 	map <string, AnimationInformation> mAnimationLinks;
 
+	double time = 0.0;
+
 private:
 
 	// Constructors
