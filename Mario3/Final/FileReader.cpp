@@ -107,6 +107,7 @@ void FileReader::readFile(string fileName)
 	temp.mX = stoi(input);
 	fin >> input;
 	temp.mY = stoi(input);
+	Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER] = AnimationInformation((int)temp.mX, (int)temp.mY, Game::getStaticInstance()->mDisplayDimensions, temp2);
 	Game::getStaticInstance()->mPlayerAnimation = new Animation(NAME_OF_PLAYER, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER), (int)temp.mX, (int)temp.mY, Game::getStaticInstance()->mDisplayDimensions, temp2);
 
 
@@ -1491,7 +1492,7 @@ void FileReader::readLevelsFile(string fileName)
 				Game::getStaticInstance()->mUnitManager->createPlayer(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber));
 
 				// Add the walk, jump and death animations for the default sprite and the ones for the powerups.
-				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(*Game::getStaticInstance()->mPlayerAnimation);
+				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].mSpriteDimensions));
 				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(*Game::getStaticInstance()->mPlayerJumpAnimation);
 				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(*Game::getStaticInstance()->mPlayerDeathAnimation);
 				Game::getStaticInstance()->mUnitManager->addPlayerAnimation(*Game::getStaticInstance()->mSuperPlayerAnimation);

@@ -180,10 +180,30 @@ const Vector2 COIN_TEXT_POSITION = Vector2(500, 0);
 const Vector2 LIVES_TEXT_POSITION = Vector2(650, 0);
 const Vector2 GAME_STATUS_TEXT_POSITION = Vector2(400, 300);
 
+struct AnimationInformation
+{
+	int spritesPerRow;
+	int spritesPerColumn;
+	Vector2 mDisplayDimensions;
+	Vector2 mSpriteDimensions;
+
+	AnimationInformation()
+	{
+
+	}
+
+	AnimationInformation(int _spritesPerRow, int _spritesPerColumn, Vector2 _mDisplayDimensions, Vector2 _mSpriteDimensions)
+	{
+		spritesPerRow = _spritesPerRow;
+		spritesPerColumn = _spritesPerColumn;
+		mDisplayDimensions = _mDisplayDimensions;
+		mSpriteDimensions = _mSpriteDimensions;
+	}
+};
+
 // Class Prototypes
 class Animation;
 class Unit;
-
 
 class Game : public EventListener
 {
@@ -246,7 +266,6 @@ public:
 	int getScoreAddAmt();
 	int getScoreMultiplier();
 	int getTotalScore();
-	bool getLevelStart() { return mLevelStart; }
 	double getCameraLeftOffset() { return mCameraLeftOffset; }
 	double getCameraRightOffset() { return mCameraRightOffset; }
 	double getGravityScale() { return mGravityScale; }
@@ -256,6 +275,9 @@ public:
 	double getKoopaSpinSpd() { return mKoopaSpinSpeed; }
 	double getPiranhaMoveSpd() { return mPiranhaPlantSpeed; }
 	double getPiranhaWaitTime() { return mPiranhaWaitTime; }
+	bool getLevelStart() { return mLevelStart; }
+
+	map <string, AnimationInformation> mAnimationLinks;
 
 private:
 
@@ -391,7 +413,6 @@ private:
 	bool mIsDisplaying;
 	bool mInApplication;
 	bool mInGame;
-	bool mLevelStart = false;//This bool will enable or disable the keyboard inputs related to gameplay and not main menu.
 
 	// Integers
 	int mFramesPerSecond;
@@ -415,7 +436,8 @@ private:
 	double mPiranhaPlantSpeed;
 	double mPiranhaWaitTime;
 
-	// Strings
+	// Boolean
+	bool mLevelStart;
 
 	// Filereaders
 	FileReader mReader;
