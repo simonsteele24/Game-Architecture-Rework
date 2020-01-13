@@ -79,7 +79,7 @@ void AudioManager::unmuteSounds()
 
 void AudioManager::update()
 {
-	for (int i = 0; i < mPlayingSounds.size(); ++i)
+	for (int i = 0; i < (int)mPlayingSounds.size(); ++i)
 	{
 		if (mPlayingSounds[i].currentSound.getStatus() == sf::Sound::Stopped)
 		{

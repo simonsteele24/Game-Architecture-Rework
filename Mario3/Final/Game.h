@@ -246,6 +246,7 @@ public:
 	int getScoreAddAmt();
 	int getScoreMultiplier();
 	int getTotalScore();
+	bool getLevelStart() { return mLevelStart; }
 	double getCameraLeftOffset() { return mCameraLeftOffset; }
 	double getCameraRightOffset() { return mCameraRightOffset; }
 	double getGravityScale() { return mGravityScale; }
@@ -390,6 +391,7 @@ private:
 	bool mIsDisplaying;
 	bool mInApplication;
 	bool mInGame;
+	bool mLevelStart = false;//This bool will enable or disable the keyboard inputs related to gameplay and not main menu.
 
 	// Integers
 	int mFramesPerSecond;

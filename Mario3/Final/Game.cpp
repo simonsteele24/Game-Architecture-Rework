@@ -456,33 +456,35 @@ void Game::handleEvent(const Event &theEvent)
 		mInApplication = false;
 	}
 
-	if (theEvent.getType() == MAKE_PLAYER_JUMP) 
+	if (mLevelStart == true)
 	{
-		mAudioManager->playSound(NAME_OF_AUDIO_JUMP);
-		mUnitManager->getPlayer()->jump();
-	}
+		if (theEvent.getType() == MAKE_PLAYER_JUMP && mInGame)
+		{
+			mUnitManager->getPlayer()->jump();
+		}
 
-	if (theEvent.getType() == MOVE_PLAYER && mInGame) 
-	{
-		// Create a new version of the destroy unit event rathered from the passed in value
-		const MovePlayerEvent& moveEvent = static_cast<const MovePlayerEvent&>(theEvent);
+		if (theEvent.getType() == MOVE_PLAYER && mInGame)
+		{
+			// Create a new version of the destroy unit event rathered from the passed in value
+			const MovePlayerEvent& moveEvent = static_cast<const MovePlayerEvent&>(theEvent);
 
-		// Move the player to that specific location
-		mUnitManager->movePlayer(moveEvent.getLocation());
-	}
+			// Move the player to that specific location
+			mUnitManager->movePlayer(moveEvent.getLocation());
+		}
 
-	if (theEvent.getType() == SHOOT_BULLET && mInGame) 
-	{
-	}
+		if (theEvent.getType() == SHOOT_BULLET && mInGame)
+		{
+		}
 
-	if (theEvent.getType() == MOVE_PLAYER_LEFT) 
-	{
-		mUnitManager->getPlayer()->movePlayerLeft();
-	}
+		if (theEvent.getType() == MOVE_PLAYER_LEFT)
+		{
+			mUnitManager->getPlayer()->movePlayerLeft();
+		}
 
-	if (theEvent.getType() == MOVE_PLAYER_RIGHT)
-	{
-		mUnitManager->getPlayer()->movePlayerRight();
+		if (theEvent.getType() == MOVE_PLAYER_RIGHT)
+		{
+			mUnitManager->getPlayer()->movePlayerRight();
+		}
 	}
 
 	if (theEvent.getType() == SAVE_GAME) 

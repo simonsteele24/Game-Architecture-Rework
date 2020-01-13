@@ -82,6 +82,7 @@ void Player::update(double newTimeBetweenFrames)
 	{
 		mIsJumping = false;
 		mInMidAir = true;
+		Game::getStaticInstance()->getAudioManager()->playSound("Jump");
 		mVelocity = -(Game::getStaticInstance()->getJumpForce());
 	}
 	else {
