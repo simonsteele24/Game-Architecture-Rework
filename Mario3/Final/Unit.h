@@ -136,6 +136,10 @@ private:
 	bool mIsMovingUp;
 	bool mEffect;//use to check if the effect is active or not
 	bool mCanBeDamaged;//used to check if the object is damagable;
+	bool mIsWalking;
+	bool mIsStationary;
+
+	Direction mCurrentDirection;
 
 	// Doubles
 	double mVelocity;

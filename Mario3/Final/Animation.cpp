@@ -16,8 +16,9 @@ Animation::Animation()
 
 // This constructor takes in the sprite sheet, the sprites per row and column, dimensions, and the display dimensions
 // To divide the a given sprite to create an animation
-Animation::Animation( string name, GraphicsBuffer * spriteSheet, int spritesPerRow, int spritesPerColumn, Vector2 displayDimensions, Vector2 spriteDimensions )
+Animation::Animation(string name, GraphicsBuffer * spriteSheet, int spritesPerRow, int spritesPerColumn, Vector2 displayDimensions, Vector2 spriteDimensions )
 {
+	mUpdateIncrementor = 0;
 	mNameOfAnimation = name;
 	addSprite(new Sprite(new GraphicsBuffer(*spriteSheet), 0, 0, true, spriteDimensions));
 	mSpritesPerRowAndColumn = Vector2(spritesPerRow, spritesPerColumn);

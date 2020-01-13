@@ -77,7 +77,6 @@ private:
 	bool mIsTrigger;
 
 	// Directions
-	Direction mCurrentDirection;
 };
 
 

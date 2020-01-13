@@ -30,13 +30,6 @@ private:
 	//Int 
 	int mTimesBouncedOn;
 
-	// Goomba Directions
-	Direction mCurrentDirection;
-
-	// Booleans
-	bool mIsWalking;
-	bool mIsStationary;
-
 };
 
 #endif // !KOOPA_H

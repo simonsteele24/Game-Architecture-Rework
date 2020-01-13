@@ -538,16 +538,10 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	case KOOPA:
 		if (collidingObject.getLocation().mY > mCurrentLocation.mY)
 		{
-			if (collidingObject.mSuccessfulHit == false && collidingObject.mIsSpinning == true)
-			{
-				mBounceKills += 1;
-				collidingObject.mSuccessfulHit = true;//the unit has been hit
-				Game::getStaticInstance()->addToScore(Game::getStaticInstance()->getScoreAddAmt() * (Game::getStaticInstance()->getScoreMultiplier() * mBounceKills));//add to member score variable
-				Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));//pass in the variable to change score
-				//mCanDestroyTarget = false;//reset it			
-			}
+			mVelocity = 0;
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
 		}
-		else
+		else if (!collidingObject.mIsStationary && !(collidingObject.mCurrentDirection == LEFT && collidingObject.mCurrentLocation.mX < mCurrentLocation.mX) && !(collidingObject.mCurrentDirection == RIGHT && collidingObject.mCurrentLocation.mX > mCurrentLocation.mX))
 		{
 			if (!mInvincible)
 			{

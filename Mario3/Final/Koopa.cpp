@@ -127,16 +127,16 @@ void Koopa::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	switch (collidingObject.getCurrentUnitType()) 
 	{
 	case PLAYER:
-		if (mIsStationary && mTimesBouncedOn > 2)//if the koopa is stationary, and it has been bounced on multiple times, then it will spin.
+		if (mIsStationary)//if the koopa is stationary, and it has been bounced on multiple times, then it will spin.
 		{
-			if (Game::getStaticInstance()->getUnitManager()->getPlayer()->getLocation().mX < mCurrentLocation.mX && Game::getStaticInstance()->getUnitManager()->getPlayer()->getLocation().mY)
+			if (Game::getStaticInstance()->getUnitManager()->getPlayer()->getLocation().mX > mCurrentLocation.mX)
 			{
 				mCurrentDirection = LEFT;
 				mIsStationary = false;
 				mIsSpinning = true;
 				swapAnimation(NAME_OF_KOOPA_SHELL_SPIN_ANIMATION);
 			}
-			else if (Game::getStaticInstance()->getUnitManager()->getPlayer()->getLocation().mX > mCurrentLocation.mX && Game::getStaticInstance()->getUnitManager()->getPlayer()->getLocation().mY)
+			else
 			{
 				mCurrentDirection = RIGHT;
 				mIsStationary = false;

@@ -57,6 +57,7 @@ private:
 	// Doubles
 	double mTargetTime;
 	double mTimeElapsed;
+	int mUpdateIncrementor;
 
 	// Strings
 	string mNameOfAnimation;
