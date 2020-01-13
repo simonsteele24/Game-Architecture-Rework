@@ -214,6 +214,7 @@ void MenuManager::sendInput(int num)
 		if (mCurrentMenuElement == 0) 
 		{
 			mInMenu = false;
+			Game::getStaticInstance()->mLevelStart = true;
 			Game::getStaticInstance()->mLevelManager.loadNextLevel();
 		}
 		else if (mCurrentMenuElement == 1) 
