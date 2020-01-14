@@ -521,6 +521,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 			Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);//destroy unit
 			mVelocity = 0;
 			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			Game::getStaticInstance()->getAudioManager()->playSound("Stomp");
 		}
 		else
 		{
@@ -589,6 +590,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));
 		mIsThicc = true;
 		mStillThicc = true;
+		Game::getStaticInstance()->getAudioManager()->playSound("Powerup");
 		break;
 	case STARMEN:
 		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);
