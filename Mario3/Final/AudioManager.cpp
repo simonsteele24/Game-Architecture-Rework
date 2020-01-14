@@ -77,7 +77,7 @@ void AudioManager::unmuteSounds()
 
 
 
-void AudioManager::update()
+void AudioManager::update()     
 {
 	for (int i = 0; i < (int)mPlayingSounds.size(); ++i)
 	{
@@ -85,14 +85,9 @@ void AudioManager::update()
 		{
 			if (mPlayingSounds[i].mName != "Theme")
 			{
-  				mPlayingSounds.erase(mPlayingSounds.begin() + i);
-				--i;
+				mPlayingSounds.pop_back();
 			}
-			else if (mPlayingSounds[i].mName == "Theme")
-			{
-				mPlayingSounds[i].Play();
-			}
-			
+
 		}
 	}
 }

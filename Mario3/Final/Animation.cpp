@@ -39,7 +39,7 @@ Animation::~Animation()
 {
 	if (mHasCleanedUp == false) 
 	{
-		//delete mListOfSprites;
+		delete mListOfSprites;
 	}
 }
 
