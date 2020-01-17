@@ -54,13 +54,13 @@ public:
 	void flip();
 
 	// Drawing functions for sprites
-	void draw(Vector2 targetLoc, Sprite& sprite, float scale);
+	void draw(Vector2 targetLoc, GraphicsBuffer & newBuffer, float scale);
 	void drawBackground(GraphicsBuffer& buffer, float scale);
 	void draw(GraphicsBuffer& targetGraphicsBuffer, Sprite& sprite, float scale);
 
 
 	// Drawing functions for sprite sheets
-	void drawFromSpriteSheet(Vector2 targetImageLoc, Vector2 targetLoc, Sprite& sprite, Vector2 scale);
+	void drawFromSpriteSheet(Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& newBuffer, Vector2 scale);
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& sprite, Vector2 scale);
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& sprite, Vector2 scale);
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, Sprite& sprite, Vector2 scale);

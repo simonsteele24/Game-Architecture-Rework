@@ -86,7 +86,7 @@ void Unit::setAnimation( Animation & newAnimation )
 // This function moves the Unit to the given mouse position
 void Unit::moveToMousePosition( Vector2 newMousePos )
 {
-	Vector2 newPos = Vector2( newMousePos.mX - getCurrentAnimation()->getCurrentSprite()->getDisplacement().mX, newMousePos.mY - getCurrentAnimation()->getCurrentSprite()->getDisplacement().mY );
+	Vector2 newPos = Vector2( newMousePos.mX - getCurrentAnimation()->getCurrentSprite().getDisplacement().mX, newMousePos.mY - getCurrentAnimation()->getCurrentSprite().getDisplacement().mY );
 	mCurrentLocation = newPos;
 }
 
@@ -172,7 +172,7 @@ void Unit::draw()
 {
 	if (mCurrentAnimations.size() != 0) 
 	{
-		Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().draw(mCurrentLocation, *mCurrentAnimations[mCurrentAnimationIndex]->getCurrentSprite(), DEFAULT_SCALING_VALUE);
+		Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().draw(mCurrentLocation, *Game::getStaticInstance()->mBufferManager.getBuffer(mCurrentAnimations[mCurrentAnimationIndex]->getCurrentSprite().getGraphicsBuffer()), DEFAULT_SCALING_VALUE);
 	}
 }
 

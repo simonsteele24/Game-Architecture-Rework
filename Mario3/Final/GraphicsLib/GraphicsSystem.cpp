@@ -109,11 +109,11 @@ void GraphicsSystem::flip()
 
 
 // This function draws a sprite to the current backbuffer / target bitmap and scales it appropriately
-void GraphicsSystem::draw(Vector2 targetLoc, Sprite& sprite, float scale)
+void GraphicsSystem::draw(Vector2 targetLoc, GraphicsBuffer & newBuffer, float scale)
 {
-	sprite.getGraphicsBuffer()->bitmap->setScale(scale, scale);
-	sprite.getGraphicsBuffer()->bitmap->setPosition((float)targetLoc.mX, (float)targetLoc.mY);
-	window->draw(*sprite.getGraphicsBuffer()->bitmap);
+	newBuffer.bitmap->setScale(scale, scale);
+	newBuffer.bitmap->setPosition((float)targetLoc.mX, (float)targetLoc.mY);
+	window->draw(*newBuffer.bitmap);
 }
 
 
@@ -140,9 +140,9 @@ void GraphicsSystem::drawBackground(GraphicsBuffer& buffer, float scale)
 
 
 // This function draws a sprite from a given sprite sheet and places and scales it in a specific location
-void GraphicsSystem::drawFromSpriteSheet(Vector2 targetImageLoc, Vector2 targetLoc, Sprite& sprite, Vector2 scale)
+void GraphicsSystem::drawFromSpriteSheet(Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& newBuffer, Vector2 scale)
 {
-	window->draw(*sprite.getGraphicsBuffer()->getSprite());
+	window->draw(*newBuffer.bitmap);
 }
 
 

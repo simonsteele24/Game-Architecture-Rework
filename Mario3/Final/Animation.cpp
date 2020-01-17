@@ -20,14 +20,14 @@ Animation::Animation(string name, GraphicsBuffer * spriteSheet, int spritesPerRo
 {
 	mUpdateIncrementor = 0;
 	mNameOfAnimation = name;
-	addSprite(new Sprite(new GraphicsBuffer(*spriteSheet), 0, 0, true, spriteDimensions));
+	addSprite(Sprite(name, 0, 0, true, spriteDimensions));
 	mSpritesPerRowAndColumn = Vector2(spritesPerRow, spritesPerColumn);
 	mSpriteDimensions = spriteDimensions;
 
 	mCurrentIndex = Vector2(0, 0); // Initialize all member variables
 	mTargetTime = DEFAULT_SPEED;
 	mTimeElapsed = mTargetTime;
-	getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+	Game::getStaticInstance()->mBufferManager.getBuffer(getCurrentSprite().getGraphicsBuffer())->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
 }
 
 
@@ -37,10 +37,6 @@ Animation::Animation(string name, GraphicsBuffer * spriteSheet, int spritesPerRo
 // This function is the destructor for this class
 Animation::~Animation()
 {
-	if (mHasCleanedUp == false) 
-	{
-		delete mListOfSprites;
-	}
 }
 
 
@@ -66,7 +62,7 @@ void Animation::update( double framesPassed )
 
 
 // This function adds a sprite, which is determined from function call in main
-void Animation::addSprite( Sprite * spriteToAdd )
+void Animation::addSprite( Sprite & spriteToAdd )
 {
 	mListOfSprites = spriteToAdd;
 }
@@ -86,7 +82,7 @@ void Animation::adjustCurrentSpeed( double speedToBeAdded )
 
 
 // This function gets the current sprite of the animation
-Sprite * Animation::getCurrentSprite() 
+Sprite Animation::getCurrentSprite() 
 {
 	return mListOfSprites;
 }
@@ -119,11 +115,11 @@ void Animation::updateSprite()
 
 	if (!mIsInverted) 
 	{
-		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+		Game::getStaticInstance()->mBufferManager.getBuffer(getCurrentSprite().getGraphicsBuffer())->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
 	}
 	else
 	{
-		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX) + (int)mSpriteDimensions.mX, (int)(mCurrentIndex.mY * mSpriteDimensions.mY), -(int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+		Game::getStaticInstance()->mBufferManager.getBuffer(getCurrentSprite().getGraphicsBuffer())->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX) + (int)mSpriteDimensions.mX, (int)(mCurrentIndex.mY * mSpriteDimensions.mY), -(int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
 	}
 
 	
@@ -137,7 +133,7 @@ void Animation::updateSprite()
 // This is called from unit so the position update is based on where the unit is position
 void Animation::updateSpritePositions( Vector2 newPos ) 
 {
-	mListOfSprites->changeLoc((int)newPos.mX, (int)newPos.mY);
+	mListOfSprites.changeLoc((int)newPos.mX, (int)newPos.mY);
 }
 
 
@@ -222,10 +218,10 @@ void Animation::forceUpdateInversion()
 {
 	if (!mIsInverted)
 	{
-		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+		Game::getStaticInstance()->mBufferManager.getBuffer(getCurrentSprite().getGraphicsBuffer())->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX), (int)(mCurrentIndex.mY * mSpriteDimensions.mY), (int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
 	}
 	else
 	{
-		getCurrentSprite()->getGraphicsBuffer()->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX) + (int)mSpriteDimensions.mX, (int)(mCurrentIndex.mY * mSpriteDimensions.mY), -(int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
+		Game::getStaticInstance()->mBufferManager.getBuffer(getCurrentSprite().getGraphicsBuffer())->setIntRect((int)(mSpriteDimensions.mX * mCurrentIndex.mX) + (int)mSpriteDimensions.mX, (int)(mCurrentIndex.mY * mSpriteDimensions.mY), -(int)mSpriteDimensions.mX, (int)mSpriteDimensions.mY);
 	}
 }

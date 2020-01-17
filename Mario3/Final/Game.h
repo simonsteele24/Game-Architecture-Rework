@@ -223,6 +223,8 @@ public:
 	friend class SaveStateManager;
 	friend class MenuManager;
 	friend class LevelManager;
+	friend class Animation;
+	friend class Unit;
 
 	// Initializers
 	void init();

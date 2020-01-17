@@ -1,7 +1,6 @@
 #include "Sprite.h"
 
 
-
 // This constructor is the default constructor 
 // for the class
 Sprite::Sprite()
@@ -21,10 +20,10 @@ Sprite::Sprite()
 // path for an bitmap and the given location for the sprite
 Sprite::Sprite( string spriteFilePath, int locationX, int locationY ) 
 {
-	mGraphicsBuffer = new GraphicsBuffer(spriteFilePath, "GraphicsBuffer");
+	mNameOfBuffer = spriteFilePath;
 	mLocation = Vector2( locationX, locationY );
-	mHeight = mGraphicsBuffer->getHeight();
-	mWidth = mGraphicsBuffer->getWidth();
+	//mHeight = mGraphicsBuffer->getHeight();
+	//mWidth = mGraphicsBuffer->getWidth();
 	mDisplacementX = locationX;
 	mDisplacementY = locationY;
 	mIsPartOfAnAnimation = false;
@@ -36,12 +35,12 @@ Sprite::Sprite( string spriteFilePath, int locationX, int locationY )
 
 // This constructor only takes a graphics buffer class and the
 // given location for the sprite
-Sprite::Sprite( GraphicsBuffer * newBuffer, int locationX, int locationY, bool isPartAnimation, Vector2 dimensions) 
+Sprite::Sprite( string newBufferName, int locationX, int locationY, bool isPartAnimation, Vector2 dimensions) 
 {
-	mGraphicsBuffer = newBuffer;
+	mNameOfBuffer = newBufferName;
 	mLocation = Vector2( locationX, locationY);
-	mHeight = newBuffer->getHeight();
-	mWidth = newBuffer->getWidth();
+	//mHeight = newBuffer->getHeight();
+	//mWidth = newBuffer->getWidth();
 	mDisplacementX = locationX;
 	mDisplacementY = locationY;
 	mIsPartOfAnAnimation = isPartAnimation;
@@ -56,7 +55,6 @@ Sprite::~Sprite()
 {
 	if (mIsPartOfAnAnimation) 
 	{
-		delete mGraphicsBuffer;
 	}
 }
 
@@ -96,9 +94,9 @@ Vector2 Sprite::getLoc()
 
 // This function gets the Graphics Buffer class
 // attached to the Sprite class
-GraphicsBuffer * Sprite::getGraphicsBuffer() 
+string Sprite::getGraphicsBuffer() 
 {
-	return mGraphicsBuffer;
+	return mNameOfBuffer;
 }
 
 

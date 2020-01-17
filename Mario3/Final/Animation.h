@@ -27,12 +27,12 @@ public:
 	void updateSprite();
 
 	// Mutators
-	void addSprite( Sprite * spriteToAdd );
+	void addSprite( Sprite & spriteToAdd );
 	void adjustCurrentSpeed( double speedToBeAdded );
 	void resetAnimationIndex();
 
 	// Accessors
-	Sprite * getCurrentSprite();
+	Sprite getCurrentSprite();
 	string getAnimationName();
 	void setAnimationIndex(int newIndex);
 	int getAnimationIndex();
@@ -47,7 +47,7 @@ private:
 	bool mIsInverted = false;
 
 	// Vectors
-	Sprite * mListOfSprites;
+	Sprite mListOfSprites;
 
 	// Vector2's
 	Vector2 mSpritesPerRowAndColumn;

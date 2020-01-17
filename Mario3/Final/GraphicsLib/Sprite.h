@@ -20,7 +20,7 @@ public:
 	// Constructors
 	Sprite();
 	Sprite( string spriteFilePath, int locationX, int locationY );
-	Sprite( GraphicsBuffer * newBuffer, int locationX, int locationY, bool isPartOfAnimation, Vector2 dimensions );
+	Sprite( string newBufferName, int locationX, int locationY, bool isPartOfAnimation, Vector2 dimensions );
 
 	// Destructors
 	~Sprite();
@@ -28,7 +28,7 @@ public:
 	// Acessors
 	int getHeight();
 	int getWidth();
-	GraphicsBuffer * getGraphicsBuffer();
+	string getGraphicsBuffer();
 	Vector2 getLoc();
 
 	void changeLoc(int newX, int newY);
@@ -47,6 +47,9 @@ private:
 	// Floats
 	int mHeight;
 	int mWidth;
+
+	// Strings
+	string mNameOfBuffer;
 
 	int mDisplacementX;
 	int mDisplacementY;
