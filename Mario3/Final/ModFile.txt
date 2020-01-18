@@ -219,12 +219,12 @@ Green_Floating_Box_Filename: GreenFloatingBlock.png
 Green_Floating_Box_Dimensions: 144 80
 Green_Floating_Box_Sprites_Per_Row_And_Column: 1 1
 
-Large_Floating_Red_Block
+Large_Red_Floating_Box
 Large_Floating_Red_Block_Filename: LargeFloatingRedBlock.png
 Large_Floating_Red_Block_Dimensions: 176 80
 Large_Floating_Red_Block_Sprites_Per_Row_And_Column: 1 1
 
-Small_Floating_Red_Block
+Small_Red_Floating_Box
 Small_Floating_Red_Block_Filename: SmallFloatingRedBlock.png
 Small_Floating_Red_Block_Dimensions: 144 64
 Small_Floating_Red_Block_Sprites_Per_Row_And_Column: 1 1
@@ -294,12 +294,12 @@ Grass_Filename: Grass.png
 Grass_Dimensions: 32 32
 Grass_Sprites_Per_Row_And_Column: 1 1
 
-Grass_Top_Left_Corner
+Grass_Left_Corner
 Grass_Top_Left_Corner_Filename: SlopeCorner_L.png
 Grass_Dimensions: 32 32
 Grass_Sprites_Per_Row_And_Column: 1 1
 
-Grass_Top_Right_Corner
+Grass_Right_Corner
 Grass_Top_Right_Corner_Filename: SlopeCorner_R.png
 Grass_Dimensions: 32 32
 Grass_Sprites_Per_Row_And_Column: 1 1
@@ -344,17 +344,17 @@ Horizontal_Pipe_Filename: PipeHorizontal.png
 Horizontal_Pipe_Dimensions: 128 64
 Horizontal_Pipe_Sprites_Per_Row_And_Column: 1 1
 
-Right_Platform
+Platform_Right
 Right_Platform_Filename: WoodenSegment_R.png
 Right_Platform_Dimensions: 32 32
 Right_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Left_Platform
+Platform_Left
 Left_Platform_Filename: WoodenSegment_L.png
 Left_Platform_Dimensions: 32 32
 LefT_Platform_Sprites_Per_Row_And_Column: 1 1
 
-Middle_Platform
+Platform_Middle
 Middle_Platform_Filename: WoodenSegment.png
 Middle_Platform_Dimensions: 32 32
 Middle_Platform_Sprites_Per_Row_And_Column: 1 1

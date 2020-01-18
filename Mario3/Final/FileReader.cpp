@@ -488,7 +488,7 @@ void FileReader::readLevelsFile(string fileName)
 				break;
 			case '6'://Creates a platform of identity 
 				Game::getStaticInstance()->mUnitManager->createPlatform(Vector2((Game::getStaticInstance()->mDefaultBlockDimensions.mX * i) - 2, (Game::getStaticInstance()->mDefaultBlockDimensions.mY * lineNumber) - 6));
-				Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setAnimation(Animation(NAME_OF_DEFAULT_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BLUE_FLOATING_BOX_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].mSpriteDimensions));
+				Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setAnimation(Animation(NAME_OF_BLUE_FLOATING_BOX_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BLUE_FLOATING_BOX_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].mSpriteDimensions));
 				Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setPlatformIdentity('6');
 				break;
 			case '7'://Creates a platform of identity 
