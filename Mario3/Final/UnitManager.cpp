@@ -561,12 +561,12 @@ void UnitManager::calculateCollisions()
 							if (abs(normal.mX) > abs(normal.mY))
 							{
 								normal.mX /= abs(normal.mX);
-								mUnits[y]->setLocationX(mUnits[x]->getLocation().mX + (normal.mX * mUnits[y]->getDimensions().mX));
+								mUnits[y]->setLocationX(mUnits[x]->getLocation().mX + (normal.mX * mUnits[x]->getDimensions().mX));
 							}
 							else
 							{
 								normal.mY /= abs(normal.mY);
-								mUnits[y]->setLocationY(mUnits[x]->getLocation().mY + (normal.mY * mUnits[y]->getDimensions().mY));
+								mUnits[y]->setLocationY(mUnits[x]->getLocation().mY + (normal.mY * mUnits[x]->getDimensions().mY));
 							}
 						}
 						else
