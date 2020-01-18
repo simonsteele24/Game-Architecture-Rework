@@ -655,7 +655,7 @@ void UnitManager::calculateCollisions()
 
 				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 				{
-					Vector2 normal = Vector2(mPlayer->getLocation().mX - mUnits[i]->getLocation().mX, mPlayer->getLocation().mY - mUnits[i]->getLocation().mY);
+					Vector2 normal = Vector2(mPlayer->getLocation().mX - mUnits[i]->getLocation().mX, (mPlayer->getLocation().mY + (mPlayer->mDimensions.mY - 32)) - mUnits[i]->getLocation().mY);
 
 					if (normal.mX != 0 && normal.mY != 0)
 					{
