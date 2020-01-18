@@ -33,6 +33,8 @@ Game::Game(EventSystem* pEventSystem)
 	// Set in-game to false
 	mInGame = false;
 	mInApplication = true;
+	mLost = false;
+	mFadeAwayTime = 20;
 
 	// Set the defaut difficulty for the game
 	mDifficulty = DEFAULT_DIFFICULTY;
@@ -300,7 +302,17 @@ void Game::doLoop()
 			flipDisplay();
 		}
 
-		
+		if (mSaving)
+		{
+			mFadeAwayTime--;
+		}
+		if (mFadeAwayTime <= 0)
+		{
+			mSaving = false;
+			mFadeAwayTime = 10;
+			mTextManager->getText("GameSaved")->setTextToInactive();
+		}
+
 		// Sleep until enough time has elapsed
 		gameLoop.sleepUntilElapsed( MAX_TIME_BETWEEN_FRAMES );
 
@@ -312,6 +324,8 @@ void Game::doLoop()
 		gameLoop.stop();
 
 	}	
+	if(mLost)
+		gameOver();
 }
 
 
@@ -370,6 +384,8 @@ void Game::handleEvent(const Event &theEvent)
 	{
 		mInGame = false;
 		mInApplication = false;
+		if(mInGame == false && mLost)
+			mLost = false;
 	}
 
 	if (mLevelStart == true)
@@ -405,6 +421,12 @@ void Game::handleEvent(const Event &theEvent)
 
 	if (theEvent.getType() == SAVE_GAME) 
 	{
+		if (mTextManager->getText("GameSaved") == nullptr)
+		{
+			mTextManager->addText("GameSaved", *mUIFont, *mUIFontColor, "Game Saved", Vector2(500, 500));			
+		}
+		mSaving = true;
+		mTextManager->getText("GameSaved")->setTextToActive();
 		saveGame();
 	}
 
@@ -592,6 +614,7 @@ void Game::deductLife()
 
 	if (mLives <= 0) 
 	{
+		mLost = true;
 		mInApplication = false;
 		mInGame = false;
 	}
@@ -612,6 +635,34 @@ void Game::setStateOfApplication(bool status)
 	mInApplication = status;
 }
 
+void Game::gameOver()
+{
+
+	//Remove old Texts
+	mTextManager->removeAllTexts();
+
+	// Create Game Over Text
+	mTextManager->addText("End", *mUIFont, *mUIFontColor, "Game Over", Vector2(300, 300));
+	mTextManager->addText("Escape", *mUIFont, *mUIFontColor, "Escape to End", Vector2(300, 320));
+	mTextManager->getText("End")->setTextToActive();
+	mTextManager->getText("Escape")->setTextToActive();
+
+	while (mLost)
+	{
+		mCurrentInputSystem->update();
+
+		// Draw the background image for the level
+		mCurrentSystem->getGraphicsSystem().drawBackground(*mBackgroundImage, (float)mBackgroundScalingValue);
+
+		
+		// Draw all active texts
+		mTextManager->draw();
+
+		// Flip display after everything has been drawn to the back buffer
+		flipDisplay();
+	}
+}
+
 
 
 
@@ -629,6 +680,7 @@ void Game::saveGame()
 // This function loads the game
 void Game::loadGame() 
 {
+	mLevelStart = true;
 	mSaveState.readFile(SAVE_STATE_TEXT_FILE_PATH);
 }
 

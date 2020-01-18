@@ -258,6 +258,7 @@ public:
 
 	// Game Status
 	void setStateOfApplication(bool status);
+	void gameOver();
 
 	// Accessors
 	static Game* getStaticInstance();
@@ -340,6 +341,8 @@ private:
 	bool mIsDisplaying;
 	bool mInApplication;
 	bool mInGame;
+	bool mLost;
+	bool mSaving;
 
 	// Integers
 	int mFramesPerSecond;
@@ -362,6 +365,7 @@ private:
 	double mKoopaSpinSpeed;
 	double mPiranhaPlantSpeed;
 	double mPiranhaWaitTime;
+	double mFadeAwayTime;
 
 	// Boolean
 	bool mLevelStart;
