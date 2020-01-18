@@ -13,6 +13,7 @@ Unit::Unit()
 	mUnitType = NONE;
 	mVelocity = 0;
 	mEffect = false;
+	mhasNoCollision = false;
 	mZIndex = 1;
 }
 

@@ -11,6 +11,7 @@ Thwomp::Thwomp() : Unit()
 	mIsMovingDown = false;
 	mIsMovingUp = false;
 	mInitialPosition = Vector2(0, 0);
+	mhasNoCollision = true;
 }
 
 
@@ -26,6 +27,7 @@ Thwomp::Thwomp(Vector2 newPos)
 	mIsMovingDown = false;
 	mIsMovingUp = false;
 	mInitialPosition = newPos;
+	mhasNoCollision = true;
 }
 
 
@@ -85,24 +87,7 @@ void Thwomp::update(double newTimeBetweenFrames)
 			Game::getStaticInstance()->getUnitManager()->getUnit(i)->getLocation().mY < (mCurrentLocation.mY + mVelocity) + mDimensions.mY
 			)
 		{
-			if (Game::getStaticInstance()->getUnitManager()->getUnit(i) != this && mIsMovingDown)
-			{
-				mVelocity = 0;
-				mIsMovingDown = false;
-				mIsMovingUp = true;
-			}
-		}
-	}
-
-	for (int i = 0; i < Game::getStaticInstance()->getUnitManager()->getTileSize(); i++)
-	{
-		if (Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX > mCurrentLocation.mX - mDimensions.mX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mX < mCurrentLocation.mX + mDimensions.mX &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY >(mCurrentLocation.mY + mVelocity) - mDimensions.mY &&
-			Game::getStaticInstance()->getUnitManager()->getTile(i)->getLocation().mY < (mCurrentLocation.mY + mVelocity) + mDimensions.mY
-			)
-		{
-			if (mIsMovingDown) 
+			if (Game::getStaticInstance()->getUnitManager()->getUnit(i) != this && Game::getStaticInstance()->getUnitManager()->getUnit(i)->mUnitType != FIREBALL && mIsMovingDown)
 			{
 				mVelocity = 0;
 				mIsMovingDown = false;

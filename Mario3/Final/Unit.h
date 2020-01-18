@@ -140,6 +140,7 @@ private:
 	bool mCanBeDamaged;//used to check if the object is damagable;
 	bool mIsWalking;
 	bool mIsStationary;
+	bool mhasNoCollision;
 
 	Direction mCurrentDirection;
 
