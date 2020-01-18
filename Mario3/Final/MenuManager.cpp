@@ -224,10 +224,12 @@ void MenuManager::sendInput(int num)
 		else if (mCurrentMenuElement == 2) 
 		{
 			Game::getStaticInstance()->setDifficulty(EASY_VALUE);
+			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 3)
 		{
 			Game::getStaticInstance()->mAudioManager->unmuteSounds();
+			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 4)
 		{
@@ -244,6 +246,7 @@ void MenuManager::sendInput(int num)
 		else if (mCurrentMenuElement == 3)
 		{
 			Game::getStaticInstance()->mAudioManager->muteSounds();
+			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 1) 
 		{
@@ -252,10 +255,12 @@ void MenuManager::sendInput(int num)
 		else if (mCurrentMenuElement == 2)
 		{
 			Game::getStaticInstance()->setDifficulty(MEDIUM_VALUE);
+			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 4)
 		{
 			Game::getStaticInstance()->loadLanguage(PIRATE_TEXT_FILE_PATH);
+			mCurrentMenuElement = 1;
 			updateMenuUI();
 		}
 		break;
@@ -271,6 +276,7 @@ void MenuManager::sendInput(int num)
 		else if (mCurrentMenuElement == 2)
 		{
 			Game::getStaticInstance()->setDifficulty(HARD_VALUE);
+			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 3)
 		{
@@ -279,6 +285,7 @@ void MenuManager::sendInput(int num)
 		else if (mCurrentMenuElement == 4)
 		{
 			Game::getStaticInstance()->loadLanguage(VULCAN_TEXT_FILE_PATH);
+			mCurrentMenuElement = 1;
 			updateMenuUI();
 		}
 		break;
