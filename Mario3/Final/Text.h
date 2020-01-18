@@ -34,6 +34,7 @@ public:
 	// Acessors
 	string getName();
 	int getScore() { return mScoreAmt; }
+	bool getActivity() { return mIsActive; }
 
 private:
 
@@ -58,6 +59,9 @@ private:
 
 	// Vector2's
 	Vector2 mTextPosition;
+
+	sf::Text mText;
+	sf::Font mFont;
 
 };
 

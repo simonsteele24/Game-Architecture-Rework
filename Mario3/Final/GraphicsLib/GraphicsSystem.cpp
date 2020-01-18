@@ -178,21 +178,8 @@ void GraphicsSystem::drawFromSpriteSheet(GraphicsBuffer & targetGraphicsBuffer, 
 
 
 // This function draws text to a target location with a font, color, and message to the current graphics buffer / bitmaps
-void GraphicsSystem::drawText(Fonts font, Colors newColor, string newMessage, Vector2 newPosition, int fontSize, Colors fillColor)
+void GraphicsSystem::drawText(sf::Text mText)
 {
-	sf::Font mFont = sf::Font();
-	mFont.loadFromFile(font.mFilePath);
-	Colors mTextColor = newColor;
-	string mMessage = newMessage;
-	Vector2 mTextPosition = newPosition;
-
-	sf::Text mText = sf::Text();
-	mText.setFont(mFont);
-	mText.setCharacterSize(20);
-	mText.setFillColor(sf::Color::Black);
-	mText.setString(mMessage);
-	mText.setPosition((float)mTextPosition.mX, (float)mTextPosition.mY);
-
 	window->draw(mText);
 }
 

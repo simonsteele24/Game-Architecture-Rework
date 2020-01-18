@@ -11,6 +11,7 @@ Text::Text()
 	mScoreAmt = 0;
 	mTextPosition = Vector2(0, 0);
 	mIsActive = false;
+	mText = sf::Text();
 }
 
 
@@ -32,6 +33,16 @@ Text::Text(string newName, Fonts & newFont, Colors newColor, string newMessage, 
 	mMessage = newMessage;
 	mTextPosition = newPosition;
 
+	mFont = sf::Font();
+	mFont.loadFromFile(newFont.mFilePath);
+
+	mText = sf::Text();
+	mText.setFont(mFont);
+	mText.setCharacterSize(20);
+	mText.setFillColor(sf::Color::Black);
+	mText.setString(mMessage);
+	mText.setPosition((float)mTextPosition.mX, (float)mTextPosition.mY);
+
 	mIsActive = false;
 }
 
@@ -51,18 +62,14 @@ Text::~Text()
 // This function draws the text to the screen
 void Text::drawText() 
 {
-	if (mIsActive) 
+	if (mName == NAME_OF_SCORE_AMOUNT_TEXT)
 	{
-		if (mName == NAME_OF_SCORE_AMOUNT_TEXT)
-		{
-			changeMessage(mScore);//change the message by passing in the current score
-			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mFonts,mTextColor,mMessage,mTextPosition,20,mTextColor);
-		}
-		else//if anything over than the specific info above
-		{
-			Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mFonts, mTextColor, mMessage, mTextPosition, 20, mTextColor);
-		}
-		
+		changeMessage(mScore);//change the message by passing in the current score
+		Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mText);
+	}
+	else//if anything over than the specific info above
+	{
+		Game::getStaticInstance()->getCurrentSystem()->getGraphicsSystem().drawText(mText);
 	}
 }
 
@@ -88,6 +95,7 @@ int Text::checkDigits(string amountToCheck)
 void Text::changeMessage(string newMessage) 
 {
 	mMessage = newMessage;
+	mText.setString(newMessage);
 }
 
 void Text::addScore(int amountAdd)
