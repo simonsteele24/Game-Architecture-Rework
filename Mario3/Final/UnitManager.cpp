@@ -657,48 +657,52 @@ void UnitManager::calculateCollisions()
 				{
 					Vector2 normal = Vector2(mPlayer->getLocation().mX - mUnits[i]->getLocation().mX, (mPlayer->getLocation().mY + (mPlayer->mDimensions.mY - 32)) - mUnits[i]->getLocation().mY);
 
-					if (normal.mX != 0 && normal.mY != 0)
+					if (mUnits[i]->mUnitType != COIN) 
 					{
-						if (normal.mY < 0 || normal.mY > mUnits[i]->mDimensions.mY / 2)
+						if (normal.mX != 0 && normal.mY != 0)
 						{
-							if (normal.mY > 0)
+							if (normal.mY < 0 || normal.mY > mUnits[i]->mDimensions.mY / 2)
 							{
-								normal.mY /= abs(normal.mY);
-								mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mUnits[i]->getDimensions().mY));
+								if (normal.mY > 0)
+								{
+									normal.mY /= abs(normal.mY);
+									mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mUnits[i]->getDimensions().mY));
+								}
+								else
+								{
+									normal.mY /= abs(normal.mY);
+									mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+								}
 							}
 							else
+							{
+								if (normal.mX < 0)
+								{
+									normal.mX /= abs(normal.mX);
+									mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mPlayer->getDimensions().mX));
+								}
+								else
+								{
+									normal.mX /= abs(normal.mX);
+									mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+								}
+							}
+						}
+						else
+						{
+							if (normal.mX != 0)
+							{
+								normal.mX /= abs(normal.mX);
+								mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
+							}
+							if (normal.mY != 0)
 							{
 								normal.mY /= abs(normal.mY);
 								mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
 							}
 						}
-						else
-						{
-							if (normal.mX < 0)
-							{
-								normal.mX /= abs(normal.mX);
-								mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mPlayer->getDimensions().mX));
-							}
-							else
-							{
-								normal.mX /= abs(normal.mX);
-								mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
-							}
-						}
 					}
-					else
-					{
-						if (normal.mX != 0)
-						{
-							normal.mX /= abs(normal.mX);
-							mPlayer->setLocationX(mUnits[i]->getLocation().mX + (normal.mX * mUnits[i]->getDimensions().mX));
-						}
-						if (normal.mY != 0)
-						{
-							normal.mY /= abs(normal.mY);
-							mPlayer->setLocationY(mUnits[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
-						}
-					}
+					
 					mUnits[i]->onCollide(*mPlayer, 0);
 					mPlayer->onCollide(*mUnits[i], i);
 	
