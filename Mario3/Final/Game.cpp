@@ -335,14 +335,11 @@ void Game::doLoop()
 // This function deals with the render step of the game loop
 void Game::render() 
 {
-	
 	// Draw the background image for the level
 	mCurrentSystem->getGraphicsSystem().drawBackground(*mBackgroundImage, (float) mBackgroundScalingValue);
-
 	
 	// Draw all units onto the back buffer
 	mUnitManager->draw();
-
 
 	// Draw all active texts
 	mTextManager->draw();

@@ -107,6 +107,8 @@ public:
 
 private:
 
+	GraphicsBuffer * tempBuffer;
+
 	// UnitTypes
 	UnitTypes mUnitType;
 	UnitMovabilityType mUnitMovability = NON_MOVEABLE;

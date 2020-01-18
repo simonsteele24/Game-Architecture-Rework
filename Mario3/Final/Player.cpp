@@ -401,7 +401,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 				Game::getStaticInstance()->getUnitManager()->getUnit(collidingObjectIndex)->swapAnimation(NAME_OF_EMPTY_QUESTION_BLOCK);
 			}
 		}
-		else if (mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY) 
+		else if (mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY && mVelocity > 0) 
 		{
 			mVelocity = 0;
 			mInMidAir = false;
@@ -456,7 +456,7 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 				Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);
 			}
 		}
-		else if (mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY)
+		else if (mCurrentLocation.mY <= collidingObject.getLocation().mY - collidingObject.getDimensions().mY && mVelocity > 0)
 		{
 			mVelocity = 0;
 			mInMidAir = false;

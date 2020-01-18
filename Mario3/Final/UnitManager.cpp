@@ -304,6 +304,7 @@ void UnitManager::update( double timeBetweenFrames )
 // themselves to the back buffer
 void UnitManager::draw() 
 {
+
 	for (int i = 0, max = mProps.size(); i < max; i++)
 	{
 		mProps[i]->draw();
@@ -311,18 +312,26 @@ void UnitManager::draw()
 
 	for (int i = 0, max = mPlatforms.size(); i < max; i++)
 	{
-		mPlatforms[i]->draw();
+		if (mPlatforms[i]->isVisible()) 
+		{
+			mPlatforms[i]->draw();
+		}
 	}
 
 	for (int i = 0, max = mTiles.size(); i < max; i++)
 	{
-		mTiles[i]->draw();
+		if (mTiles[i]->isVisible()) 
+		{
+			mTiles[i]->draw();
+		}
 	}
 
-	sort(mUnits.begin(), mUnits.end());
 	for (int i = 0, max = mUnits.size(); i < max; i++)
 	{
-		mUnits[i]->draw();
+		if (mUnits[i]->isVisible()) 
+		{
+			mUnits[i]->draw();
+		}
 	}
 
 	if (mPlayer != nullptr)
