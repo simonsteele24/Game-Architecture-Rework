@@ -785,16 +785,16 @@ void UnitManager::calculateCollisions()
 			{
 				if (mPlayer->getLocation().mY <= mPlatforms[i]->getLocation().mY && mPlayer->getVelocity() > 0) 
 				{
-					Vector2 normal = Vector2(mPlayer->getLocation().mX - mPlatforms[i]->getLocation().mX, mPlayer->getLocation().mY - mPlatforms[i]->getLocation().mY);
+					Vector2 normal = Vector2(mPlayer->getLocation().mX - mPlatforms[i]->getLocation().mX, (mPlayer->getLocation().mY - mPlayer->mVelocity) - mPlatforms[i]->getLocation().mY);
 
-					if (normal.mY != 0)
+					if (normal.mY <= -mPlayer->mDimensions.mY)
 					{
+						cout << normal.mY << endl;
 						normal.mY /= abs(normal.mY);
 						mPlayer->setLocationY(mPlatforms[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
+						mPlayer->onCollide(*mPlatforms[i], i);
+						mPlatforms[i]->onCollide(*mPlayer, 0);
 					}
-
-					mPlayer->onCollide(*mPlatforms[i], i);
-					mPlatforms[i]->onCollide(*mPlayer, 0);
 				}
 			}
 		}
