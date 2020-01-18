@@ -789,7 +789,6 @@ void UnitManager::calculateCollisions()
 
 					if (normal.mY <= -mPlayer->mDimensions.mY)
 					{
-						cout << normal.mY << endl;
 						normal.mY /= abs(normal.mY);
 						mPlayer->setLocationY(mPlatforms[i]->getLocation().mY + (normal.mY * mPlayer->getDimensions().mY));
 						mPlayer->onCollide(*mPlatforms[i], i);

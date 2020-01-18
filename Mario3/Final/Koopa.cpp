@@ -162,7 +162,7 @@ void Koopa::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		}
 		break;
 	default:
-		if ((mCurrentLocation.mX <= collidingObject.getLocation().mX || mCurrentLocation.mX >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && !(mCurrentLocation.mY < collidingObject.mCurrentLocation.mY - mDimensions.mY && mCurrentLocation.mY > collidingObject.mCurrentLocation.mY + mDimensions.mY))
+		if ((mCurrentLocation.mX  <= collidingObject.getLocation().mX || mCurrentLocation.mX + mDimensions.mX >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && abs(collidingObject.getLocation().mY - mCurrentLocation.mY) < mDimensions.mY / 2)
 		{
 			changeDirection();
 		}
