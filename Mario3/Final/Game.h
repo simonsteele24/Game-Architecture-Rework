@@ -73,16 +73,22 @@ const string NAME_OF_BACKGROUND_END_BUFFER = "End Background";
 
 //Audio
 const string THEME_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\maintheme.flac";
+const string CASTLE_THEME_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\castletheme.flac";
 const string AUDIO_JUMP_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\jump.wav";
 const string AUDIO_COIN_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\coin.wav";
 const string AUDIO_POWERUP_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\powerup.wav";
 const string AUDIO_STOMP_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\stomp.wav";
+const string AUDIO_KICK_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\kick.wav";
+const string AUDIO_LOST_LIFE_FILE_PATH = "..\\..\\Mario3\\Assets\\Audio\\lostlife.wav";
+
 const string NAME_OF_THEME = "Theme";
+const string NAME_OF_CASTLE_THEME = "CastleTheme";
 const string NAME_OF_AUDIO_JUMP = "Jump";
 const string NAME_OF_AUDIO_COIN = "Coin";
 const string NAME_OF_AUDIO_POWERUP = "Powerup";
 const string NAME_OF_AUDIO_STOMP = "Stomp";
-
+const string NAME_OF_AUDIO_KICK = "Kick";
+const string NAME_OF_AUDIO_LOST_LIFE = "LostLife";
 
 //Player 
 const string NAME_OF_PLAYER = "Player";

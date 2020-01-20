@@ -3,7 +3,7 @@
 
 LevelManager::LevelManager()
 {
-	mLevelNum = 4;
+	mLevelNum = 3;
 }
 
 LevelManager::~LevelManager()
@@ -13,6 +13,11 @@ LevelManager::~LevelManager()
 void LevelManager::loadNextLevel() 
 {
 	mLevelNum++;
+
+	if (mLevelNum == 5)
+	{
+		Game::getStaticInstance()->mAudioManager->playCastleTheme();
+	}
 
 	if (mLevelNum > MAX_LEVELS) 
 	{
@@ -33,6 +38,10 @@ void LevelManager::loadNextLevel()
 
 void LevelManager::loadCurrentLevel() 
 {
+	if (mLevelNum == 5)
+	{
+		Game::getStaticInstance()->mAudioManager->playCastleTheme();
+	}
 	Game::getStaticInstance()->mUnitManager->removeAllUnits();
 	Game::getStaticInstance()->mUnitManager->setCameraPosition(Vector2(0, 0));
 	Game::getStaticInstance()->mReader.readLevelsFile(LEVEL_TEXT_FILE_PATH + to_string(mLevelNum) + ".txt");

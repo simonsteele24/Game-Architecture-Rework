@@ -14,6 +14,9 @@ Player::Player() : Unit()
 	mInMidAir = false;
 	mBounce = false;
 	mIsMoving = false;
+	mInvincible = false;
+	mIsThicc = false;
+	mStillThicc = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
 	mIsTrigger = false;
@@ -39,6 +42,9 @@ Player::Player(Vector2 newPos)
 	mInMidAir = false;
 	mBounce = false;
 	mIsMoving = false;
+	mInvincible = false;
+	mIsThicc = false;
+	mStillThicc = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
 	mIsTrigger = false;
@@ -322,6 +328,7 @@ int Player::getIndexOfColor()
 // This function sets the ability of death to true
 void Player::commenceDeath() 
 {
+	Game::getStaticInstance()->getAudioManager()->playSound(NAME_OF_AUDIO_LOST_LIFE);
 	swapAnimation(NAME_OF_PLAYER_DEATH_ANIMATION);
 	mIsDying = true;
 }

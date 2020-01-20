@@ -18,8 +18,14 @@ public:
 	~AudioManager();
 
 	void addSound(string name, Audio newAudio, bool loop);
-	void playSound(string name);
+	void addSound(string name);
 	void removeSound(string name);
+
+	void playSound(string name);
+	void stopSound(string name);
+	void removeFromPlaying(string name);
+	void playMainTheme();
+	void playCastleTheme();
 
 	void handleEvent(const Event& theEvent);
 
@@ -28,6 +34,7 @@ public:
 
 	void update();
 
+	bool themePlaying = false;
 private:
 
 	map<string, Audio> mSounds;
