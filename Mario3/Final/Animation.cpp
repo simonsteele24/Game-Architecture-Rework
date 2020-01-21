@@ -50,7 +50,7 @@ void Animation::update( double framesPassed )
 	// enough time has passed, it will change frames
  	mTimeElapsed -= framesPassed;
 
-	if ((int)Game::getStaticInstance()->time%(int)mTargetTime <= 10 || (int)Game::getStaticInstance()->time % (int)mTargetTime >= 90)
+	if (mTimeElapsed <= 0)
 	{
 		updateSprite();
 		mTimeElapsed = mTargetTime;

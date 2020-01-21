@@ -567,14 +567,11 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	case DRYBONES:
 		if (collidingObject.getLocation().mY > mCurrentLocation.mY)
 		{
-			if (collidingObject.mSuccessfulHit == false)
-			{
-				mBounceKills += 1;
-				collidingObject.mSuccessfulHit = true;//the unit has been hit
-				Game::getStaticInstance()->addToScore(Game::getStaticInstance()->getScoreAddAmt() * (Game::getStaticInstance()->getScoreMultiplier() * mBounceKills));//add to member score variable
-				Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));//pass in the variable to change score
-				//mCanDestroyTarget = false;//reset it			
-			}
+			mBounceKills += 1;
+			Game::getStaticInstance()->addToScore(Game::getStaticInstance()->getScoreAddAmt() * (Game::getStaticInstance()->getScoreMultiplier() * mBounceKills));//add to member score variable
+			Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));//pass in the variable to change score
+			mVelocity = 0;
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
 		}
 		else
 		{
