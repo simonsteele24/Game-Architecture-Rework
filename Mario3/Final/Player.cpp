@@ -15,7 +15,6 @@ Player::Player() : Unit()
 	mBounce = false;
 	mIsMoving = false;
 	mInvincible = false;
-	mIsThicc = false;
 	mStillThicc = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
@@ -43,7 +42,6 @@ Player::Player(Vector2 newPos)
 	mBounce = false;
 	mIsMoving = false;
 	mInvincible = false;
-	mIsThicc = false;
 	mStillThicc = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
@@ -70,6 +68,8 @@ Player::~Player()
 // This function is the update function for the Player Unit
 void Player::update(double newTimeBetweenFrames) 
 {
+	cout << mIsThicc << endl;
+
 	if (isAnimationStopped == false)
 	{
 		if (mIsMoving == false) 
@@ -100,7 +100,14 @@ void Player::update(double newTimeBetweenFrames)
 
 	if (mCurrentLocation.mY > Game::getStaticInstance()->getDisplayDimensions().mY) 
 	{
-		Game::getStaticInstance()->deductLife();
+		if (mIsDying) 
+		{
+			Game::getStaticInstance()->deductLife(false);
+		}
+		else 
+		{
+			Game::getStaticInstance()->deductLife(mIsThicc);
+		}
 	}
 
 	if (mIsDying == false)

@@ -19,6 +19,7 @@ public:
 	// Accessors
 	bool getGameStatus() { return mDone; }
 	bool getBounceStatus() { return mBounce; }
+	bool getPlayerSize() { return mIsThicc; }
 
 	// Mutators
 	void jump();
@@ -71,7 +72,7 @@ private:
 	bool mCanDestroyTarget;
 	bool mIsDying;
 	bool mDone;
-	bool mIsThicc;
+	bool mIsThicc = false;
 	bool mInvincible;
 	bool mStillThicc;
 	bool mIsTrigger;

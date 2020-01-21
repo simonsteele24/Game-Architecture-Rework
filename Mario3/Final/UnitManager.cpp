@@ -428,6 +428,8 @@ void UnitManager::removeAllUnits()
 void UnitManager::createPlayer(Vector2 newPos) 
 {
 	mPlayer = new Player(newPos);
+	mPlayer->mIsThicc = Game::getStaticInstance()->getPlayerPowerupState();
+	mPlayer->mStillThicc = Game::getStaticInstance()->getPlayerPowerupState();
 }
 
 
@@ -660,7 +662,7 @@ void UnitManager::calculateCollisions()
 					Vector2 regularCollidingCoordinates = Vector2(mUnits[i]->getLocation().mX + (mUnits[i]->mDimensions.mX / 2), mUnits[i]->getLocation().mY + (mUnits[i]->mDimensions.mY / 2));
 					Vector2 normal2 = Vector2(regularCoordinatesPlayer.mX - regularCollidingCoordinates.mX, regularCoordinatesPlayer.mY - regularCollidingCoordinates.mY);
 
-					float foo = abs(normal2.mX) - (mUnits[i]->mDimensions.mX / 2);
+					double foo = abs(normal2.mX) - (mUnits[i]->mDimensions.mX / 2);
 
 					if (mUnits[i]->mUnitType != COIN) 
 					{

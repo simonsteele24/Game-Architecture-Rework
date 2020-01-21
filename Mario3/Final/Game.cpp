@@ -610,7 +610,7 @@ bool Game::getStateOfApplication()
 
 
 // This function deducts one life from the player and restarts the game
-void Game::deductLife() 
+void Game::deductLife(bool playerStillHasLife) 
 {
 	mLives--;
 
@@ -623,7 +623,7 @@ void Game::deductLife()
 	else 
 	{
 		mTextManager->getText(NAME_OF_LIVES_TEXT)->changeMessage(mLanguageManager.getWord(NAME_OF_LIVES_WORD) + to_string(mLives));
-		restartLevel();
+		restartLevel(playerStillHasLife);
 	}
 }
 
@@ -709,6 +709,10 @@ void Game::loadLanguage(string fileName)
 // This function loads the next level
 void Game::loadLevel() 
 {
+	if (mUnitManager->getPlayer() != nullptr) 
+	{
+		mPlayerStillHasPowerup = mUnitManager->getPlayer()->getPlayerSize();
+	}
 	mLevelManager.loadNextLevel();
 }
 
@@ -717,8 +721,9 @@ void Game::loadLevel()
 
 
 // This function restarts the current level
-void Game::restartLevel() 
+void Game::restartLevel(bool stillHasPowerup)
 {
+	mPlayerStillHasPowerup = stillHasPowerup;
 	mLevelManager.loadCurrentLevel();
 }
 
@@ -742,4 +747,14 @@ void Game::setDifficulty(int newDifficulty)
 	mDifficulty = newDifficulty;
 	mLives = DEFAULT_LIVES - mDifficulty;
 	mTextManager->getText(NAME_OF_LIVES_TEXT)->changeMessage(mLanguageManager.getWord(NAME_OF_LIVES_WORD) + to_string(mLives));
+}
+
+
+
+
+
+// This function sets if the player powerup is still active
+void Game::setPlayerPowerup(bool _powerup)
+{
+	mPlayerStillHasPowerup = _powerup;
 }

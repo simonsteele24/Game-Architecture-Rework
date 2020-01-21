@@ -3,7 +3,7 @@
 
 LevelManager::LevelManager()
 {
-	mLevelNum = 4;
+	mLevelNum = 0;
 }
 
 LevelManager::~LevelManager()

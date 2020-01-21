@@ -252,15 +252,16 @@ public:
 	void loadGame();
 	void loadLanguage(string fileName);
 	void loadLevel();
-	void restartLevel();
+	void restartLevel(bool stillHasPowerup);
 	void setDifficulty(int newDifficulty);
+	void setPlayerPowerup(bool _powerup);
 
 	// UI Mutators
 	void setScoreMultiplier(int multiplier);
 	void setScoreAddAmt(int scoreAmt);
 	void addToCoinAmount();
 	void addToScore(int scoreAmt);
-	void deductLife();
+	void deductLife(bool playerStillHasLife);
 
 	// Game Status
 	void setStateOfApplication(bool status);
@@ -294,6 +295,7 @@ public:
 	double getPiranhaMoveSpd() { return mPiranhaPlantSpeed; }
 	double getPiranhaWaitTime() { return mPiranhaWaitTime; }
 	bool getLevelStart() { return mLevelStart; }
+	bool getPlayerPowerupState() { return mPlayerStillHasPowerup; }
 
 	map <string, AnimationInformation> mAnimationLinks;
 
@@ -349,6 +351,7 @@ private:
 	bool mInGame;
 	bool mLost;
 	bool mSaving;
+	bool mPlayerStillHasPowerup;
 
 	// Integers
 	int mFramesPerSecond;
