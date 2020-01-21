@@ -246,17 +246,17 @@ Lava_Sprites_Per_Row_And_Column: 1 4
 
 Dry_Bones_Left
 Dry_Bones_Left_Animation: DryBones_Left.png
-Dry_Bones_Dimensions: 27 48
+Dry_Bones_Dimensions: 27 46
 Dry_Bones_Sprites_Per_Row_And_Column: 1 2
 
 Dry_Bones_Right
 Dry_Bones_Right_Animation: DryBones_Right.png
-Dry_Bones_Dimensions: 27 48
+Dry_Bones_Dimensions: 27 46
 Dry_Bones_Sprites_Per_Row_And_Column: 1 2
 
 Dry_Bones_Down
 Dry_Bone_Down_Animation: DryBones_Down.png
-Dry_Bones_Down_Dimensions: 46 32
+Dry_Bones_Down_Dimensions: 46 52
 Dry_Bones_Sprites_Per_Row_And_Column: 1 1
 
 Fireball_Up
