@@ -28,7 +28,6 @@ private:
 
 	float mCooldownRemaining;
 	float mMaxDistanceToTravel;
-	float mMinDistanceToTravel;
 };
 
 

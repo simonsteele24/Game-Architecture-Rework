@@ -11,6 +11,7 @@ public:
 
 	// Friends
 	friend class UnitManager;
+	friend class SaveStateManager;
 
 	// Update functions
 	void update(double newTimeBetweenFrames);

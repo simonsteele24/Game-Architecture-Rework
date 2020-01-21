@@ -68,8 +68,6 @@ Player::~Player()
 // This function is the update function for the Player Unit
 void Player::update(double newTimeBetweenFrames) 
 {
-	cout << mIsThicc << endl;
-
 	if (isAnimationStopped == false)
 	{
 		if (mIsMoving == false) 

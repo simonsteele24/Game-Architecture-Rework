@@ -21,6 +21,7 @@ PiranhaPlant::PiranhaPlant(Vector2 newPos)
 {
 	mUnitType = PIRANHAPLANT;
 	mCurrentLocation = newPos;
+	mInitialPosition = newPos;
 	mCurrentDirection = UP;
 	mPreviousDirection = STILL;
 	mCooldownRemaining = 0;

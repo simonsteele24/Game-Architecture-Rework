@@ -30,6 +30,7 @@ enum UnitTypes
 	DRYBONES,
 	BOOMBOOM,
 	FIREBALL,
+	SIDE_PIPE,
 	NONE
 };
 
@@ -82,6 +83,7 @@ public:
 	bool getIsMovingUp() { return mIsMovingDown; }
 	bool getEffectStatus() { return mEffect; }
 	bool getDamageState() { return mCanBeDamaged; }
+	float getMinDistanceToTravel() { return mMinDistanceToTravel; }
 
 	// Mutators
 	void draw();
@@ -141,6 +143,9 @@ private:
 	bool mIsWalking;
 	bool mIsStationary;
 	bool mhasNoCollision;
+
+	// Floats
+	float mMinDistanceToTravel;
 
 	Direction mCurrentDirection;
 

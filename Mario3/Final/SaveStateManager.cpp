@@ -58,10 +58,26 @@ bool SaveStateManager::readFile(string fileName)
 
 	// Create a unit within the unit manager
 	Game::getStaticInstance()->mUnitManager->createPlayer(Vector2(temp.mX, temp.mY));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER_JUMP, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER_JUMP), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_JUMP].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_JUMP].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_JUMP].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER_DEATH_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER_DEATH_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_DEATH_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_DEATH_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_DEATH_ANIMATION].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER_JUMP, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER_JUMP), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_JUMP].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_JUMP].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_JUMP].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER_RED, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER_RED), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER_RED_JUMP, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER_RED_JUMP), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED_JUMP].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED_JUMP].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_RED_JUMP].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER_GREEN, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER_GREEN), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_SUPER_PLAYER_GREEN_JUMP, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_PLAYER_GREEN_JUMP), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN_JUMP].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN_JUMP].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_PLAYER_GREEN_JUMP].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER_RED, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER_RED), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_RED].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_RED].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_RED].mSpriteDimensions));
+	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER_GREEN, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER_GREEN), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_GREEN].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_GREEN].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER_GREEN].mSpriteDimensions));
 
 	fin >> input;
 
 	Game::getStaticInstance()->mUnitManager->getPlayer()->setVelocity(stoi(input));
+
+	fin >> input;
+
+	Game::getStaticInstance()->mUnitManager->getPlayer()->mIsThicc = (input == "1");
+	Game::getStaticInstance()->mUnitManager->getPlayer()->mStillThicc = (input == "1");
 
 	// Add the dean smurf walk animation and the default smurf walk animation to the newly created smurf unit
 	Game::getStaticInstance()->mUnitManager->addPlayerAnimation(Animation(NAME_OF_PLAYER, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PLAYER), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PLAYER].mSpriteDimensions));
@@ -82,6 +98,7 @@ bool SaveStateManager::readFile(string fileName)
 			temp.mY = stoi(input);
 
 			Game::getStaticInstance()->mUnitManager->createQuestionBlock(temp);
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setEffect(true);
 			
 			fin >> input;
 
@@ -89,6 +106,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_QUESTION_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_QUESTION_BLOCK), Game::getStaticInstance()->mAnimationLinks[NAME_OF_QUESTION_BLOCK].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_QUESTION_BLOCK].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_QUESTION_BLOCK].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_EMPTY_QUESTION_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_EMPTY_QUESTION_BLOCK), Game::getStaticInstance()->mAnimationLinks[NAME_OF_EMPTY_QUESTION_BLOCK].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_EMPTY_QUESTION_BLOCK].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_EMPTY_QUESTION_BLOCK].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(QUESTION_BLOCK);
 			break;
 		case 2:
 			fin >> input;
@@ -102,6 +120,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BRICK_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BRICK_BLOCK), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BRICK_BLOCK].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BRICK_BLOCK].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BRICK_BLOCK].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(BRICK_BLOCK);
 			break;
 		case 3:
 			fin >> input;
@@ -115,6 +134,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_END_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_END_BLOCK), Game::getStaticInstance()->mAnimationLinks[NAME_OF_END_BLOCK].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_END_BLOCK].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_END_BLOCK].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(END_BLOCK);
 			break;
 		case 4:
 			fin >> input;
@@ -128,6 +148,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_GOOMBA, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_GOOMBA), Game::getStaticInstance()->mAnimationLinks[NAME_OF_GOOMBA].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_GOOMBA].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_GOOMBA].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(GOOMBA);
 			break;
 		case 5:
 			fin >> input;
@@ -144,6 +165,7 @@ bool SaveStateManager::readFile(string fileName)
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_KOOPA_RIGHT_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_KOOPA_RIGHT_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_RIGHT_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_RIGHT_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_RIGHT_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_KOOPA_SHELL_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_KOOPA_SHELL_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_KOOPA_SHELL_SPIN_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_KOOPA_SHELL_SPIN_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_SPIN_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_SPIN_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_KOOPA_SHELL_SPIN_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(KOOPA);
 			break;
 		case 6:
 			fin >> input;
@@ -155,8 +177,8 @@ bool SaveStateManager::readFile(string fileName)
 
 			fin >> input;
 
-			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_PIRANHA, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_PIRANHA), Game::getStaticInstance()->mAnimationLinks[NAME_OF_PIRANHA].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PIRANHA].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_PIRANHA].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(PIRANHAPLANT);
 			break;
 		case 7:
 			fin >> input;
@@ -184,6 +206,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_SUPER_MUSHROOM, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_SUPER_MUSHROOM), Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_MUSHROOM].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_MUSHROOM].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_SUPER_MUSHROOM].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(SUPER_MUSHROOM);
 			break;
 		case 9:
 			fin >> input;
@@ -240,6 +263,7 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_STARMEN, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_STARMEN), Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(STARMEN);
 			break;
 		case 14:
 			fin >> input;
@@ -269,6 +293,7 @@ bool SaveStateManager::readFile(string fileName)
 			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setIsMovingUp(stoi(input));
 
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_THWOMP_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_THWOMP_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_THWOMP_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_THWOMP_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_THWOMP_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(THWOMP);
 			break;
 		case 15:
 			fin >> input;
@@ -284,6 +309,7 @@ bool SaveStateManager::readFile(string fileName)
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_DRY_BONES_LEFT_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_DRY_BONES_LEFT_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_LEFT_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_LEFT_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_LEFT_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_DRY_BONES_RIGHT_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_DRY_BONES_RIGHT_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_RIGHT_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_RIGHT_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_RIGHT_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_DRY_BONES_DOWN_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_DRY_BONES_DOWN_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_DOWN_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_DOWN_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_DRY_BONES_DOWN_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(DRYBONES);
 			break;
 		case 16:
 			fin >> input;
@@ -300,6 +326,7 @@ bool SaveStateManager::readFile(string fileName)
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_DEFENSE_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_DEFENSE_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_JUMP_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_JUMP_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_SQUISHED_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_SQUISHED_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(BOOMBOOM);
 			break;
 		case 17:
 			fin >> input;
@@ -330,7 +357,24 @@ bool SaveStateManager::readFile(string fileName)
 
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_FIREBALL_UP_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_FIREBALL_UP_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_UP_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_UP_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_UP_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_FIREBALL_DOWN_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_FIREBALL_DOWN_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_DOWN_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_DOWN_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_FIREBALL_DOWN_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(FIREBALL);
 			break;
+		case 18:
+			fin >> input;
+			temp.mX = stoi(input);
+			fin >> input;
+			temp.mY = stoi(input);
+
+			Game::getStaticInstance()->mUnitManager->createUnit(temp);
+
+			fin >> input;
+
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setVelocity(stoi(input));
+			Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_HORIZONTAL_PIPE, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_HORIZONTAL_PIPE), Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(SIDE_PIPE);
+
+			break;
+
 		default:
 			fin >> input;
 			temp.mX = stoi(input);
@@ -523,7 +567,7 @@ bool SaveStateManager::readFile(string fileName)
 			temp.mY = stoi(input);
 
 			Game::getStaticInstance()->mUnitManager->createPlatform(temp);
-			Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setAnimation(Animation(NAME_OF_DEFAULT_BLOCK, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BLUE_FLOATING_BOX_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].mSpriteDimensions));
+			Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setAnimation(Animation(NAME_OF_BLUE_FLOATING_BOX_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BLUE_FLOATING_BOX_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BLUE_FLOATING_BOX_ANIMATION].mSpriteDimensions));
 			Game::getStaticInstance()->mUnitManager->getPlatform(Game::getStaticInstance()->mUnitManager->getPlatformSize() - 1)->setPlatformIdentity('6');
 			break;
 		case '7':
@@ -701,7 +745,7 @@ bool SaveStateManager::saveFile(string fileToSaveTo)
 		fout << Game::getStaticInstance()->mScore << endl;
 		fout << Game::getStaticInstance()->mUnitManager->getCameraPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getCameraPosition().mX << endl;
 
-		fout << Game::getStaticInstance()->mUnitManager->getPlayer()->getLocation().mX << " " << Game::getStaticInstance()->mUnitManager->getPlayer()->getLocation().mY << " " << Game::getStaticInstance()->mUnitManager->getPlayer()->getVelocity() << endl;
+		fout << Game::getStaticInstance()->mUnitManager->getPlayer()->getLocation().mX << " " << Game::getStaticInstance()->mUnitManager->getPlayer()->getLocation().mY << " " << Game::getStaticInstance()->mUnitManager->getPlayer()->getVelocity() << " " << Game::getStaticInstance()->mUnitManager->getPlayer()->getPlayerSize() << endl;
 
 		for (int i = 0; i < Game::getStaticInstance()->mUnitManager->getSize(); i++) 
 		{
@@ -710,6 +754,10 @@ bool SaveStateManager::saveFile(string fileToSaveTo)
 				fout << (int)Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getLocation().mX << " " <<
 					Game::getStaticInstance()->mUnitManager->getUnit(i)->getLocation().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << " " <<
 					Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getIsMovingDown() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getIsMovingUp() << endl;
+			}
+			if (Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() == PIRANHAPLANT) 
+			{
+				fout << (int)Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << endl;
 			}
 			else
 			{

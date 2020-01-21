@@ -450,7 +450,7 @@ void FileReader::readLevelsFile(string fileName)
 			case '_'://Creates a Pipe horizontally
 				Game::getStaticInstance()->mUnitManager->createUnit(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));
 				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_HORIZONTAL_PIPE, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_HORIZONTAL_PIPE), Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_HORIZONTAL_PIPE].mSpriteDimensions));
-				Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(PIPE);
+				Game::getStaticInstance()->mUnitManager->getUnit(Game::getStaticInstance()->mUnitManager->getSize() - 1)->setUnitType(SIDE_PIPE);
 				break;
 			case '|'://Creates a Pipe vertically
 				Game::getStaticInstance()->mUnitManager->createUnit(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));
