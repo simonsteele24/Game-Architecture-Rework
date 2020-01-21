@@ -28,9 +28,12 @@ Text * TextManager::getText(string nameOfText)
 	// without finding a match, return null
 	for (int i = 0, max = mTexts.size(); i < max; i++) 
 	{
-		if (mTexts[i]->getName() == nameOfText) 
+		if (mTexts[i] != nullptr)
 		{
-			return mTexts[i];
+			if (mTexts[i]->getName() == nameOfText)
+			{
+				return mTexts[i];
+			}
 		}
 	}
 

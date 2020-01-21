@@ -639,10 +639,6 @@ void Game::setStateOfApplication(bool status)
 
 void Game::gameOver()
 {
-
-	//Remove old Texts
-	mTextManager->removeAllTexts();
-
 	// Create Game Over Text
 	mTextManager->addText("End", *mUIFont, *mUIFontColor, "Game Over", Vector2(300, 300));
 	mTextManager->addText("Escape", *mUIFont, *mUIFontColor, "Escape to End", Vector2(300, 320));
