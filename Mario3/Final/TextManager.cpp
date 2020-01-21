@@ -87,15 +87,11 @@ void TextManager::removeText(string nameOfTextToBeRemoved)
 // This function is the draw function for this manager class
 void TextManager::draw() 
 {
-	//Timer textTimer;
-	//textTimer.start();
 	for (int i = 0, max = mTexts.size(); i < max; i++) 
 	{
 		if (mTexts[i]->getActivity())
 		{
 			mTexts[i]->drawText();
 		}
-		//cout << "Time per each frame of text render: " << textTimer.getElapsedTime() << " ms" << endl;
 	}
-	//textTimer.stop();
 }

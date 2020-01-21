@@ -84,6 +84,7 @@ public:
 	bool getEffectStatus() { return mEffect; }
 	bool getDamageState() { return mCanBeDamaged; }
 	float getMinDistanceToTravel() { return mMinDistanceToTravel; }
+	bool getDrawLastIndex() { return mAlwaysDrawIndexLast; }
 
 	// Mutators
 	void draw();
@@ -99,7 +100,7 @@ public:
 	void setInitialPosition(Vector2 newPos);
 	void setLocationX(double newLocation) { mCurrentLocation.mX = newLocation; }
 	void setLocationY(double newLocation) { mCurrentLocation.mY = newLocation; }
-	void setZIndex(int newZIndex) { mZIndex = newZIndex; }
+	void setDrawLastIndex(bool _drawLast) { mAlwaysDrawIndexLast = _drawLast; }
 	void setUnitMoveability(UnitMovabilityType newMovability) { mUnitMovability = newMovability; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
@@ -125,7 +126,6 @@ private:
 
 	// Ints
 	int mCurrentAnimationIndex;
-	int mZIndex;
 
 	// Vector 2s
 	Vector2 mCurrentLocation;
@@ -143,6 +143,7 @@ private:
 	bool mIsWalking;
 	bool mIsStationary;
 	bool mhasNoCollision;
+	bool mAlwaysDrawIndexLast;
 
 	// Floats
 	float mMinDistanceToTravel;

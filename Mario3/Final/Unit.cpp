@@ -14,7 +14,6 @@ Unit::Unit()
 	mVelocity = 0;
 	mEffect = false;
 	mhasNoCollision = false;
-	mZIndex = 1;
 }
 
 
@@ -31,7 +30,6 @@ Unit::Unit( Vector2 newPos )
 	mUnitType = NONE;
 	mVelocity = 0;
 	mEffect = false;
-	mZIndex = 1;
 }
 
 
@@ -48,7 +46,6 @@ Unit::Unit(Vector2 newPosition, Animation * newAnimation)
 	mUnitType = NONE;
 	mVelocity = 0;
 	mEffect = false;
-	mZIndex = 1;
 }
 
 

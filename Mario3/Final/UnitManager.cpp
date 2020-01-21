@@ -326,12 +326,26 @@ void UnitManager::draw()
 		}
 	}
 
+	vector<int> unitsToDrawLast = vector<int>();
+
 	for (int i = 0, max = mUnits.size(); i < max; i++)
 	{
 		if (mUnits[i]->isVisible()) 
 		{
-			mUnits[i]->draw();
+			if (mUnits[i]->getDrawLastIndex()) 
+			{
+				unitsToDrawLast.push_back(i);
+			}
+			else 
+			{
+				mUnits[i]->draw();
+			}
 		}
+	}
+
+	for (int i = 0, max = unitsToDrawLast.size(); i < max; i++) 
+	{
+		mUnits[unitsToDrawLast[i]]->draw();
 	}
 
 	if (mPlayer != nullptr)
