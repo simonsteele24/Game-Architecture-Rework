@@ -124,6 +124,11 @@ void FileReader::readFile(string fileName)
 	delete tempColor;
 }
 
+
+
+
+
+// This function reads the UI File and sets all UI-based assets
 void FileReader::readUIFile(string fileName)
 {
 	string input;
@@ -190,6 +195,11 @@ void FileReader::readUIFile(string fileName)
 	delete tempColor;
 }
 
+
+
+
+
+// This function reads the game file and creates all game-related assets
 void FileReader::readGameFile(string fileName)
 {
 	string input;
@@ -548,13 +558,6 @@ void FileReader::readLevelsFile(string fileName)
 			case 'w'://Creates the Starmen object
 				Game::getStaticInstance()->mUnitManager->createStarmen(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));
 				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_STARMEN, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_STARMEN), Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_STARMEN].mSpriteDimensions));
-				break;
-			case 'Q'://Creates the BoomBoom object
-				Game::getStaticInstance()->mUnitManager->createBoomBoom(Vector2(BLOCK_SPACING * i, BLOCK_SPACING * lineNumber - 8));
-				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_ANIMATION].mSpriteDimensions));
-				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_DEFENSE_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_DEFENSE_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_DEFENSE_ANIMATION].mSpriteDimensions));
-				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_JUMP_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_JUMP_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_JUMP_ANIMATION].mSpriteDimensions));
-				Game::getStaticInstance()->mUnitManager->addAnimation(Game::getStaticInstance()->mUnitManager->getSize() - 1, Animation(NAME_OF_BOOMBOOM_SQUISHED_ANIMATION, Game::getStaticInstance()->mBufferManager.getBuffer(NAME_OF_BOOMBOOM_SQUISHED_ANIMATION), Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].spritesPerRow, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].spritesPerColumn, Game::getStaticInstance()->mDisplayDimensions, Game::getStaticInstance()->mAnimationLinks[NAME_OF_BOOMBOOM_SQUISHED_ANIMATION].mSpriteDimensions));
 				break;
 			default:
 				break;

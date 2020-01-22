@@ -38,8 +38,8 @@ Text::Text(string newName, Fonts & newFont, Colors newColor, string newMessage, 
 
 	mText = sf::Text();
 	mText.setFont(mFont);
-	mText.setCharacterSize(20);
-	mText.setFillColor(sf::Color::Black);
+	mText.setCharacterSize(CHARACTER_SIZE);
+	mText.setFillColor(sf::Color::Red);
 	mText.setString(mMessage);
 	mText.setPosition((float)mTextPosition.mX, (float)mTextPosition.mY);
 

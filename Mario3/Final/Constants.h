@@ -192,6 +192,7 @@ const int HEADER_ONE_FONT_SIZE = 20;
 const int HEADER_TWO_FONT_SIZE = 30;
 const int HEADER_THREE_FONT_SIZE = 40;
 const int CAMERA_OFFSET = 300;
+const int CHARACTER_SIZE = 20;
 const float TEXT_COLOR_DEFAULT = 255.0f;
 const Vector2 SCORE_TEXT_POSITION = Vector2(60, 0);
 const Vector2 SCORE_AMOUNT_POSITION = Vector2(200, 0);
