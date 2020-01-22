@@ -20,13 +20,14 @@ public:
 	// Accessors
 	bool getGameStatus() { return mDone; }
 	bool getBounceStatus() { return mBounce; }
-	bool getPlayerSize() { return mIsThicc; }
+	bool getPlayerSize() { return mIsSuper; }
 
 	// Mutators
 	void jump();
 	void movePlayerRight();
 	void movePlayerLeft();
-
+	void calculateTimeToAdd();
+	void addIndex() { colorIndex++; }
 
 
 	//Events
@@ -36,11 +37,7 @@ public:
 	void setGameStatus(bool status);
 	void powerUpTimer(float timeReducer);
 	void invincibilityFrameTimer(float timeReducer);//when player takes damage, it waits a bit before it can die
-
-	//Powerup effects
-	// Mutators
-	void calculateTimeToAdd();
-	void addIndex() { colorIndex++; }
+	
 
 	// Accessors
 	int getIndexOfColor();//gets the current index of what the color mario should be in this invincibility form
@@ -73,9 +70,9 @@ private:
 	bool mCanDestroyTarget;
 	bool mIsDying;
 	bool mDone;
-	bool mIsThicc = false;
+	bool mIsSuper = false;
 	bool mInvincible;
-	bool mStillThicc;
+	bool mIsStillSuper;
 	bool mIsTrigger;
 
 	// Directions

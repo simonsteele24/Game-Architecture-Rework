@@ -14,14 +14,21 @@ public:
 	// Destructors
 	~Prop();
 
+	// Mutators
 	void setPropIdentity(char newID);
+	
+	// Accessors
 	char getPropIdentity();
 
 private:
 
+	// Animations
 	Animation * mCurrentAnimation;
+
+	// Vector2's
 	Vector2 mLocation;
 
+	// Characters
 	char mPropIdentity;
 };
 

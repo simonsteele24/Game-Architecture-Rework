@@ -25,7 +25,7 @@ Koopa::Koopa(Vector2 newPos)
 {
 	mUnitType = KOOPA;
 	mCurrentLocation = newPos;
-	mCurrentLocation.mY -= 25.0f;
+	mCurrentLocation.mY -= KOOPA_SEPERATION_VALUE;
 	mVelocity = 0.0;
 	mTimesBouncedOn = 0;
 	mCurrentDirection = LEFT;

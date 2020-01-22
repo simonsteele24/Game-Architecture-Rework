@@ -15,11 +15,16 @@ public:
 
 	// Destructors
 	~Platform();
+
+	// Mutators
 	void setPlatformIdentity(char newID);
+
+	// Acessors
 	char getPlatformIdentity();
 
 private:
 
+	//Characters
 	char mPlatformIdentity;
 };
 

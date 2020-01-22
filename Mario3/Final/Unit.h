@@ -8,8 +8,6 @@
 #include "Animation.h"
 #include "Direction.h"
 
-const int DEFAULT_SCALING_VALUE = 1;
-
 enum UnitTypes
 {
 	PLAYER,
@@ -28,7 +26,6 @@ enum UnitTypes
 	STARMEN,
 	THWOMP,
 	DRYBONES,
-	BOOMBOOM,
 	FIREBALL,
 	SIDE_PIPE,
 	NONE
@@ -104,17 +101,14 @@ public:
 	void setUnitMoveability(UnitMovabilityType newMovability) { mUnitMovability = newMovability; }
 	void setIsMovingDown(bool newCondition);
 	void setIsMovingUp(bool newCondition);
-
 	void setEffect(bool effectStatus);
 	void setDamageState(bool damageState);
 
 private:
 
-	GraphicsBuffer * tempBuffer;
-
 	// UnitTypes
 	UnitTypes mUnitType;
-	UnitMovabilityType mUnitMovability = NON_MOVEABLE;
+	UnitMovabilityType mUnitMovability;
 
 	// Constructors
 	Unit();
@@ -148,6 +142,7 @@ private:
 	// Floats
 	float mMinDistanceToTravel;
 
+	// Directions
 	Direction mCurrentDirection;
 
 	// Doubles

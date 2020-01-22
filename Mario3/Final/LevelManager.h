@@ -4,17 +4,23 @@
 class LevelManager
 {
 public:
+	// Constructors
 	LevelManager();
+
+	// Destructors
 	~LevelManager();
 
+	// Mutators
 	void loadNextLevel();
 	void loadCurrentLevel();
-
-	int getLevelNumber();
 	void setLevelNumber(int newNum);
+
+	// Acessors
+	int getLevelNumber();
 
 private:
 
+	// Integers
 	int mLevelNum;
 
 };

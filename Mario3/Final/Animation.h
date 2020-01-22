@@ -7,7 +7,29 @@
 // Graphics Library includes
 #include <Sprite.h>
 
+// Doubles
 const double  DEFAULT_SPEED = 100.0;
+
+struct AnimationInformation
+{
+	int spritesPerRow;
+	int spritesPerColumn;
+	Vector2 mDisplayDimensions;
+	Vector2 mSpriteDimensions;
+
+	AnimationInformation()
+	{
+
+	}
+
+	AnimationInformation(int _spritesPerRow, int _spritesPerColumn, Vector2 _mDisplayDimensions, Vector2 _mSpriteDimensions)
+	{
+		spritesPerRow = _spritesPerRow;
+		spritesPerColumn = _spritesPerColumn;
+		mDisplayDimensions = _mDisplayDimensions;
+		mSpriteDimensions = _mSpriteDimensions;
+	}
+};
 
 class Animation : public Trackable
 {
@@ -57,6 +79,8 @@ private:
 	// Doubles
 	double mTargetTime;
 	double mTimeElapsed;
+
+	// Integers
 	int mUpdateIncrementor;
 
 	// Strings

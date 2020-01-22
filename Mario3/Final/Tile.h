@@ -14,14 +14,21 @@ public:
 	// Destructors
 	~Tile();
 
+	// Mutators
 	void setTileIdentity(char newID);
+	
+	// Acessors
 	char getTileIdentity();
 
 private:
 
+	// Animations
 	Animation * mCurrentAnimation;
+	
+	// Vector2's
 	Vector2 mLocation;
 
+	// Characters
 	char mTileIdentity;
 };
 

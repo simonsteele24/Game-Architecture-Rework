@@ -5,6 +5,7 @@
 #include <vector>
 #include "Text.h"
 
+// Constants
 const string textNumOne = " 1          ";
 const string textNumTwo = " 2          ";
 const string textNumThree = " 3          ";
@@ -13,35 +14,42 @@ const string textNumFour = " 4          ";
 class MenuManager
 {
 public:
+
+	// Constructors
 	MenuManager();
+
+	// Destructors
 	~MenuManager();
 
+	// Acessors
 	bool getMenu() { return mInMenu; }
 
+	// Mutators
 	void sendInput(int mNum);
 	void draw();
 	void updateMenuUI();
 
 private:
 
-	// Vector2's
+	// Vectors
 	vector<Text*> mStart;
 	vector<Text*> mSettings;
 	vector<Text*> mDifficulty;
 	vector<Text*> mSound;
 	vector<Text*> mLanguage;
 
-
+	// Integers
 	int mCurrentMenuElement = 0;
-
-	bool mInMenu;
-	bool mInPause;
-
 	int mFontSize = 20;
 	int mFontSize2 = 30;
 	int mFontSize3 = 40;
 
+	// Floats
 	float mColorValDefault = 255.0f;
+
+	// Booleans
+	bool mInMenu;
+	bool mInPause;
 };
 
 #endif // !MENUMANAGER_H

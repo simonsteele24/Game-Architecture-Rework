@@ -21,10 +21,13 @@ public:
 	
 	// Accessors
 	int getNumBounced() { return mTimesBouncedOn; };
+
+	// Mutators
 	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 private:
 
+	// Mutators
 	void changeDirection();
 
 	//Int 

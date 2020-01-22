@@ -14,6 +14,7 @@ Unit::Unit()
 	mVelocity = 0;
 	mEffect = false;
 	mhasNoCollision = false;
+	mUnitMovability = NON_MOVEABLE;
 }
 
 
@@ -30,6 +31,7 @@ Unit::Unit( Vector2 newPos )
 	mUnitType = NONE;
 	mVelocity = 0;
 	mEffect = false;
+	mUnitMovability = NON_MOVEABLE;
 }
 
 
@@ -46,6 +48,7 @@ Unit::Unit(Vector2 newPosition, Animation * newAnimation)
 	mUnitType = NONE;
 	mVelocity = 0;
 	mEffect = false;
+	mUnitMovability = NON_MOVEABLE;
 }
 
 
@@ -205,7 +208,7 @@ void Unit::swapAnimation( string nameOfNewAnimation )
 bool Unit::isVisible() 
 {
 	// The following code checks if the current unit is within the current display window
-	return mCurrentLocation.mX >= Game::getStaticInstance()->getCameraLeftOffset() - 300 && mCurrentLocation.mX <= Game::getStaticInstance()->getCameraRightOffset() + 300;
+	return mCurrentLocation.mX >= Game::getStaticInstance()->getCameraLeftOffset() - CAMERA_OFFSET && mCurrentLocation.mX <= Game::getStaticInstance()->getCameraRightOffset() + CAMERA_OFFSET;
 }
 
 

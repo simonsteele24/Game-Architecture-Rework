@@ -73,6 +73,11 @@ void Text::drawText()
 	}
 }
 
+
+
+
+
+// This function converts and checks the digits of a given string turned integer
 int Text::checkDigits(string amountToCheck)
 {
 	int digits = 1;//default to 1 because there is always a single digit, if its 0, thats 1 digit
@@ -98,6 +103,11 @@ void Text::changeMessage(string newMessage)
 	mText.setString(newMessage);
 }
 
+
+
+
+
+// This function adds to the score text by a given integer
 void Text::addScore(int amountAdd)
 {
 	mScoreAmt += amountAdd;

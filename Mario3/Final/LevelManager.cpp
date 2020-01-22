@@ -1,20 +1,31 @@
 #include "LevelManager.h"
 #include "Game.h"
 
+// This is the default constructor for this class
 LevelManager::LevelManager()
 {
-	mLevelNum = 4;
+	mLevelNum = 0;
 }
 
+
+
+
+
+// This is the destructor for the class
 LevelManager::~LevelManager()
 {
 }
 
+
+
+
+
+// This function loads the next level in the sequence
 void LevelManager::loadNextLevel() 
 {
 	mLevelNum++;
 
-	if (mLevelNum == 5)
+	if (mLevelNum == MAX_LEVELS)
 	{
 		Game::getStaticInstance()->mAudioManager->playCastleTheme();
 	}
@@ -36,6 +47,7 @@ void LevelManager::loadNextLevel()
 
 
 
+// This function loads the current level 
 void LevelManager::loadCurrentLevel() 
 {
 	if (mLevelNum == 5)
@@ -51,6 +63,7 @@ void LevelManager::loadCurrentLevel()
 
 
 
+// This function gets the level number
 int LevelManager::getLevelNumber() 
 {
 	return mLevelNum;
@@ -60,6 +73,7 @@ int LevelManager::getLevelNumber()
 
 
 
+// This function sets the level number based on a given integer
 void LevelManager::setLevelNumber(int newNum) 
 {
 	mLevelNum = newNum;

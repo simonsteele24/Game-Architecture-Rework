@@ -22,10 +22,11 @@ public:
 
 private:
 
-	// Goomba Directions
+	// Directions
 	Direction mCurrentDirection;
 	Direction mPreviousDirection;
 
+	// Floats
 	float mCooldownRemaining;
 	float mMaxDistanceToTravel;
 };

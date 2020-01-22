@@ -1,6 +1,8 @@
 #include "InputTranslator.h"
 #include "Game.h"
 
+
+// This function is the default constructor of the class
 InputTranslator::InputTranslator(EventSystem* pEventSystem)
 	:EventListener(pEventSystem)
 {
@@ -19,10 +21,20 @@ InputTranslator::InputTranslator(EventSystem* pEventSystem)
 	pEventSystem->addListener(FOUR_KEY_PRESSED, this);
 }
 
+
+
+
+
+// This is the destructor for the class
 InputTranslator::~InputTranslator()
 {
 }
 
+
+
+
+
+// This function is the input handler for the class
 void InputTranslator::handleEvent(const Event &theEvent)
 {
 	if (theEvent.getType() == ENTER_KEY_RELEASED)

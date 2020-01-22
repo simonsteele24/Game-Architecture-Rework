@@ -20,6 +20,8 @@ private:
 
 	// Vector2's
 	Vector2 mInitialPosition;
+
+	// Booleans
 	bool mIsMovingDown;
 	bool mIsMovingUp;
 

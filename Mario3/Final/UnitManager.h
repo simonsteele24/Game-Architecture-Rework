@@ -14,7 +14,6 @@
 #include "Prop.h"
 #include "Thwomp.h"
 #include "DryBones.h"
-#include "BoomBoom.h"
 #include "Platform.h"
 #include "Fireball.h"
 #include "SuperMushroom.h"
@@ -77,7 +76,6 @@ public:
 	void createKoopa( Vector2 newPos );
 	void createDryBones(Vector2 newPos);
 	void createPiranhaPlant(Vector2 newPos);
-	void createBoomBoom(Vector2 newPos);
 	//Environment and Collectibles
 	void createFireball(Vector2 newPos);
 	void createProp(Vector2 newPos, Animation & newAnim);
@@ -86,7 +84,7 @@ public:
 	void createMushroom(Vector2 newPos);
 	void createStarmen(Vector2 newPos);
 
-	//Other
+	//Other mutators
 	void addAnimation( int index, Animation newAnim );
 	void destroyUnit( int index );
 	void playOrStopUnitAnimations();

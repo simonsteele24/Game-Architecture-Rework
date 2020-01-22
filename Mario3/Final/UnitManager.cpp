@@ -50,6 +50,8 @@ Prop * UnitManager::getProp(int index)
 
 
 
+
+// This funct gets a platform based on a given index
 Platform * UnitManager::getPlatform(int index) 
 {
 	return mPlatforms[index];
@@ -59,6 +61,7 @@ Platform * UnitManager::getPlatform(int index)
 
 
 
+// This function gets a tile based on a given index
 Tile * UnitManager::getTile(int index) 
 {
 	return mTiles[index];
@@ -159,14 +162,6 @@ void UnitManager::createPiranhaPlant(Vector2 newPos)
 
 
 
-void UnitManager::createBoomBoom(Vector2 newPos)
-{
-	mUnits.push_back(new BoomBoom(newPos,mUnits.size()));
-}
-
-
-
-
 // This function creates a Prop at a given position
 void UnitManager::createProp(Vector2 newPos, Animation & newAnim) 
 {
@@ -178,6 +173,7 @@ void UnitManager::createProp(Vector2 newPos, Animation & newAnim)
 
 
 
+// This function creates a tile based on a given position and an animations
 void UnitManager::createTile(Vector2 newPos, Animation & newAnim) 
 {
 	mTiles.push_back((new Tile(newPos)));
@@ -185,22 +181,40 @@ void UnitManager::createTile(Vector2 newPos, Animation & newAnim)
 }
 
 
+
+
+
+// This function creates a platform based on a given position
 void UnitManager::createPlatform(Vector2 newPos) 
 {
 	mPlatforms.push_back((new Platform(newPos)));
 }
 
+
+
+
+
+// This function creates a mushroom on a given position
 void UnitManager::createMushroom(Vector2 newPos)
 {
 	mUnits.push_back(new SuperMushroom(newPos));
 }
 
+
+
+
+
+// This function creates a star based on a given position
 void UnitManager::createStarmen(Vector2 newPos)
 {
 	mUnits.push_back(new Starmen(newPos));
 }
 
 
+
+
+
+// This function creates an end block at a given position
 void UnitManager::createEndBlock(Vector2 newPos)
 {
 	mUnits.push_back(new EndBlock(newPos));
@@ -259,7 +273,6 @@ void UnitManager::playOrStopUnitAnimations()
 // also passed to all units the given time that has passed since last update
 void UnitManager::update( double timeBetweenFrames ) 
 {
-	Game::getStaticInstance()->time += timeBetweenFrames;
 
 	calculateCollisions();
 
@@ -388,6 +401,8 @@ int UnitManager::getPropSize()
 
 
 
+
+// This function gets the size of the platform vector
 int UnitManager::getPlatformSize() 
 {
 	return mPlatforms.size();
@@ -397,6 +412,7 @@ int UnitManager::getPlatformSize()
 
 
 
+// This function gets the size of the tile vector
 int UnitManager::getTileSize() 
 {
 	return mTiles.size();
@@ -442,8 +458,8 @@ void UnitManager::removeAllUnits()
 void UnitManager::createPlayer(Vector2 newPos) 
 {
 	mPlayer = new Player(newPos);
-	mPlayer->mIsThicc = Game::getStaticInstance()->getPlayerPowerupState();
-	mPlayer->mStillThicc = Game::getStaticInstance()->getPlayerPowerupState();
+	mPlayer->mIsSuper = Game::getStaticInstance()->getPlayerPowerupState();
+	mPlayer->mIsStillSuper = Game::getStaticInstance()->getPlayerPowerupState();
 }
 
 

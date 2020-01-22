@@ -9,13 +9,13 @@ Player::Player() : Unit()
 	mUnitType = PLAYER;
 	mUnitMovability = MOVEABLE;
 	mVelocity = 0;
-	mMaxJumpForce = -1.5 * Game::getStaticInstance()->getJumpForce();
+	mMaxJumpForce = MAX_JUMP_MULTIPLIER * Game::getStaticInstance()->getJumpForce();
 	mIsJumping = false;
 	mInMidAir = false;
 	mBounce = false;
 	mIsMoving = false;
 	mInvincible = false;
-	mStillThicc = false;
+	mIsStillSuper = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
 	mIsTrigger = false;
@@ -32,17 +32,17 @@ Player::Player() : Unit()
 Player::Player(Vector2 newPos) 
 {
 	mCurrentLocation = newPos;
-	mCurrentLocation.mY -= 10.0f;//this is tweaking the y so its not spawnning inside accidently
+	mCurrentLocation.mY -= PLAYER_SPAWN_OFFSET;//this is tweaking the y so its not spawnning inside accidently
 	mUnitType = PLAYER;
 	mUnitMovability = MOVEABLE;
 	mVelocity = 0;
-	mMaxJumpForce = -1.5 * Game::getStaticInstance()->getJumpForce();
+	mMaxJumpForce = MAX_JUMP_MULTIPLIER * Game::getStaticInstance()->getJumpForce();
 	mIsJumping = false;
 	mInMidAir = false;
 	mBounce = false;
 	mIsMoving = false;
 	mInvincible = false;
-	mStillThicc = false;
+	mIsStillSuper = false;
 	mCurrentDirection = RIGHT;
 	mIsDying = false;
 	mIsTrigger = false;
@@ -86,7 +86,7 @@ void Player::update(double newTimeBetweenFrames)
 	{
 		mIsJumping = false;
 		mInMidAir = true;
-		Game::getStaticInstance()->getAudioManager()->playSound("Jump");
+		Game::getStaticInstance()->getAudioManager()->playSound(NAME_OF_AUDIO_JUMP);
 		mVelocity = -(Game::getStaticInstance()->getJumpForce());
 	}
 	else {
@@ -104,7 +104,7 @@ void Player::update(double newTimeBetweenFrames)
 		}
 		else 
 		{
-			Game::getStaticInstance()->deductLife(mIsThicc);
+			Game::getStaticInstance()->deductLife(mIsSuper);
 		}
 	}
 
@@ -115,12 +115,12 @@ void Player::update(double newTimeBetweenFrames)
 
 	if (mInMidAir && mIsDying == false) 
 	{
-		if (mIsThicc == true)
+		if (mIsSuper == true)
 			swapAnimation(NAME_OF_SUPER_PLAYER_JUMP);
-		else if (mIsThicc == false)
+		else if (mIsSuper == false)
 			swapAnimation(NAME_OF_PLAYER_JUMP);
 
-		if (mInvincible == true && !mIsThicc)
+		if (mInvincible == true && !mIsSuper)
 		{
 			switch (getIndexOfColor())
 			{
@@ -141,7 +141,7 @@ void Player::update(double newTimeBetweenFrames)
 				break;
 			}
 		}
-		else if(mInvincible && mIsThicc)
+		else if(mInvincible && mIsSuper)
 		{
 			switch (getIndexOfColor())
 			{
@@ -165,12 +165,12 @@ void Player::update(double newTimeBetweenFrames)
 	}
 	else if (mIsDying == false)
 	{
-		if (mIsThicc == true)
+		if (mIsSuper == true)
 			swapAnimation(NAME_OF_SUPER_PLAYER);
-		else if (mIsThicc == false)
+		else if (mIsSuper == false)
 			swapAnimation(NAME_OF_PLAYER);
 		
-		if (mInvincible == true && !mIsThicc)
+		if (mInvincible == true && !mIsSuper)
 		{
 
 			switch (getIndexOfColor())
@@ -192,7 +192,7 @@ void Player::update(double newTimeBetweenFrames)
 				break;
 			}
 		}
-		else if (mInvincible && mIsThicc)
+		else if (mInvincible && mIsSuper)
 		{
 			switch (getIndexOfColor())
 			{
@@ -265,7 +265,6 @@ void Player::jump()
 		mBounceKills = 0;
 		// If yes, then let the player jump
 		mIsJumping = true;
-		//EventSystem::getStaticInstance()->fireEvent((Event(MAKE_PLAYER_JUMP)));
 	}
 }
 
@@ -322,7 +321,7 @@ void Player::movePlayerRight()
 
 int Player::getIndexOfColor()
 {
-	if (colorIndex > 2)
+	if (colorIndex > MAX_COLOR_INDEX_OF_STAR)
 	{
 		colorIndex = 0;
 	}
@@ -345,7 +344,7 @@ void Player::setGameStatus(bool status)
 
 void Player::powerUpTimer(float timeReducer)
 {
-	mTimeElapsed -= timeReducer * 2;
+	mTimeElapsed -= timeReducer * POWERUP_TIMER_MULTIPLIER;
 
 	if (mTimeElapsed <= 0.0)
 	{
@@ -365,12 +364,12 @@ void Player::invincibilityFrameTimer(float timeReducer)
 
 	if (mTimeElapsedInvincibilityFrame <= 0.0)
 	{
-		if (mStillThicc == false)
+		if (mIsStillSuper == false)
 		{
 			invincibilityCounter++;
-			if (invincibilityCounter == 10)
+			if (invincibilityCounter == INVINCIBILITY_COUNTER_MAX)
 			{
- 				mIsThicc = false;
+ 				mIsSuper = false;
 				invincibilityCounter = 0;
 			}
 				
@@ -387,7 +386,7 @@ void Player::calculateTimeToAdd()
 		{
 			mInvincible = false;
 			colorIndex = 0;
-			timeLimit = 100;
+			timeLimit = STARTING_TIME_LIMIT_FOR_INVINCIBILITY;
 		}
 	}
 }
@@ -429,39 +428,28 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 
 		if (!mInvincible) 
 		{
-			if (mIsThicc)
+			if (mIsSuper)
 			{
-				mStillThicc = false;
+				mIsStillSuper = false;
 			}
 			else
 				commenceDeath();
 
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 
 			if (mVelocity < mMaxJumpForce)
 			{
 				mVelocity = 0;
-				mVelocity += Game::getStaticInstance()->getJumpForce() - 5.0f;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
+				mVelocity += Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
 			}
-		}
-		break;
-	case BOOMBOOM :
-		if (Game::getStaticInstance()->getUnitManager()->getUnit(collidingObjectIndex)->getDamageState() == false)
-		{
-			if (mIsThicc)
-			{
-				mStillThicc = false;
-			}
-			else
-				commenceDeath();
 		}
 		break;
 	case BRICK_BLOCK:
 		if (mCurrentLocation.mY >= collidingObject.getLocation().mY + collidingObject.getDimensions().mY)
 		{
 			mVelocity = 0;
-			if (mIsThicc)
+			if (mIsSuper)
 			{
 				Game::getStaticInstance()->addToScore(10);
 				Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));
@@ -477,49 +465,49 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 	case LAVA:
 		commenceDeath();
 		mVelocity = 0;
-		mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+		mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 
 		if (mVelocity < mMaxJumpForce)
 		{
 			mVelocity = 0;
-			mVelocity += Game::getStaticInstance()->getJumpForce() - 5.0f;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
+			mVelocity += Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
 		}
 		break;
 	case FIREBALL:
 		if (!mInvincible) 
 		{
-			if (mIsThicc)
+			if (mIsSuper)
 			{
-				mStillThicc = false;
+				mIsStillSuper = false;
 			}
 			else
 				commenceDeath();
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 
 			if (mVelocity < mMaxJumpForce)
 			{
 				mVelocity = 0;
-				mVelocity += Game::getStaticInstance()->getJumpForce() - 5.0f;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
+				mVelocity += Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
 			}
 		}
 		break;
 	case THWOMP:
 		if (!mInvincible) 
 		{
-			if (mIsThicc)
+			if (mIsSuper)
 			{
-				mStillThicc = false;
+				mIsStillSuper = false;
 			}
 			else
 				commenceDeath();
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 
 			if (mVelocity < mMaxJumpForce)
 			{
 				mVelocity = 0;
-				mVelocity += Game::getStaticInstance()->getJumpForce() - 5.0f;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
+				mVelocity += Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//if it gets too much, this will act as a ceiling and limit the drastic bounce.
 			}
 		}
 		break;
@@ -532,16 +520,16 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 			Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));
 			Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);//destroy unit
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
-			Game::getStaticInstance()->getAudioManager()->playSound("Stomp");
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			Game::getStaticInstance()->getAudioManager()->playSound(NAME_OF_AUDIO_STOMP);
 		}
 		else
 		{
 			if (!mInvincible)
 			{
-				if (mIsThicc)
+				if (mIsSuper)
 				{
-					mStillThicc = false;
+					mIsStillSuper = false;
 				}
 				else
 					commenceDeath();
@@ -552,15 +540,15 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		if (collidingObject.getLocation().mY > mCurrentLocation.mY)
 		{
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 		}
 		else if (!collidingObject.mIsStationary && !(collidingObject.mCurrentDirection == LEFT && collidingObject.mCurrentLocation.mX < mCurrentLocation.mX) && !(collidingObject.mCurrentDirection == RIGHT && collidingObject.mCurrentLocation.mX > mCurrentLocation.mX))
 		{
 			if (!mInvincible)
 			{
-				if (mIsThicc)
+				if (mIsSuper)
 				{
-					mStillThicc = false;
+					mIsStillSuper = false;
 				}
 				else
 					commenceDeath();
@@ -576,15 +564,15 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 			Game::getStaticInstance()->addToScore(Game::getStaticInstance()->getScoreAddAmt() * (Game::getStaticInstance()->getScoreMultiplier() * mBounceKills));//add to member score variable
 			Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));//pass in the variable to change score
 			mVelocity = 0;
-			mVelocity -= Game::getStaticInstance()->getJumpForce() - 5.0f;//substract from velocity the JUMP force times what multiplier we want bounce force by
+			mVelocity -= Game::getStaticInstance()->getJumpForce() - PLAYER_JUMP_OFFSET;//substract from velocity the JUMP force times what multiplier we want bounce force by
 		}
 		else
 		{
 			if (!mInvincible)
 			{
-				if (mIsThicc)
+				if (mIsSuper)
 				{
-					mStillThicc = false;
+					mIsStillSuper = false;
 				}
 				else
 					commenceDeath();
@@ -597,9 +585,9 @@ void Player::onCollide(Unit & collidingObject, int collidingObjectIndex)
 		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);
 		Game::getStaticInstance()->addToScore(1000);
 		Game::getStaticInstance()->getTextManager()->getText(NAME_OF_SCORE_AMOUNT_TEXT)->addScore((Game::getStaticInstance()->getTotalScore()));
-		mIsThicc = true;
-		mStillThicc = true;
-		Game::getStaticInstance()->getAudioManager()->playSound("Powerup");
+		mIsSuper = true;
+		mIsStillSuper = true;
+		Game::getStaticInstance()->getAudioManager()->playSound(NAME_OF_AUDIO_POWERUP);
 		break;
 	case STARMEN:
 		Game::getStaticInstance()->getUnitManager()->destroyUnit(collidingObjectIndex);

@@ -42,6 +42,7 @@ private:
 	int mFontSize;
 	int mHealth;
 	int mTimer;
+	int mScoreAmt;
 
 	// Booleans
 	bool mIsActive;
@@ -52,7 +53,6 @@ private:
 	string mLevel;
 	string mScore;
 	Fonts mFonts;
-	int mScoreAmt;
 
 	// Colors
 	Colors mTextColor;

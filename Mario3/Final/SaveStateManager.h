@@ -9,9 +9,13 @@ using namespace std;
 class SaveStateManager
 {
 public:
+	// Constructors
 	SaveStateManager();
+
+	// Destructors
 	~SaveStateManager();
 
+	// Mutators
 	bool readFile(string fileName);
 	bool saveFile(string fileToSaveTo);
 
