@@ -738,7 +738,7 @@ bool SaveStateManager::saveFile(string fileToSaveTo)
 					Game::getStaticInstance()->mUnitManager->getUnit(i)->getLocation().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << " " <<
 					Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getIsMovingDown() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getIsMovingUp() << endl;
 			}
-			if (Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() == PIRANHAPLANT) 
+			else if (Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() == PIRANHAPLANT) 
 			{
 				fout << (int)Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << endl;
 			}
