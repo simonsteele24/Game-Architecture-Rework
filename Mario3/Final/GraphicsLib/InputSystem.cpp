@@ -103,7 +103,6 @@ void InputSystem::update()
 		EventSystem::getStaticInstance()->fireEvent(Event(ONE_KEY_PRESSED));
 	}
 
-
 	if (boardState.isKeyPressed(boardState.Num2))
 	{
 		mIsTwoDown = true;
@@ -113,8 +112,6 @@ void InputSystem::update()
 		mIsTwoDown = false;
 		EventSystem::getStaticInstance()->fireEvent(Event(TWO_KEY_PRESSED));
 	}
-
-
 
 	if (boardState.isKeyPressed(boardState.Num3))
 	{
@@ -126,8 +123,6 @@ void InputSystem::update()
 		EventSystem::getStaticInstance()->fireEvent(Event(THREE_KEY_PRESSED));
 	}
 
-
-
 	if (boardState.isKeyPressed(boardState.Num4)) 
 	{
 		mIsFourDown = true;
@@ -137,7 +132,6 @@ void InputSystem::update()
 		mIsFourDown = false;
 		EventSystem::getStaticInstance()->fireEvent(Event(FOUR_KEY_PRESSED));
 	}
-
 
 
 	if (boardState.isKeyPressed(boardState.Space))

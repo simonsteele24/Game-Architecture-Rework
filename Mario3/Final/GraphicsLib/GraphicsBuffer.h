@@ -49,10 +49,6 @@ public:
 
 	// Mutators
 	void setIntRect(int xCoordinate, int yCoordinate, int width, int height);
-	void setBitmapPosX(int xMod);
-	void setBitmapPosY(int modY);
-
-	void setBitmapPosToPlayerX(int xMod);
 
 private:
 

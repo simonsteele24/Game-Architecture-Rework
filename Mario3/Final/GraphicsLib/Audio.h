@@ -11,6 +11,7 @@ class Audio
 {
 public:
 
+	// Friends
 	friend class AudioManager;
 
 	// Constructors

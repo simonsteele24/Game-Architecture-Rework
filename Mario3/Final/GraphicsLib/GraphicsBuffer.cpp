@@ -25,12 +25,17 @@ GraphicsBuffer::GraphicsBuffer(string bitmapFilePath, string name)
 
 	if (!texture->loadFromFile(bitmapFilePath))
 	{
-		//error
+		return;
 	}
 
 	bitmap->setTexture(*texture);
 }
 
+
+
+
+
+// This constructor takes a Sprite and a sprite name
 GraphicsBuffer::GraphicsBuffer(sf::Sprite* newMap, string name)
 {
 	texture = new sf::Texture;
@@ -70,6 +75,12 @@ GraphicsBuffer::GraphicsBuffer(int length, int height, string name)
 	bitmap->setTexture(*texture);
 }
 
+
+
+
+
+// This constructor takes a Sprite, length and width of the
+// sprite, and a sprite name
 GraphicsBuffer::GraphicsBuffer(sf::Sprite * newMap, int length, int height, string name)
 {
 	mName = name;
@@ -83,6 +94,12 @@ GraphicsBuffer::GraphicsBuffer(sf::Sprite * newMap, int length, int height, stri
 	bitmap = newMap;
 }
 
+
+
+
+
+// This constructor takes a texture, a length and a width
+// of a texture, and a texture name
 GraphicsBuffer::GraphicsBuffer(sf::Texture * newText, int length, int height, string name)
 {
 	mName = name;
@@ -130,31 +147,4 @@ GraphicsBuffer::~GraphicsBuffer()
 void GraphicsBuffer::setIntRect(int xCoordinate, int yCoordinate, int width, int height)
 {
 	bitmap->setTextureRect(sf::IntRect(xCoordinate, yCoordinate, width, height));
-}
-
-
-
-
-
-void GraphicsBuffer::setBitmapPosX(int xMod) 
-{
-	//mBitmapPos->mX += xMod;
-}
-
-
-
-
-
-void GraphicsBuffer::setBitmapPosY(int modY)
-{
-	///mBitmapPos->mY += modY;
-}
-
-
-
-
-
-void GraphicsBuffer::setBitmapPosToPlayerX(int xMod) 
-{
-	//mBitmapPos->mX = xMod;
 }

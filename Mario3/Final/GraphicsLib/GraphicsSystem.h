@@ -40,6 +40,7 @@ public:
 	void init(sf::Sprite* sprite, float width, float height);
 	static void initStaticInstance();
 
+	// Cleanup functions
 	void cleanup();
 
 
@@ -58,19 +59,13 @@ public:
 	void drawBackground(GraphicsBuffer& buffer, float scale);
 	void draw(GraphicsBuffer& targetGraphicsBuffer, Sprite& sprite, float scale);
 
-
 	// Drawing functions for sprite sheets
 	void drawFromSpriteSheet(Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& newBuffer, Vector2 scale);
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& sprite, Vector2 scale);
 	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer& sprite, Vector2 scale);
-	static void drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, Sprite& sprite, Vector2 scale);
 
 	// Drawing functions for text
 	void drawText(sf::Text);
-
-
-	// Save/load functions
-	void saveBuffer(GraphicsBuffer& bufferToSave, string fileName);
 
 
 private:
@@ -78,7 +73,7 @@ private:
 	// Graphics Buffers
 	GraphicsBuffer * mBackBuffer;
 
-	sf::Text mTextObj;
+	// Windows
 	static sf::RenderWindow* window;
 };
 

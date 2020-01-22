@@ -78,11 +78,15 @@ void DryBones::update(double newTimeBetweenFrames)
 		{
 		case LEFT:
 			moveToPosition(Vector2(mCurrentLocation.mX - Game::getStaticInstance()->getGoombaWalkSpd(), mCurrentLocation.mY + mVelocity));
-			swapAnimation(NAME_OF_DRY_BONES_LEFT_ANIMATION);
+			swapAnimation(NAME_OF_DRY_BONES_RIGHT_ANIMATION);
+			mCurrentAnimations[mCurrentAnimationIndex]->invertAnimation(-1);
+			mCurrentAnimations[mCurrentAnimationIndex]->forceUpdateInversion();
 			break;
 		case RIGHT:
 			moveToPosition(Vector2(mCurrentLocation.mX + Game::getStaticInstance()->getGoombaWalkSpd(), mCurrentLocation.mY + mVelocity));
 			swapAnimation(NAME_OF_DRY_BONES_RIGHT_ANIMATION);
+			mCurrentAnimations[mCurrentAnimationIndex]->invertAnimation(1);
+			mCurrentAnimations[mCurrentAnimationIndex]->forceUpdateInversion();
 			break;
 		case NONE:
 			break;

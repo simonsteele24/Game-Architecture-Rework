@@ -27,7 +27,7 @@ System::~System()
 
 
 
-// This function initializes all of the allegro systems
+// This function initializes all of the graphics systems
 void System::init(int screenWidth, int screenHeight)
 {
 	mCurrentGraphicsSystem->init((float)screenWidth, (float)screenHeight);
@@ -36,6 +36,11 @@ void System::init(int screenWidth, int screenHeight)
 	mIsDisplaying = true; // Set the bool that checks if the program is displaying as true
 }
 
+
+
+
+
+// This function initializes all of the graphics systems
 void System::init(sf::Sprite* backGround, int screenWidth, int screenHeight)
 {
 	mCurrentGraphicsSystem->init(backGround, (float)screenWidth, (float)screenHeight);

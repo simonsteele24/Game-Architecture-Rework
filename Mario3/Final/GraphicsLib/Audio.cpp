@@ -12,6 +12,7 @@ Audio::Audio()
 
 
 
+// This constructor created an audio clip based on name and file path
 Audio::Audio(string name, string filePath) 
 {
 	mName = name;
@@ -23,6 +24,7 @@ Audio::Audio(string name, string filePath)
 
 
 
+// This constructor created an audio clip based on name, file path, pitch, and volume
 Audio::Audio(string name, string filePath, int pitch, int volume) 
 {
 	mName = name;
@@ -44,6 +46,7 @@ Audio::~Audio()
 
 
 
+// This function gets the name of the audio clip
 string Audio::getName() 
 {
 	return mName;
@@ -53,6 +56,7 @@ string Audio::getName()
 
 
 
+// This function gets the pitch of the audio clip
 int Audio::getPitch() 
 {
 	return (int)mPitch;
@@ -62,6 +66,7 @@ int Audio::getPitch()
 
 
 
+// This function gets the volume of the audio clip
 int Audio::getVolume() 
 {
 	return (int)mVolume;
@@ -71,6 +76,7 @@ int Audio::getVolume()
 
 
 
+// This function sets the pitch of the audio clip based on a given value
 void Audio::setPitch(int newPitch) 
 {
 	mPitch = (float)newPitch;
@@ -80,6 +86,7 @@ void Audio::setPitch(int newPitch)
 
 
 
+// This function sets the volume of the audio clip based on a given value
 void Audio::setVolume(int newVolume) 
 {
 	mVolume = (float)newVolume;
@@ -88,7 +95,7 @@ void Audio::setVolume(int newVolume)
 
 
 
-
+// This function gets the audio clip
 sf::SoundBuffer Audio::getSound() 
 {
 	return mSoundBuffer;
@@ -98,6 +105,7 @@ sf::SoundBuffer Audio::getSound()
 
 
 
+// This function plays the class's audio clip
 void Audio::Play() 
 {
 	currentSound = sf::Sound();
@@ -109,6 +117,7 @@ void Audio::Play()
 
 
 
+// This function pauses the audio clip
 void Audio::Pause() 
 {
 	currentSound.pause();

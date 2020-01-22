@@ -22,8 +22,6 @@ Sprite::Sprite( string spriteFilePath, int locationX, int locationY )
 {
 	mNameOfBuffer = spriteFilePath;
 	mLocation = Vector2( locationX, locationY );
-	//mHeight = mGraphicsBuffer->getHeight();
-	//mWidth = mGraphicsBuffer->getWidth();
 	mDisplacementX = locationX;
 	mDisplacementY = locationY;
 	mIsPartOfAnAnimation = false;
@@ -39,8 +37,6 @@ Sprite::Sprite( string newBufferName, int locationX, int locationY, bool isPartA
 {
 	mNameOfBuffer = newBufferName;
 	mLocation = Vector2( locationX, locationY);
-	//mHeight = newBuffer->getHeight();
-	//mWidth = newBuffer->getWidth();
 	mDisplacementX = locationX;
 	mDisplacementY = locationY;
 	mIsPartOfAnAnimation = isPartAnimation;

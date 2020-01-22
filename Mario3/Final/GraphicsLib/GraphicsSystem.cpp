@@ -10,6 +10,8 @@ GraphicsSystem::GraphicsSystem()
 
 
 
+
+
 // This function is the destructor
 GraphicsSystem::~GraphicsSystem()
 {
@@ -28,8 +30,10 @@ void GraphicsSystem::init(float width, float height)
 	window = new sf::RenderWindow;
 	window->create(sf::VideoMode((int)width, (int)height), "My window");
 
-	window->clear(sf::Color(255, 255, 255, 0));
+	window->clear(sf::Color::White);
 }
+
+
 
 
 
@@ -45,10 +49,18 @@ void GraphicsSystem::init(sf::Sprite* sprite, float width, float height)
 	window->draw(*mBackBuffer->getSprite());
 }
 
+
+
+
+
+// This function initializes the static instance of the graphics system
 void GraphicsSystem::initStaticInstance()
 {
 	window = new sf::RenderWindow;
 }
+
+
+
 
 
 // This function cleans up and deletes the display
@@ -88,6 +100,11 @@ GraphicsBuffer  GraphicsSystem::getBackBuffer()
 	return *mBackBuffer;
 }
 
+
+
+
+
+// This funtion gets the static instance of the render window
 sf::RenderWindow * GraphicsSystem::getStaticInstance()
 {
 	assert(window != nullptr);
@@ -130,6 +147,7 @@ void GraphicsSystem::draw(GraphicsBuffer& targetGraphicsBuffer, Sprite& sprite, 
 
 
 
+// This function draws the background of a given buffer and scale
 void GraphicsSystem::drawBackground(GraphicsBuffer& buffer, float scale)
 {
 	window->draw(*buffer.getSprite());
@@ -160,16 +178,16 @@ void GraphicsSystem::drawFromSpriteSheet(GraphicsBuffer& targetGraphicsBuffer, V
 	window->draw(*targetGraphicsBuffer.getSprite());
 }
 
+
+
+
+
+// This function draws a sprite from a given graphics buffer, a given row, a given target image location,
+// target location to draw at, the sprite, and the scale
 void GraphicsSystem::drawFromSpriteSheet(GraphicsBuffer & targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, GraphicsBuffer & sprite, Vector2 scale)
 {
 	targetGraphicsBuffer.getSprite()->setPosition((float)targetLoc.mX, (float)targetLoc.mY);
 	targetGraphicsBuffer.getSprite()->setTextureRect(sf::IntRect(0, 0, sprite.getWidth() / row, sprite.getHeight()));
-	window->draw(*targetGraphicsBuffer.getSprite());
-}
-
-void GraphicsSystem::drawFromSpriteSheet(GraphicsBuffer & targetGraphicsBuffer, int row, Vector2 targetImageLoc, Vector2 targetLoc, Sprite & sprite, Vector2 scale)
-{
-	targetGraphicsBuffer.getSprite()->setPosition((float)targetLoc.mX, (float)targetLoc.mY);
 	window->draw(*targetGraphicsBuffer.getSprite());
 }
 
@@ -181,16 +199,6 @@ void GraphicsSystem::drawFromSpriteSheet(GraphicsBuffer & targetGraphicsBuffer, 
 void GraphicsSystem::drawText(sf::Text mText)
 {
 	window->draw(mText);
-}
-
-
-
-
-
-// This function saves a given graphics buffer to as a file, whose name is determined by the user
-void GraphicsSystem::saveBuffer(GraphicsBuffer& bufferToSave, string fileName)
-{
-	//bufferToSave.getTexture()->copyToImage().saveToFile() getTexture()->copyToImage.saveToFile(fileName);
 }
 
 
