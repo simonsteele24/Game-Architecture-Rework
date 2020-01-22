@@ -21,19 +21,21 @@ public:
 
 	// Accessors
 	int getNumBounced() { return mTimesBouncedOn; };
+
+	// Mutators
 	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 private:
 
+	// Mutators
 	void changeDirection();
 
-	//Int 
-	int mTimesBouncedOn;
-
-	// Goomba Directions
+	// Directions
 	Direction mCurrentDirection;
 
+	// Integers
 	int mCooldownRemaining;
+	int mTimesBouncedOn;
 
 	// Booleans
 	bool mIsWalking;

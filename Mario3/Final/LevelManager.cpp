@@ -27,7 +27,7 @@ void LevelManager::loadNextLevel()
 
 	if (mLevelNum == MAX_LEVELS)
 	{
-		Game::getStaticInstance()->mAudioManager->playCastleTheme();
+		Game::getStaticInstance()->mAudioManager->playSound(NAME_OF_CASTLE_THEME);
 	}
 
 	if (mLevelNum > MAX_LEVELS) 
@@ -52,7 +52,7 @@ void LevelManager::loadCurrentLevel()
 {
 	if (mLevelNum == 5)
 	{
-		Game::getStaticInstance()->mAudioManager->playCastleTheme();
+		Game::getStaticInstance()->mAudioManager->playSound(NAME_OF_CASTLE_THEME);
 	}
 	Game::getStaticInstance()->mUnitManager->removeAllUnits();
 	Game::getStaticInstance()->mUnitManager->setCameraPosition(Vector2(0, 0));

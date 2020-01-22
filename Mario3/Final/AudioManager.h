@@ -32,8 +32,6 @@ public:
 	void playSound(string name);
 	void stopSound(string name);
 	void removeFromPlaying(string name);
-	void playMainTheme();
-	void playCastleTheme();
 
 	// Event Handlers
 	void handleEvent(const Event& theEvent);

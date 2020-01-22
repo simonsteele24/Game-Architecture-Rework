@@ -70,45 +70,6 @@ void AudioManager::removeFromPlaying(string name)
 
 
 
-// This function plays the main theme for the game
-void AudioManager::playMainTheme()
-{
-	for (int i = 0; i < (int)mPlayingSounds.size(); ++i)
-	{
-		if (mPlayingSounds[i].mName == NAME_OF_CASTLE_THEME)
-		{
-			mPlayingSounds[i].currentSound.stop();
-			mPlayingSounds[i] = mSounds[NAME_OF_SECONDARY_THEME];
-			mPlayingSounds[i].Play();
-			break;
-		}
-	}
-
-}
-
-
-
-
-
-// This function plays the castle theme for the game
-void AudioManager::playCastleTheme()
-{
-	for (int i = 0; i < (int)mPlayingSounds.size(); ++i)
-	{
-		if (mPlayingSounds[i].mName == NAME_OF_THEME)
-		{
-			mPlayingSounds[i].currentSound.stop();
-			mPlayingSounds[i] = mSounds[NAME_OF_CASTLE_THEME];
-			mPlayingSounds[i].Play();		
-			break;
-		}
-	}
-}
-
-
-
-
-
 // This function plays a sound based on a given string
 void AudioManager::playSound(string name)
 {
@@ -118,7 +79,9 @@ void AudioManager::playSound(string name)
 		if (mPlayingSounds[i].mName == name)
 		{
 			mPlayingSounds[i].currentSound.play();
+			mPlayingSounds[i] = mSounds[name];
 			mPlayingSounds[i].Play();
+			break;
 		}
 	}
 }

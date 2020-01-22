@@ -20,6 +20,7 @@ public:
 
 private:
 
+	// Integers
 	int numOfAnims = 2;
 	int currentAnim = 0;
 };

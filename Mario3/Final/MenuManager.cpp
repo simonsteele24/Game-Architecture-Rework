@@ -6,110 +6,89 @@ MenuManager::MenuManager()
 {
 	mInMenu = true;
 
+	mCurrentMenuElement = 0;
+
 	//Start Vector data
-	mStart.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_GAME), Vector2(100, 100)));
-	mStart[mStart.size() - 1]->changeFontSize(mFontSize3);
+	mStart.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_GAME), TITLE_TEXT_POSITION));
+	mStart[mStart.size() - 1]->changeFontSize(HEADER_THREE_FONT_SIZE);
 	mStart[mStart.size() - 1]->setTextToActive();
 
-	mStart.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_START), Vector2(250, 200)));
-	mStart[mStart.size() - 1]->changeFontSize(mFontSize);
+	mStart.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_START), MENU_TEXT_ONE_POSITION));
+	mStart[mStart.size() - 1]->changeFontSize(HEADER_ONE_FONT_SIZE);
 	mStart[mStart.size() - 1]->setTextToActive();
 
-	mStart.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LOAD_GAME_WORD), Vector2(250, 300)));
-	mStart[mStart.size() - 1]->changeFontSize(mFontSize);
+	mStart.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LOAD_GAME_WORD), MENU_TEXT_TWO_POSITION));
+	mStart[mStart.size() - 1]->changeFontSize(HEADER_ONE_FONT_SIZE);
 	mStart[mStart.size() - 1]->setTextToActive();
 
-	mStart.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD), Vector2(250, 400)));
-	mStart[mStart.size() - 1]->changeFontSize(mFontSize);
+	mStart.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD), MENU_TEXT_THREE_POSITION));
+	mStart[mStart.size() - 1]->changeFontSize(HEADER_ONE_FONT_SIZE);
 	mStart[mStart.size() - 1]->setTextToActive();
 
-	mStart.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_QUIT_WORD), Vector2(250, 500)));
-	mStart[mStart.size() - 1]->changeFontSize(mFontSize);
+	mStart.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_FOUR + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_QUIT_WORD), MENU_TEXT_FOUR_POSITION));
+	mStart[mStart.size() - 1]->changeFontSize(HEADER_ONE_FONT_SIZE);
 	mStart[mStart.size() - 1]->setTextToActive();
 
 	//Settings Vector data
-	mSettings.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD), Vector2(100, 100)));
-	mSettings[mSettings.size() - 1]->changeFontSize(mFontSize);
+	mSettings.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD), TITLE_TEXT_POSITION));
+	mSettings[mSettings.size() - 1]->changeFontSize(HEADER_ONE_FONT_SIZE);
 	mSettings[mSettings.size() - 1]->setTextToActive();
 
-	mSettings.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_DIFFICULTY_WORD), Vector2(250, 200)));
-	mSettings[mSettings.size() - 1]->changeFontSize(mFontSize2);
+	mSettings.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD), MENU_TEXT_ONE_POSITION));
+	mSettings[mSettings.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSettings[mSettings.size() - 1]->setTextToActive();
 
-	mSettings.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD), Vector2(250, 300)));
-	mSettings[mSettings.size() - 1]->changeFontSize(mFontSize2);
+	mSettings.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD), MENU_TEXT_TWO_POSITION));
+	mSettings[mSettings.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSettings[mSettings.size() - 1]->setTextToActive();
 
-	mSettings.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD), Vector2(250, 400)));
-	mSettings[mSettings.size() - 1]->changeFontSize(mFontSize2);
+	mSettings.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), MENU_TEXT_THREE_POSITION));
+	mSettings[mSettings.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSettings[mSettings.size() - 1]->setTextToActive();
-
-	mSettings.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), Vector2(250, 500)));
-	mSettings[mSettings.size() - 1]->changeFontSize(mFontSize2);
-	mSettings[mSettings.size() - 1]->setTextToActive();
-
-
-	//Difficulty Vector data
-	mDifficulty.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_DIFFICULTY_WORD), Vector2(100, 100)));
-	mDifficulty[mDifficulty.size() - 1]->changeFontSize(mFontSize3);
-	mDifficulty[mDifficulty.size() - 1]->setTextToActive();
-
-	mDifficulty.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_EASY_WORD), Vector2(250, 200)));
-	mDifficulty[mDifficulty.size() - 1]->changeFontSize(mFontSize2);
-	mDifficulty[mDifficulty.size() - 1]->setTextToActive();
-
-	mDifficulty.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_MEDIUM_WORD), Vector2(250, 300)));
-	mDifficulty[mDifficulty.size() - 1]->changeFontSize(mFontSize2);
-	mDifficulty[mDifficulty.size() - 1]->setTextToActive();
-
-	mDifficulty.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_HARD_WORD), Vector2(250, 400)));
-	mDifficulty[mDifficulty.size() - 1]->changeFontSize(mFontSize2);
-	mDifficulty[mDifficulty.size() - 1]->setTextToActive();
-
-	mDifficulty.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumFour +Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), Vector2(250, 500)));
-	mDifficulty[mDifficulty.size() - 1]->changeFontSize(mFontSize2);
-	mDifficulty[mDifficulty.size() - 1]->setTextToActive();
-
 
 	//Sound Vector data
-	mSound.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD), Vector2(100, 100)));
-	mSound[mSound.size() - 1]->changeFontSize(mFontSize3);
+	mSound.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD), TITLE_TEXT_POSITION));
+	mSound[mSound.size() - 1]->changeFontSize(HEADER_THREE_FONT_SIZE);
 	mSound[mSound.size() - 1]->setTextToActive();
 
-	mSound.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ON_WORD), Vector2(250, 200)));
-	mSound[mSound.size() - 1]->changeFontSize(mFontSize2);
+	mSound.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ON_WORD), MENU_TEXT_ONE_POSITION));
+	mSound[mSound.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSound[mSound.size() - 1]->setTextToActive();
 
-	mSound.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_OFF_WORD), Vector2(250, 300)));
-	mSound[mSound.size() - 1]->changeFontSize(mFontSize2);
+	mSound.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_OFF_WORD), MENU_TEXT_TWO_POSITION));
+	mSound[mSound.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSound[mSound.size() - 1]->setTextToActive();
 
-	mSound.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), Vector2(250, 400)));
-	mSound[mSound.size() - 1]->changeFontSize(mFontSize2);
+	mSound.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), MENU_TEXT_THREE_POSITION));
+	mSound[mSound.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mSound[mSound.size() - 1]->setTextToActive();
 
 
 	//Language Vector data
-	mLanguage.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD), Vector2(100, 100)));
-	mLanguage[mLanguage.size() - 1]->changeFontSize(mFontSize3);
+	mLanguage.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD), TITLE_TEXT_POSITION));
+	mLanguage[mLanguage.size() - 1]->changeFontSize(HEADER_THREE_FONT_SIZE);
 	mLanguage[mLanguage.size() - 1]->setTextToActive();
 
-	mLanguage.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ENGLISH_WORD), Vector2(250, 200)));
-	mLanguage[mLanguage.size() - 1]->changeFontSize(mFontSize2);
+	mLanguage.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ENGLISH_WORD), MENU_TEXT_ONE_POSITION));
+	mLanguage[mLanguage.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mLanguage[mLanguage.size() - 1]->setTextToActive();
 
-	mLanguage.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_PIRATE_WORD), Vector2(250, 300)));
-	mLanguage[mLanguage.size() - 1]->changeFontSize(mFontSize2);
+	mLanguage.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_PIRATE_WORD), MENU_TEXT_TWO_POSITION));
+	mLanguage[mLanguage.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mLanguage[mLanguage.size() - 1]->setTextToActive();
 
-	mLanguage.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_VULCAN_WORD), Vector2(250, 400)));
-	mLanguage[mLanguage.size() - 1]->changeFontSize(mFontSize2);
+	mLanguage.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_VULCAN_WORD), MENU_TEXT_THREE_POSITION));
+	mLanguage[mLanguage.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mLanguage[mLanguage.size() - 1]->setTextToActive();
 
-	mLanguage.push_back(new Text("Start", *Game::getStaticInstance()->mUIFont, Colors(mColorValDefault, mColorValDefault, mColorValDefault), textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), Vector2(250, 500)));
-	mLanguage[mLanguage.size() - 1]->changeFontSize(mFontSize2);
+	mLanguage.push_back(new Text(NAME_OF_MENU_TEXT, *Game::getStaticInstance()->mUIFont, Colors(TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT, TEXT_COLOR_DEFAULT), MENU_TEXT_PROMPT_FOUR + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD), MENU_TEXT_FOUR_POSITION));
+	mLanguage[mLanguage.size() - 1]->changeFontSize(HEADER_TWO_FONT_SIZE);
 	mLanguage[mLanguage.size() - 1]->setTextToActive();
 }
+
+
+
+
 
 //Destructor that clears memory and appropraitely deallocates
 MenuManager::~MenuManager()
@@ -122,10 +101,6 @@ MenuManager::~MenuManager()
 	{
 		delete mSettings[i];
 	}
-	for (int i = 0, max = mDifficulty.size(); i < max; i++)
-	{
-		delete mDifficulty[i];
-	}
 	for (int i = 0, max = mSound.size(); i < max; i++)
 	{
 		delete mSound[i];
@@ -137,11 +112,8 @@ MenuManager::~MenuManager()
 
 	mStart.clear();
 	mSettings.clear();
-	mDifficulty.clear();
 	mLanguage.clear();
 }
-
-
 
 
 
@@ -171,15 +143,6 @@ void MenuManager::draw()
 		}
 		break;
 	case 2:
-		for (int i = 0; i < (int)mDifficulty.size(); i++)
-		{
-			if (mDifficulty[i]->mIsActive)
-			{
-				mDifficulty[i]->drawText();
-			}
-		}
-		break;
-	case 3:
 		for (int i = 0; i < (int)mSound.size(); i++)
 		{
 			if (mSound[i]->mIsActive)
@@ -188,7 +151,7 @@ void MenuManager::draw()
 			}
 		}
 		break;
-	case 4:
+	case 3:
 		for (int i = 0; i < (int)mLanguage.size(); i++)
 		{
 			if (mLanguage[i]->mIsActive)
@@ -219,19 +182,14 @@ void MenuManager::sendInput(int num)
 		}
 		else if (mCurrentMenuElement == 1) 
 		{
-			mCurrentMenuElement++;
+			mCurrentMenuElement = 2;
 		}
-		else if (mCurrentMenuElement == 2) 
-		{
-			Game::getStaticInstance()->setDifficulty(EASY_VALUE);
-			mCurrentMenuElement = 1;
-		}
-		else if (mCurrentMenuElement == 3)
+		else if (mCurrentMenuElement == 2)
 		{
 			Game::getStaticInstance()->mAudioManager->unmuteSounds();
 			mCurrentMenuElement = 1;
 		}
-		else if (mCurrentMenuElement == 4)
+		else if (mCurrentMenuElement == 3)
 		{
 			Game::getStaticInstance()->loadLanguage(ENGLISH_TEXT_FILE_PATH);
 			updateMenuUI();
@@ -243,7 +201,7 @@ void MenuManager::sendInput(int num)
 			mInMenu = false;
 			Game::getStaticInstance()->loadGame();
 		}
-		else if (mCurrentMenuElement == 3)
+		else if (mCurrentMenuElement == 2)
 		{
 			Game::getStaticInstance()->mAudioManager->muteSounds();
 			mCurrentMenuElement = 1;
@@ -252,12 +210,7 @@ void MenuManager::sendInput(int num)
 		{
 			mCurrentMenuElement = 3;
 		}
-		else if (mCurrentMenuElement == 2)
-		{
-			Game::getStaticInstance()->setDifficulty(MEDIUM_VALUE);
-			mCurrentMenuElement = 1;
-		}
-		else if (mCurrentMenuElement == 4)
+		else if (mCurrentMenuElement == 3)
 		{
 			Game::getStaticInstance()->loadLanguage(PIRATE_TEXT_FILE_PATH);
 			mCurrentMenuElement = 1;
@@ -267,7 +220,7 @@ void MenuManager::sendInput(int num)
 	case 3:
 		if (mCurrentMenuElement == 1)
 		{
-			mCurrentMenuElement = 4;
+			mCurrentMenuElement = 0;
 		}
 		else if (mCurrentMenuElement == 0) 
 		{
@@ -275,14 +228,9 @@ void MenuManager::sendInput(int num)
 		}
 		else if (mCurrentMenuElement == 2)
 		{
-			Game::getStaticInstance()->setDifficulty(HARD_VALUE);
 			mCurrentMenuElement = 1;
 		}
 		else if (mCurrentMenuElement == 3)
-		{
-			mCurrentMenuElement = 1;
-		}
-		else if (mCurrentMenuElement == 4)
 		{
 			Game::getStaticInstance()->loadLanguage(VULCAN_TEXT_FILE_PATH);
 			mCurrentMenuElement = 1;
@@ -295,15 +243,11 @@ void MenuManager::sendInput(int num)
 			Game::getStaticInstance()->mInApplication = false;
 			Game::getStaticInstance()->mInGame = false;
 		}
-		else if (mCurrentMenuElement == 1) 
-		{
-			mCurrentMenuElement = 0;
-		}
 		else if (mCurrentMenuElement == 2) 
 		{
 			mCurrentMenuElement = 1;
 		}
-		else if (mCurrentMenuElement == 4) 
+		else if (mCurrentMenuElement == 3) 
 		{
 			mCurrentMenuElement = 1;
 		}
@@ -321,54 +265,40 @@ void MenuManager::updateMenuUI()
 {
 	mStart[0]->changeMessage(Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_GAME));
 
-	mStart[1]->changeMessage(textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_START));
+	mStart[1]->changeMessage(MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_START));
 
-	mStart[2]->changeMessage(textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LOAD_GAME_WORD));
+	mStart[2]->changeMessage(MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LOAD_GAME_WORD));
 
-	mStart[3]->changeMessage(textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD));
+	mStart[3]->changeMessage(MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD));
 
-	mStart[4]->changeMessage(textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_QUIT_WORD));
+	mStart[4]->changeMessage(MENU_TEXT_PROMPT_FOUR + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_QUIT_WORD));
 
 	
 	mSettings[0]->changeMessage(Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SETTINGS_WORD));
 
-	mSettings[1]->changeMessage(textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_DIFFICULTY_WORD));
+	mSettings[1]->changeMessage(MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD));
 
-	mSettings[2]->changeMessage(textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD));
+	mSettings[2]->changeMessage(MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD));
 
-	mSettings[3]->changeMessage(textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD));
-
-	mSettings[4]->changeMessage(textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
-
-
-
-	mDifficulty[0]->changeMessage(Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_DIFFICULTY_WORD));
-
-	mDifficulty[1]->changeMessage(textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_EASY_WORD));
-
-	mDifficulty[2]->changeMessage(textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_MEDIUM_WORD));
-
-	mDifficulty[3]->changeMessage(textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_HARD_WORD));
-
-	mDifficulty[4]->changeMessage(textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
+	mSettings[3]->changeMessage(MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
 
 	
 	mSound[0]->changeMessage(Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_SOUND_WORD));
 
-	mSound[1]->changeMessage(textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ON_WORD));
+	mSound[1]->changeMessage(MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ON_WORD));
 
-	mSound[2]->changeMessage(textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_OFF_WORD));
+	mSound[2]->changeMessage(MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_OFF_WORD));
 
-	mSound[3]->changeMessage(textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
+	mSound[3]->changeMessage(MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
 
 
 	mLanguage[0]->changeMessage(Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_LANGUAGE_WORD));
 
-	mLanguage[1]->changeMessage(textNumOne + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ENGLISH_WORD));
+	mLanguage[1]->changeMessage(MENU_TEXT_PROMPT_ONE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_ENGLISH_WORD));
 
-	mLanguage[2]->changeMessage(textNumTwo + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_PIRATE_WORD));
+	mLanguage[2]->changeMessage(MENU_TEXT_PROMPT_TWO + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_PIRATE_WORD));
 
-	mLanguage[3]->changeMessage(textNumThree + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_VULCAN_WORD));
+	mLanguage[3]->changeMessage(MENU_TEXT_PROMPT_THREE + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_VULCAN_WORD));
 
-	mLanguage[4]->changeMessage(textNumFour + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
+	mLanguage[4]->changeMessage(MENU_TEXT_PROMPT_FOUR + Game::getStaticInstance()->mLanguageManager.getWord(NAME_OF_BACK_WORD));
 }

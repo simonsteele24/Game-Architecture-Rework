@@ -30,7 +30,6 @@ const string NAME_OF_START = "NAMEOFSTART";
 const string NAME_OF_LOAD_GAME_WORD = "LOADGAME";
 const string NAME_OF_SETTINGS_WORD = "SETTINGS";
 const string NAME_OF_QUIT_WORD = "QUIT";
-const string NAME_OF_DIFFICULTY_WORD = "DIFFICULTY";
 const string NAME_OF_SOUND_WORD = "SOUND";
 const string NAME_OF_LANGUAGE_WORD = "LANGUAGE";
 const string NAME_OF_BACK_WORD = "BACK";
@@ -132,6 +131,7 @@ const string NAME_OF_PLATFORM_RIGHT = "Platform_Right";
 const string NAME_OF_LARGE_PLATFORM = "Large_Platform";
 const string NAME_OF_POLE = "Pole";
 const string NAME_OF_CASTLE_BLOCK = "Castle_Block";
+const string NAME_OF_MENU_TEXT = "Menu";
 
 //Enemies
 const string NAME_OF_GOOMBA = "Goomba";
@@ -158,6 +158,10 @@ const string NAME_OF_STARMEN = "Starmen";
 // Text
 const string GAME_OVER_TEXT = "Game Over";
 const string ESCAPE_TO_END_TEXT = "Esape To End";
+const string MENU_TEXT_PROMPT_ONE = " 1          ";
+const string MENU_TEXT_PROMPT_TWO = " 2          ";
+const string MENU_TEXT_PROMPT_THREE = " 3          ";
+const string MENU_TEXT_PROMPT_FOUR = " 4          ";
 
 //Level and Other
 const int BLOCKS_PER_FLOOR = 160;
@@ -184,7 +188,11 @@ const int STARTING_TIME_LIMIT_FOR_INVINCIBILITY = 100;
 const float KOOPA_SEPERATION_VALUE = -25.0f;
 const float PLAYER_JUMP_OFFSET = 5.0f;
 const float PLAYER_SPAWN_OFFSET = 10.0F;
+const int HEADER_ONE_FONT_SIZE = 20;
+const int HEADER_TWO_FONT_SIZE = 30;
+const int HEADER_THREE_FONT_SIZE = 40;
 const int CAMERA_OFFSET = 300;
+const float TEXT_COLOR_DEFAULT = 255.0f;
 const Vector2 SCORE_TEXT_POSITION = Vector2(60, 0);
 const Vector2 SCORE_AMOUNT_POSITION = Vector2(200, 0);
 const Vector2 COIN_TEXT_POSITION = Vector2(500, 0);
@@ -192,3 +200,8 @@ const Vector2 LIVES_TEXT_POSITION = Vector2(650, 0);
 const Vector2 GAME_STATUS_TEXT_POSITION = Vector2(400, 300);
 const Vector2 ESCAPE_TO_END_TEXT_POSITION = Vector2(300, 320);
 const Vector2 GAME_OVER_TEXT_POSITION = Vector2(300, 300);
+const Vector2 TITLE_TEXT_POSITION = Vector2(100, 100);
+const Vector2 MENU_TEXT_ONE_POSITION = Vector2(250, 200);
+const Vector2 MENU_TEXT_TWO_POSITION = Vector2(250, 300);
+const Vector2 MENU_TEXT_THREE_POSITION = Vector2(250, 400);
+const Vector2 MENU_TEXT_FOUR_POSITION = Vector2(250, 500);

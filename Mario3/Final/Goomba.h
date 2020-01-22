@@ -18,13 +18,16 @@ public:
 
 	// Update functions
 	void update(double newTimeBetweenFrames);
+
+	// Mutators
 	void onCollide(Unit & collidingObject, int collidingObjectIndex);
 
 private:
 
+	// Mutators
 	void changeDirection();
 
-	// Goomba Directions
+	// Directions
 	Direction mCurrentDirection;
 
 };

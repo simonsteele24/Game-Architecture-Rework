@@ -72,7 +72,7 @@ void Goomba::update(double newTimeBetweenFrames)
 
 void Goomba::onCollide(Unit & collidingObject, int collidingObjectIndex) 
 {
-	if ((mCurrentLocation.mX <= collidingObject.getLocation().mX || mCurrentLocation.mX + 16 >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && (abs(collidingObject.getLocation().mY - mCurrentLocation.mY) < mDimensions.mY / 2 || abs(collidingObject.getLocation().mY - mCurrentLocation.mY) < collidingObject.mDimensions.mY / 2))
+	if ((mCurrentLocation.mX <= collidingObject.getLocation().mX || mCurrentLocation.mX + (mDimensions.mX / 2) >= collidingObject.getLocation().mX + collidingObject.getDimensions().mX) && (abs(collidingObject.getLocation().mY - mCurrentLocation.mY) < mDimensions.mY / 2 || abs(collidingObject.getLocation().mY - mCurrentLocation.mY) < collidingObject.mDimensions.mY / 2))
 	{
 		changeDirection();
 	}

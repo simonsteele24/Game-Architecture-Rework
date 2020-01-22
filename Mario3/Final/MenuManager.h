@@ -5,12 +5,6 @@
 #include <vector>
 #include "Text.h"
 
-// Constants
-const string textNumOne = " 1          ";
-const string textNumTwo = " 2          ";
-const string textNumThree = " 3          ";
-const string textNumFour = " 4          ";
-
 class MenuManager
 {
 public:
@@ -34,18 +28,11 @@ private:
 	// Vectors
 	vector<Text*> mStart;
 	vector<Text*> mSettings;
-	vector<Text*> mDifficulty;
 	vector<Text*> mSound;
 	vector<Text*> mLanguage;
 
 	// Integers
-	int mCurrentMenuElement = 0;
-	int mFontSize = 20;
-	int mFontSize2 = 30;
-	int mFontSize3 = 40;
-
-	// Floats
-	float mColorValDefault = 255.0f;
+	int mCurrentMenuElement;
 
 	// Booleans
 	bool mInMenu;

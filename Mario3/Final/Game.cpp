@@ -34,7 +34,7 @@ Game::Game(EventSystem* pEventSystem)
 	mInGame = false;
 	mInApplication = true;
 	mLost = false;
-	mFadeAwayTime = 20;
+	mFadeAwayTime = FADE_AWAY_TIME;
 
 	// Set the defaut difficulty for the game
 	mDifficulty = DEFAULT_DIFFICULTY;
@@ -462,6 +462,11 @@ TextManager * Game::getTextManager()
 	return mTextManager;
 }
 
+
+
+
+
+// This function gets the audio manager for the whole game
 AudioManager * Game::getAudioManager()
 {
 	return mAudioManager;
@@ -476,6 +481,7 @@ Vector2 Game::getDisplayDimensions()
 {
 	return mDisplayDimensions;
 }
+
 
 
 
@@ -640,10 +646,10 @@ void Game::setStateOfApplication(bool status)
 void Game::gameOver()
 {
 	// Create Game Over Text
-	mTextManager->addText("End", *mUIFont, *mUIFontColor, "Game Over", Vector2(300, 300));
-	mTextManager->addText("Escape", *mUIFont, *mUIFontColor, "Escape to End", Vector2(300, 320));
-	mTextManager->getText("End")->setTextToActive();
-	mTextManager->getText("Escape")->setTextToActive();
+	mTextManager->addText(NAME_OF_GAME_OVER_WORD, *mUIFont, *mUIFontColor, GAME_OVER_TEXT, GAME_OVER_TEXT_POSITION);
+	mTextManager->addText(NAME_OF_ESCAPE_TO_END_WORD, *mUIFont, *mUIFontColor, ESCAPE_TO_END_TEXT, ESCAPE_TO_END_TEXT_POSITION);
+	mTextManager->getText(NAME_OF_GAME_OVER_WORD)->setTextToActive();
+	mTextManager->getText(NAME_OF_ESCAPE_TO_END_WORD)->setTextToActive();
 
 	while (mLost)
 	{
