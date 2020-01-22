@@ -32,9 +32,6 @@ public:
 	Colors(float r, float g, float b);
 	Colors(float r, float g, float b, float a);
 
-
-
-
 	// Destructor
 	~Colors();
 
