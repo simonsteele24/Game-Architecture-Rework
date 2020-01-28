@@ -1,6 +1,0 @@
-Score:
-Score_Filename: SuperMario3.ttf
-Score_Color: 1.0 1.0 1.0
-Score_Initial: 0
-Score_Multiplier: 2
-Score_Increment_Amount: 100
