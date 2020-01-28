@@ -5,6 +5,7 @@
 AudioManager::AudioManager(EventSystem* pEventSystem)
 	:EventListener(pEventSystem)
 {
+	mSoundsareMuted = false;
 }
 
 
@@ -23,8 +24,11 @@ AudioManager::~AudioManager()
 // This function adds sound to the manager based on a given name, audio, and if it should loop
 void AudioManager::addSound(string name, Audio newAudio, bool loop) 
 {
-	mSounds[name] = newAudio;
-	mSounds[name].currentSound.setLoop(loop);
+	if (mSoundsareMuted == false) 
+	{
+		mSounds[name] = newAudio;
+		mSounds[name].currentSound.setLoop(loop);
+	}
 }
 
 
@@ -34,7 +38,10 @@ void AudioManager::addSound(string name, Audio newAudio, bool loop)
 // This function adds sound based on a given string
 void AudioManager::addSound(string name)
 {
-	mPlayingSounds.push_back(mSounds[name]);
+	if (mSoundsareMuted == false) 
+	{
+		mPlayingSounds.push_back(mSounds[name]);
+	}
 }
 
 
@@ -121,6 +128,7 @@ void AudioManager::handleEvent(const Event& theEvent)
 
 void AudioManager::muteSounds() 
 {
+	mSoundsareMuted = true;
 	for (int i = 0; i < (int)mPlayingSounds.size(); i++) 
 	{
 		mPlayingSounds[i].Pause();
@@ -133,6 +141,7 @@ void AudioManager::muteSounds()
 
 void AudioManager::unmuteSounds() 
 {
+	mSoundsareMuted = false;
 	for (int i = 0; i < (int)mPlayingSounds.size(); i++)
 	{
 		mPlayingSounds[i].Play();

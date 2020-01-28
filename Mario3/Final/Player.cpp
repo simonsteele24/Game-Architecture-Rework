@@ -96,18 +96,6 @@ void Player::update(double newTimeBetweenFrames)
 	powerUpTimer((float)newTimeBetweenFrames);//updates timer for any active powerups
 	invincibilityFrameTimer((float)newTimeBetweenFrames);//updates timer for player dmg taken
 
-	if (mCurrentLocation.mY > Game::getStaticInstance()->getDisplayDimensions().mY) 
-	{
-		if (mIsDying) 
-		{
-			Game::getStaticInstance()->deductLife(false);
-		}
-		else 
-		{
-			Game::getStaticInstance()->deductLife(mIsSuper);
-		}
-	}
-
 	if (mIsDying == false)
 	{
 		unitCollisions();//find/check collisions for any units in the unit manager
@@ -250,6 +238,18 @@ void Player::update(double newTimeBetweenFrames)
 		break;
 	default:
 		break;
+	}
+
+	if (mCurrentLocation.mY + getDimensions().mY > Game::getStaticInstance()->getDisplayDimensions().mY)
+	{
+		if (mIsDying)
+		{
+			Game::getStaticInstance()->deductLife(false);
+		}
+		else
+		{
+			Game::getStaticInstance()->deductLife(mIsSuper);
+		}
 	}
 }
 

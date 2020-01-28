@@ -301,7 +301,7 @@ void UnitManager::update( double timeBetweenFrames )
 		mPlatforms[i]->updateCameraToUnitPosition();
 	}
 
-	if (mPlayer != nullptr)
+	if (mPlayer != nullptr && Game::getStaticInstance()->getStateOfGame())
 	{
 		mPlayer->update(timeBetweenFrames);
 	}
@@ -441,7 +441,10 @@ void UnitManager::removeAllUnits()
 	}
 	for (int i = 0, max = mTiles.size(); i < max; i++)
 	{
-		delete mTiles[i];
+		if (mTiles[i]->getCurrentAnimation() != nullptr) 
+		{
+			delete mTiles[i];
+		}
 	}
 
 	mPlatforms.clear();
@@ -687,7 +690,7 @@ void UnitManager::calculateCollisions()
 
 				if (xMinCorner < yMaxCorner && yMinCorner < xMaxCorner)
 				{
-					Vector2 normal = Vector2(mPlayer->getLocation().mX + (mPlayer->mDimensions.mX - 32) - mUnits[i]->getLocation().mX, (mPlayer->getLocation().mY + (mPlayer->mDimensions.mY - 32)) - mUnits[i]->getLocation().mY);
+					Vector2 normal = Vector2(mPlayer->getLocation().mX + (mPlayer->mDimensions.mX - PLAYER_DIMENSIONS_OFFSET) - mUnits[i]->getLocation().mX, (mPlayer->getLocation().mY + (mPlayer->mDimensions.mY - PLAYER_DIMENSIONS_OFFSET)) - mUnits[i]->getLocation().mY);
 					Vector2 regularCoordinatesPlayer = Vector2(mPlayer->getLocation().mX + (mPlayer->mDimensions.mX / 2), mPlayer->getLocation().mY + (mPlayer->mDimensions.mY / 2));
 					Vector2 regularCollidingCoordinates = Vector2(mUnits[i]->getLocation().mX + (mUnits[i]->mDimensions.mX / 2), mUnits[i]->getLocation().mY + (mUnits[i]->mDimensions.mY / 2));
 					Vector2 normal2 = Vector2(regularCoordinatesPlayer.mX - regularCollidingCoordinates.mX, regularCoordinatesPlayer.mY - regularCollidingCoordinates.mY);

@@ -61,7 +61,10 @@ Unit::~Unit()
 	for (int i = 0, max = mCurrentAnimations.size(); i < max; i++) 
 	{
 		mCurrentAnimations[i]->cleanupAnimation();
-		delete mCurrentAnimations[i];
+		if (mCurrentAnimations[i] != nullptr) 
+		{
+			delete mCurrentAnimations[i];
+		}
 	}
 }
 
@@ -196,8 +199,10 @@ void Unit::swapAnimation( string nameOfNewAnimation )
 		}
 	}
 
-	mDimensions = mCurrentAnimations[mCurrentAnimationIndex]->getAnimationDimensions();
-
+	if (mCurrentAnimations[mCurrentAnimationIndex] != nullptr) 
+	{
+		mDimensions = mCurrentAnimations[mCurrentAnimationIndex]->getAnimationDimensions();
+	}
 }
 
 

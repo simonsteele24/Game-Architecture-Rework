@@ -51,6 +51,8 @@ private:
 	// Audio sounds map
 	map<string, Audio> mSounds;
 	
+	bool mSoundsareMuted;
+
 	//vector<Audio> mPlayingSounds;
 	deque<Audio> mPlayingSounds;
 };

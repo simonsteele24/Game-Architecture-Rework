@@ -740,7 +740,7 @@ bool SaveStateManager::saveFile(string fileToSaveTo)
 			}
 			else if (Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() == PIRANHAPLANT) 
 			{
-				fout << (int)Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << endl;
+				fout << (int)Game::getStaticInstance()->mUnitManager->getUnit(i)->getCurrentUnitType() << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getLocation().mX << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getInitialPosition().mY << " " << Game::getStaticInstance()->mUnitManager->getUnit(i)->getVelocity() << endl;
 			}
 			else
 			{
